@@ -1,0 +1,19 @@
+{
+  "name": "cs-341-project-sq19-foxtrot",
+  "version": "1.0.0",
+  "description": "Leadership Web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upcs/cs-341-project-sq19-foxtrot.git"
+  },
+  "author": "Team Foxtrot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upcs/cs-341-project-sq19-foxtrot/issues"
+  },
+  "homepage": "https://github.com/upcs/cs-341-project-sq19-foxtrot#readme"
+}
