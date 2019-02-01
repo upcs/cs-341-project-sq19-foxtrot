@@ -4,7 +4,8 @@
   "description": "Leadership Web Application",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "tap test/*.js --coverage",
+    "codecov": "tap --coverage-report=text-lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/upcs/cs-341-project-sq19-foxtrot/issues"
   },
-  "homepage": "https://github.com/upcs/cs-341-project-sq19-foxtrot#readme"
+  "homepage": "https://github.com/upcs/cs-341-project-sq19-foxtrot#readme",
+  "devDependencies": {
+    "codecov": "^3.1.0",
+    "jscoverage": "^0.6.0",
+    "nodeunit": "^0.11.3"
+  }
 }
