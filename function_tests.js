@@ -1,1 +1,1 @@
-//File that contains all the tests of functions
+//File that contains the tests of functions
