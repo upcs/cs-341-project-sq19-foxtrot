@@ -7,9 +7,11 @@
     "test": "tap test/*.js --coverage",
     "codecov": "tap --coverage-report=text-lcov && codecov"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/upcs/cs-341-project-sq19-foxtrot.git"
+    
   },
   "author": "Team Foxtrot",
   "license": "ISC",
