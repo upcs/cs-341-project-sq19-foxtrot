@@ -1,6 +1,6 @@
 function validateForm() {
     var x = document.forms["journalForm"]["fjournal"].value;
-    if (x == "") {
+    if (x.includes(" ")) {
       alert("You need to put something in your journal!");
       return false;
     }
