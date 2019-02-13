@@ -14,4 +14,5 @@ function validateForm() {
         return true;
       }
   }
-  module.exports = validateForm();
+
+  module.exports = {validateForm()};

@@ -11,3 +11,10 @@ function myFunction(x) {
     x[0].style.backgroundColor = "yellow";    
     return 1; 
   }
+
+  module.exports = {
+    btnClick()
+};
+module.exports = {
+	myFunction()
+};
