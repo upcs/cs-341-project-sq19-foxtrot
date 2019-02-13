@@ -9,5 +9,10 @@ test('getting name', () => {
 
 //testing btnClick function from login_functions
 test('getting name', () => {
+	expect(login.getUser('Sarah')).toBe('Sarah');
+});
+
+//testing btnClick function from login_functions
+test('getting name', () => {
 	expect(login.getUser(null)).toBe(null);
 });
