@@ -6,7 +6,7 @@ function btnClick() {
     return 1;          
 }
 
-module.exports={ btnClick() };
+module.exports={ btnClick };
 		
 function myFunction(x) {
     alert("Row index is: " + x.rowIndex);
@@ -15,4 +15,4 @@ function myFunction(x) {
     return 1; 
   }
 	 
-module.exports= { myFunction() };
+module.exports= { myFunction };
