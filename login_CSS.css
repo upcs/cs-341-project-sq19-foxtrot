@@ -1,1 +1,16 @@
+body {
+   background-image:url("https://www.pastepic.xyz/images/2019/02/11/imagee583e367933a8ce1.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+} 
 
+.container {
+   color: white;
+}
+
+h1 {
+    color: white;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+}
