@@ -15,4 +15,4 @@ function validateForm() {
       }
   }
 
-  module.exports = {validateForm()};
+  module.exports = {validateForm};
