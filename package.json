@@ -4,7 +4,7 @@
   "description": "Leadership Web Application",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js --coverage",
+    "test": "jest && codecov",
     "codecov": "tap --coverage-report=text-lcov && codecov",
     "start": "node server.js"
   },
