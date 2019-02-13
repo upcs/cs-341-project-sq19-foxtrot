@@ -6,12 +6,6 @@ test('if button on habit tracker is clicked', () => {
     expect(habitTracker.btnClick().toBe(1));
 })
 
-//testing myFunction function from Habit Tracker.js
-var x = document.getElementById("mytable").getElementsByTagName("td");
-test('if connected function to btnClick works', () => {
-    expect(habitTracker.myFunction(x).toBe(1));
-})
-
 //testing validateForm from journal_functions.js
 //checking if function correctly identifies an empty journal
 document.forms["journalForm"]["fjournal"].value = "    ";
