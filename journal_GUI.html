@@ -1,16 +1,20 @@
 <html>
     <head>
       <title>Sprint 1</title>
+      <link rel="stylesheet" type="text/css" href="journal_CSS.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="functions_lead.js"> </script>   
     <head>
     <body>
+        <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
         <div id="div1">
           <h1>Welcome to Your Journal!</h1>
             <form id="myJournal" name="journalForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-              <textarea name="fjournal"rows="4" cols="50"></textarea> 
-              <input id="journalBtn" type="submit" value="Submit">
+              <textarea name="fjournal"rows="10" cols="50"></textarea> 
+              <br />
+              <input id="journalBtn" type="submit" value="Submit Entry">
               <form action="journal_GUI.html">
-              <input type="submit" value="Go Back to the Home Page" />
+              <input type="submit" id="journalBtn" value="View Previous Journals" />
             </form>
             </form>
       </div>
