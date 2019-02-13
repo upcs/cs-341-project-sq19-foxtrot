@@ -11,5 +11,7 @@ function validateForm() {
             $("#myJournal").replaceWith( "<h2>Thank you!</h2>" );
                 });
         });
+        return true;
       }
   }
+  module.exports = validateForm();
