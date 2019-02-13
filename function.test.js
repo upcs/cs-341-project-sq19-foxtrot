@@ -1,7 +1,13 @@
 let habitTracker = require('./Habit Tracker.js');
 let journalFunct = require('./journal_functions.js');
+let login = require('./login_functions.js');
 
-//testing btnClick function from Habit Tracker.js
-test('if button on habit tracker is clicked', () => {
-    expect(habitTracker.btnClick().toBe(1));
-})
+//testing btnClick function from login_functions
+test('getting name', () => {
+	expect(searchForm.getUser('Polina')).toBe('Polina');
+});
+
+//testing btnClick function from login_functions
+test('getting name', () => {
+	expect(searchForm.getUser(null)).toBe(null);
+});
