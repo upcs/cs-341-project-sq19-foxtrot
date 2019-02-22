@@ -28,9 +28,9 @@ th, td {
   padding: 10px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
-th:hover {background-color: #ffd633;}
-th {
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+th:hover {background-color: #e5ccff;}
+th,tr {
   background-color: #d9b3ff;
   color: white;
 }
