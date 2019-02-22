@@ -7,8 +7,9 @@ function mark_cell(x) {
 function add_row() {
 
     var x=document.getElementById('myTable');
-    var new_row = x.rows[1].cloneNode(true);                      
-    new_row.cells[0].innerHTML = "Habit";
+    var new_row = x.rows[1].cloneNode(true);     
+    var input = document.getElementById("userInput").value;                 
+    new_row.cells[0].innerHTML = input;
     var num_columns = 8
     for (i = 1; i <num_columns; i++) {    
         new_row.cells[i].style.backgroundColor =  "#d9b3ff";
@@ -18,5 +19,14 @@ function add_row() {
     new_row.cells[1].innerHTML =  "";
     x.appendChild( new_row );
     var table = document.getElementById("myTable");
-    
+    closeForm();
+    document.getElementById("userInput").value = ""
 }
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
