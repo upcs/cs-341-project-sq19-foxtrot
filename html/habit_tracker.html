@@ -10,7 +10,7 @@
 
         <h1>Habit Tracker</h1>
 
-        <table>
+        <table id="myTable">
             <tr>
               <th>Habit</th>
               <th>Monday</th>
@@ -23,28 +23,41 @@
             </tr>
             <tr>
               <th>Habit</th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
-              <th onclick="myFunction(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
             </tr>
             <tr>
                 <th>Habit</th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
-                <th onclick="myFunction(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
+                <th onclick="mark_cell(this)"></th>
                 </tr>
           </table>
 
-       <input type="button" id="addbtn" value="Add Habit" OnClick = "btnClick()">
-       <input type="button" id="addbtn" value="Previous Weeks" OnClick = "btnClick()">
-          
+       <input type="button" id="addbtn" value="Add Habit" OnClick = "openForm()">
+       <input type="button" id="addbtn" value="Previous Weeks">
+  
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+
+    <label for="Habit"><b>Habit</b></label>
+    <input id = "userInput" type="text" placeholder="Enter your habit" name="Habit" required>
+
+
+    <button type="button" class="btn" onclick="add_row()" >Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
    </body>
 <html>
