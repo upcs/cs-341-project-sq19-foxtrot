@@ -29,14 +29,26 @@ th, td {
 }
 
 /*tr:nth-child(even){background-color: #f2f2f2}*/
-th:hover {background-color: #e5ccff;}
+th:hover {
+  background-color: #e5ccff;
+}
+
+th:hover .editbtn{
+  visibility: visible;
+}
+
 th,tr {
   background-color: #d9b3ff;
   color: white;
 }
+
+.editbtn {
+  visibility: hidden;
+}
+
 table, th, td {
     border: 1px solid black;
-  }
+}
 
 #addbtn{
     -webkit-border-radius: 5px;
