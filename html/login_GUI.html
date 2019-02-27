@@ -2,28 +2,27 @@
 
 <head>
     <title>Login GUI</title>
-    <link rel="stylesheet" type="text/css" href="../css/login_CSS.css"> </link>
+    <link rel="stylesheet" type="text/css" href="../css/login_CSS.css">
+    </link>
     <script type="text/javascript" src="../javascripts/login_functions.js"></script>
 </head>
 
 <h1>Welcome to Lead UP!</h1>
-<form action="action_page.php">
-
+<form action="action_page.php" name="myform">
     <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
-   <br>
+        <br>
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
     </div>
-
-    <div class="container" id="forgotP">
+    <section class="container" id="forgotP">
         <a href="login_forgot.html">Forgot password?</a>
-    </div>
+    </section>
 </form>
 
-<form action="MAIN_GUI.html">
-     <input type="submit" id="loginbtn" value="Login" />
+<form>
+    <input type="submit" id="loginbtn" value="Login" onclick='if (validateLogin()){action = "MAIN_GUI.html"}' />
 </form>
 
 </html>
