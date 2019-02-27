@@ -9,7 +9,7 @@
         
         <div id="div1">
           <h1 id="header">Welcome to Your Journal!</h1>
-            <form id="myJournal" name="journalForm" onsubmit="validateForm()" method="post">
+            <form id="myJournal" name="journalForm" onsubmit="validateForm(fjournal.value)" method="post">
               <textarea name="fjournal"rows="10" cols="50"></textarea> 
               <br />
               <input id="journalBtn" type="submit" value="Submit Entry">
@@ -17,7 +17,7 @@
               <input type="submit" id="journalBtn"  value="View Previous Journals" /> 
     </form>
               <form action="sentence_journal_GUI.html">
-                <input type="submit" id="journalBtn" value="One Sentance Journal" />
+                <input type="submit" id="journalBtn" value="One Sentence Journal" />
               </form>
             </form>
       </div>
