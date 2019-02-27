@@ -2,6 +2,7 @@ let login = require('./javascripts/login_functions.js');
 
 //testing login function from login_functions
 
+document.innerHTML = "<form name='myform'></form>"
 document.myform.innerHTML = "<input type='text' name='uname' required></input> <input type='password' name='psw' required> </input>";
 
 document.myform.psw.value = "foxtrot";
