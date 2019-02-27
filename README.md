@@ -3,8 +3,6 @@ cs-341-project-sq19-foxtrot created by GitHub Classroom
 
 [![Codecov Coverage](https://img.shields.io/codecov/c/github/upcs/cs-341-project-sq19-foxtrot/master.svg?style=flat-square)] (https://codecov.io/gh/upcs/cs-341-project-sq19-foxtrot/)
 
-https://travis-ci.com/upcs/cs-341-project-sq19-foxtrot.svg?branch=master
-
 
 Leadership Web Application by Team Foxtrot
 
