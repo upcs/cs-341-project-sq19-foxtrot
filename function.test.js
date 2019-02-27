@@ -1,5 +1,7 @@
 
 let login = require('./public/javascripts/login_functions.js');
+let habit_tracker = require('./public/javascripts/habit_tracker.js');
+
 //testing login function from login_functions
 describe('Testing login function ', () => {
 	test("given empty password", () => {
@@ -24,4 +26,8 @@ describe('Testing login function ', () => {
 	test("given correct login info", () => {
 		expect(login.validateLogin("Polina", "foxtrot")).toBe(true);
 	});
+});
+
+describe('Testing habit tracker functions',() => {
+
 });
