@@ -34,3 +34,7 @@ function validateForm() {
     
 }
 
+//added for tests
+module.exports = {
+	validateForm
+};
