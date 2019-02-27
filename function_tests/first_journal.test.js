@@ -1,6 +1,7 @@
 let first_journal = require('../public/javascripts/first_journal_functions.js');
+//Object.defineProperty(global, 'document.forms["journalForm"]["fjournal"].value = ""', {});
 
-Object.defineProperty(global, 'document.forms["journalForm"]["fjournal"].value = ""', {});
+Object.defineProperty(global, 'document.forms.innerHTML = "<form name="journalForms"><textArea name="fjournal"></textArea> </form>', {});
 test("test: nothing is inserted fails", () => {
     expect(first_journal.validateForm().toBe(false));
 });

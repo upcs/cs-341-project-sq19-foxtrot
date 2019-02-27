@@ -38,3 +38,8 @@ function main(){
  
   $("#prevJournalBtn").on('click', displayData);
 }
+
+//added for tests
+module.exports = {
+	validateForm
+};
