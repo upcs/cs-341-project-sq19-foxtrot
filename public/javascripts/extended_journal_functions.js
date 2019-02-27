@@ -10,4 +10,7 @@ function validateForm() {
     return (true);
    
   }
-
+//added for tests
+module.exports = {
+	validateForm
+};
