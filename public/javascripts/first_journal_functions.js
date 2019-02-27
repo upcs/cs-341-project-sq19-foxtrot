@@ -1,3 +1,4 @@
+
 function validateForm() {
   var x = document.forms["journalForm"]["fjournal"].value;
   if (x.length == 0) {
@@ -16,30 +17,3 @@ function validateForm() {
 
 }
 
-  function displayData(){
-    console.log("I made it!");
-    $.post("/orders",null,
-	   function(data, status){
-       
-
-	       var tr = " ";
-	       
-	       for (var i = 0; i<data.length; i++)
-	       {
-		  tr += "<tr>"+"<td>" + data[i] + "</td>"+"</tr>"; 
-	       }
-	       
-	       $("#myData").append(tr);
-	       
-	   }, "json");
-    
-}
-function main(){
- 
-  $("#prevJournalBtn").on('click', displayData);
-}
-
-//added for tests
-module.exports = {
-	validateForm
-};
