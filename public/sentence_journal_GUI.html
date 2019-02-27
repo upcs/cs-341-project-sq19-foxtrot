@@ -12,7 +12,7 @@
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
         <div id="div1">
           <h1 id="header">Welcome to Your Journal!</h1>
-            <form id="myJournal" name="journalForm" onsubmit= return(validateForm()) method="post">
+            <form id="myJournal" name="journalForm" onsubmit= return(validateForm(fjournal.value)) method="post">
               <textarea name="fjournal"rows="5" cols="50"></textarea> 
               <br />
               <input id="journalBtn" type="submit" value="Submit Entry">

@@ -1,16 +1,13 @@
 let extended_journal = require('../public/javascripts/extended_journal_functions.js');
-
-Object.defineProperty(global, 'document.forms["journalForm"]["fjournal"].value = ""', {});
+x = "";
 test("test: nothing is inserted fails", () => {
-    expect(extended_journal.validateForm().toBe(false));
+expect(extended_journal.validateForm(x)).toBe(false);
 });
-
-Object.defineProperty(global, 'document.forms["journalForm"]["fjournal"].value = "Life is going so great and wonderful "', {});
+y="Here is my text/ writing for the day";
 test("test: submition works", () => {
-    expect(extended_journal.validateForm().toBe(true));
+expect(extended_journal.validateForm(y)).toBe(true);
 });
-
-Object.defineProperty(global, 'document.forms["journalForm"]["fjournal"].value = "  "', {});
+z = " ";
 test("test: submition works", () => {
-    expect(extended_journal.validateForm().toBe(true));
+expect(extended_journal.validateForm(z)).toBe(true);
 });
