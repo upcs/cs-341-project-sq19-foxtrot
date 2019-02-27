@@ -31,7 +31,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-<!--External Citation: https://stackoverflow.com/questions/11553768/remove-table-row-after-clicking-table-row-delete-button-->
+//External Citation: https://stackoverflow.com/questions/11553768/remove-table-row-after-clicking-table-row-delete-button-->
 function removeRow() {
    var td = event.target.parentNode; 
    var tr = td.parentNode; // the row to be removed
