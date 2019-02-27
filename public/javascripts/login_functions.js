@@ -1,3 +1,4 @@
+//hardcoded data until database is up and running
 var myObj = {
 	"data": [
 		{
@@ -19,9 +20,8 @@ var myObj = {
 	]
 }
 
+//checks to see if user has an account
 function validateLogin(username, password) {
-	//var username = document.myform.uname.value;
-	//var password = document.myform.psw.value;
 	for (i = 0; i <= 3; i++) {
 		if (myObj.data[i]["Username"] == username && myObj.data[i]["Password"] == password) {
 			return true;
@@ -30,8 +30,7 @@ function validateLogin(username, password) {
 	return false;
 }
 
+//added for tests
 module.exports = {
 	validateLogin
 };
-
-
