@@ -1,7 +1,5 @@
 body {
-   background-image:url("https://www.pastepic.xyz/images/2019/02/11/imagee583e367933a8ce1.png");
-   background-repeat: no-repeat;
-   background-size: cover;
+   background-image: linear-gradient(#ffb3b3, #d19494);
 } 
 
 .button {
@@ -28,9 +26,9 @@ th, td {
   padding: 10px;
 }
 
-/*tr:nth-child(even){background-color: #f2f2f2}*/
+/*tr:nth-child(even){background-color: #e09f9f}*/
 th:hover {
-  background-color: #e5ccff;
+  background-color: #f9c5c5;
 }
 
 th:hover .editbtn{
@@ -38,7 +36,7 @@ th:hover .editbtn{
 }
 
 th,tr {
-  background-color: #d9b3ff;
+  background-color: #d18a8a;
   color: white;
 }
 
@@ -47,14 +45,13 @@ th,tr {
 }
 
 table, th, td {
-  
     border: 1px solid black;
 }
 
 #addbtn{
     -webkit-border-radius: 5px;
     border-radius: 5px; 
-    background-color: #33cccc;
+    background-color: #a36592;
     border: none;
     color: white;
     padding: 15px 32px;

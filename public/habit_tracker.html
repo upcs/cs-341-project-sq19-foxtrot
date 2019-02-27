@@ -1,10 +1,9 @@
 <html>
     <head>
       <title>Sprint 1</title>
-      <link rel="stylesheet" type="text/css" href="../css/habit_tracker.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="../javascripts/habit_tracker.js"></script>
-      
+      <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
     <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -22,8 +21,8 @@
               <th>Saturday</th>
               <th>Sunday</th>
             </tr>
-            <tr>
-              <th>Habit</th>
+            <tr style="display:none;">
+              <th>Habit <button class="editbtn" OnClick = "removeRow()">remove</button> </th>
               <th onclick="mark_cell(this)"></th>
               <th onclick="mark_cell(this)"></th>
               <th onclick="mark_cell(this)"></th>
@@ -33,7 +32,17 @@
               <th onclick="mark_cell(this)"></th>
             </tr>
             <tr>
-                <th>Habit</th>
+              <th>Habit <button class="editbtn" OnClick = "removeRow()">remove</button> </th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+              <th onclick="mark_cell(this)"></th>
+            </tr>
+            <tr>
+               <th>Habit <button class="editbtn" OnClick = "removeRow()">remove</button></th>
                 <th onclick="mark_cell(this)"></th>
                 <th onclick="mark_cell(this)"></th>
                 <th onclick="mark_cell(this)"></th>
