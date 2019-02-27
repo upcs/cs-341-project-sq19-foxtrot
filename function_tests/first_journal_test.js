@@ -1,0 +1,1 @@
+let first_journal = require('../public/javascripts/first_journal_functions.js');
