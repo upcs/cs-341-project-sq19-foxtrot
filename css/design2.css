@@ -1,5 +1,5 @@
 body {
-   background-image: linear-gradient(#ffb3b3, #e59e9e);
+   background-image: linear-gradient(#ffb3b3, #d19494);
 }
 
 h1 {
@@ -113,6 +113,10 @@ h1 {
     width:available;
     height:180px;
     background:#544c51;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-top: -10px;
+    box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
 }
  
 
