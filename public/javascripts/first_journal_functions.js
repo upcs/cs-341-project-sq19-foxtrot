@@ -17,9 +17,10 @@ function validateForm() {
 }
 
   function displayData(){
-    
+    console.log("I made it!");
     $.post("/orders",null,
 	   function(data, status){
+       
 
 	       var tr = " ";
 	       
@@ -33,8 +34,7 @@ function validateForm() {
 	   }, "json");
     
 }
-
-//added for tests
-module.exports = {
-	validateForm
-};
+function main(){
+ 
+  $("#prevJournalBtn").on('click', displayData);
+}

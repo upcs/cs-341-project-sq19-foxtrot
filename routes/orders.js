@@ -24,20 +24,20 @@ var dbms = require('./dbms.js');
   })
 
   function queryData(data, res){
-    
+    console.log("I made it!");
     var array = [];
     
     for(var i = 0; i<data.length; i++)
     {
-	array.push({address: data[i].address, facility_name: data[i].facility_name});
+	array.push({Journal_Mon: data[i].Journal_Mon});
     }
     res.json(array);
   
 }
 
   router.post('/', function(req, res, next) {
-    
-    dbms.dbquery("SELECT *",
+  
+    dbms.dbquery("SELECT Journal_Mon FROM leadership",
     function(err, data){
         queryData(data, res);
     });
