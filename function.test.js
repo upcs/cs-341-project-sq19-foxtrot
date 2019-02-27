@@ -2,6 +2,8 @@ let login = require('./javascripts/login_functions.js');
 
 //testing login function from login_functions
 
+document.myform.innerHTML = "<input type='text' name='uname' required></input> <input type='password' name='psw' required> </input>";
+
 document.myform.psw.value = "foxtrot";
 document.myform.uname.value = "";
 test("given empty username", () => {
