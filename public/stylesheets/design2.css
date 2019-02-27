@@ -1,85 +1,86 @@
 body {
-   background-image:url("https://www.pastepic.xyz/images/2019/02/11/imagee583e367933a8ce1.png");
-   background-repeat: no-repeat;
-   background-size: cover;
+   background-image: linear-gradient(#ffb3b3, #d19494);
 }
 
 h1 {
     color: white;
     position: absolute;
-    top: 30%;
-    left: 35%;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
     transform: translate(-50%, -50%);
     font-family: Verdana, Arial, sans-serif;
     font-weight: 900;
     font-size: 200px;
+    text-shadow: -5px 5px 20px #544c51;
 }
 
 #journalbtn { 
     -webkit-border-radius: 5px;
     border-radius: 5px; 
-    background-color: #ffd633;
+    background: none;
     border: none;
     color: white;
     padding: 20px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
     position: absolute;
-    top: 70%;
-    left: 10%;
+    top: 10%;
+    left: 20%;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 5px 20px #28004d;
 }
 
 #journalbtn:hover {
-   padding: 30px 50px;
+   text-decoration: underline;
 }
 
 
 #habitbtn {
     -webkit-border-radius: 5px;
     border-radius: 5px; 
-    background-color: #33cccc;
+    background: none;
     border: none;
     color: white;
     padding: 20px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 25px;
     margin: 4px 2px;
     cursor: pointer;
     position: absolute;
-    top: 70%;
-    left: 30%;
+    top: 10%;
+    left: 80%;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 5px 20px #28004d;
 }
 
 #habitbtn:hover {
-   padding: 30px 50px;
+   text-decoration: underline;
 }
 
 #logo {
     position:fixed;
-    top: 180px;
-    left: 60px;
+    top: 90px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     width: 300px;
     height: auto;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  color: #d1cfcf;
   position:fixed;
-  left: 50px;
+  top: 15px;
+  left: 15px;
 }
 
 .dropdown-content {
+  color: black;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -94,6 +95,7 @@ h1 {
 }
 
 .double-dropdown-content {
+  color: black;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -106,4 +108,15 @@ h1 {
 .dropdown-content:hover .double-dropdown-content {
   display: block;
 }
+
+#rectangle{
+    width:available;
+    height:180px;
+    background:#544c51;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-top: -10px;
+    box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
+}
+ 
 
