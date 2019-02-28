@@ -1,25 +1,29 @@
 
+
 function displayData(){
-    console.log("I made it!");
+
+	// event.preventDefault(); 
+	alert("I made it here!");
+	
     $.post("/orders",null,
 	   function(data, status){
        
-             console.log("I made it!");
-	       var tr = " ";
+            console.log("I made it there!");
+	       var jourVar = " ";
 	 
 	       for (var i = 0; i<data.length; i++)
 	       {
-		  tr += "<tr>"+"<td>" + data[i] + "</td>"+"</tr>"; 
+			jourVar += "<li>" + data[i].Journal_Mon + "</li>"; 
 	       }
 	       
-	       $("#myData").append(tr);
+	       $("#preJournal").append(jourVar);
 	       
 	   }, "json");
     
 }
 
-function main(){
- console.log("I made it!");
-  $("#prevJournalBtn").on('click', displayData);
-}
+$(function(){
+	console.log("I made it everywhere!");
+  $("#dataButton").on('click', displayData);
+});
 

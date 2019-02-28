@@ -3,14 +3,15 @@ var router = express.Router();
 var dbms = require("./dbms.js");
 
 
+
  
 function queryData(data, res){
-    console.log("made it");
+    console.log("made it to this place");
     var array = [];
     
     for(var i = 0; i<data.length; i++)
     {
-	array.push({Journal_Mon: data[i].Journal_Mon});
+	    array.push({Journal_Mon: data[i].Journal_Mon});
     }
     res.json(array);
   

@@ -10,7 +10,7 @@ return (true);
 module.exports = {
   validateForm
 };
-//added for tests
-module.exports = {
-	validateForm
-};
+// //added for tests
+// module.exports = {
+// 	validateForm
+// };
