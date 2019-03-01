@@ -3,11 +3,13 @@
 function displayData(){
 
 	// event.preventDefault(); 
-	alert("I made it here!");
+	// alert("I made it here!");
 	
-    $.post("/orders",null,
-	   function(data, status){
-       
+    $.post(
+		"/orders",
+		null,
+	   	function(data){
+		
             console.log("I made it there!");
 	       var jourVar = " ";
 	 
@@ -23,7 +25,7 @@ function displayData(){
 }
 
 $(function(){
-	console.log("I made it everywhere!");
   $("#dataButton").on('click', displayData);
+  console.log("I made it everywhere!");
 });
 
