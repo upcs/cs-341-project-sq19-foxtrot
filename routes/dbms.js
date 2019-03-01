@@ -32,7 +32,7 @@ var dbclient;
 exports.dbquery = function(query_str, callback) {
 
     var results = null;
-    
+
     async.waterfall([
 
         //Step 1: Connect to the database
@@ -70,7 +70,7 @@ exports.dbquery = function(query_str, callback) {
             console.log(err);
             callback(err, null);
         } else {
-            console.query("SELECT *")
+            //console.query("SELECT *")
             console.log("Database query completed.");
             callback(false, results);
         }
@@ -81,6 +81,3 @@ exports.dbquery = function(query_str, callback) {
     });
 
 }//function dbquery
-
-
-

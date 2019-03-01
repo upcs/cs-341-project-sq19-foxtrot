@@ -22,7 +22,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ordersRouter = require('./routes/orders');
 
-app.use(express.json()); 
+app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+/*app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -57,36 +57,36 @@ app.use(function(err, req, res, next) {
 
 
 // Create a server
-http.createServer( function (request, response) {  
+http.createServer( function (request, response) {
    // Parse the request containing file name
    var pathname = url.parse(request.url).pathname;
-   
+
    // Print the name of the file for which request is made.
    console.log("Request for " + pathname + " received.");
-   
+
    // Read the requested file content from file system
    fs.readFile(pathname.substr(1), function (err, data) {
       if (err) {
          console.log(err);
-         
+
          // HTTP Status: 404 : NOT FOUND
          // Content Type: text/plain
          response.writeHead(404, {'Content-Type': 'text/html'});
-      } else {	
-         //Page found	  
+      } else {
+         //Page found
          // HTTP Status: 200 : OK
          // Content Type: text/plain
-         response.writeHead(200, {'Content-Type': 'text/html'});	
-         
+         response.writeHead(200, {'Content-Type': 'text/html'});
+
          // Write the content of the file to response body
-         response.write(data.toString());		
+         response.write(data.toString());
       }
-      
-      // Send the response body 
+
+      // Send the response body
       response.end();
-   });   
+   });
 }).listen(8081);
 
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/public/login_GUI.html');
-module.exports = app;
+module.exports = app;*/

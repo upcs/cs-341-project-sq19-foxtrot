@@ -1,16 +1,18 @@
 <html>
     <head>
       <title>Sprint 1</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
       <link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
+      <script type="text/javascript" src="javascripts/habit_db.js"></script>
     <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
 
         <h1>Habit Tracker</h1>
 
-        <table id="myTable">
+        <table id="myTable" class="myTable">
             <tr>
               <th>Habit</th>
               <th>Monday</th>
@@ -53,9 +55,9 @@
                 </tr>
           </table>
 
-       <input type="button" id="addbtn" value="Add Habit" OnClick = "openForm()">
-       <input type="button" id="addbtn" value="Previous Weeks">
-  
+       <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick = "openForm()">
+       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks">
+
 
 <div class="form-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
@@ -68,6 +70,18 @@
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+<table id="prevTable" class="myTable" style="display:none;">
+    <tr>
+      <th>Habit</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+    </tr>
+</table>
 
    </body>
 <html>
