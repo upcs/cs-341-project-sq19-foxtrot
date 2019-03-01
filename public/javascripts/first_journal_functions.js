@@ -1,5 +1,6 @@
 
 function validateForm(x) {
+    var x = document.forms["journalForm"]["fjournal"].value;
 if (x.length == 0) {
 alert("You need to put something in your journal!");
 return false;
@@ -14,6 +15,8 @@ return (true);
 }
 
 //added for tests
+// module.exports = validateForm;
+
 module.exports = {
-  validateForm
-};
+      validateForm
+    };
