@@ -17,6 +17,6 @@ return (true);
 //added for tests
 // module.exports = validateForm;
 
-// module.exports = {
-//       validateForm
-//     };
+module.exports = {
+      validateForm
+    };
