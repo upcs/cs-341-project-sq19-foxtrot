@@ -10,7 +10,7 @@ var dbms = require("./dbms.js");
 
 router.post('/', function(req, res, next) {
     console.log("In orders.js post");
-    dbms.dbquery("SELECT Journal_Mon FROM leadership",
+    dbms.dbquery("SELECT * FROM leadership",
     function(err, data){
         queryData(data, res);
     }
@@ -24,7 +24,10 @@ function queryData(data, res){
 
     for(var i = 0; i<data.length; i++)
     {
-	    array.push({Journal_Mon: data[i].Journal_Mon});
+	    array.push({Journal_Mon: data[i].Journal_Mon, Journal_Tue: data[i].Journal_Tue, Journal_Wed: data[i].Journal_Wed
+      ,Journal_Thu: data[i].Journal_Thu, Journal_Fri: data[i].Journal_Fri,
+      Habit: data[i].Habit, Mon: data[i].Mon,Tue: data[i].Tue, Wed: data[i].Wed, Thu: data[i].Thu,
+      Fri: data[i].Fri, Sat: data[i].Sat, Sun: data[i].Sun});
     }
     res.json(array);
 

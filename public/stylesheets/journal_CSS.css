@@ -2,7 +2,7 @@ body {
    background-image:url("https://www.pastepic.xyz/images/2019/02/11/imagee583e367933a8ce1.png");
    background-repeat: no-repeat;
    background-size: cover;
-} 
+}
 
 h1 {
    color: white;
@@ -30,7 +30,7 @@ h2 {
 
 #journalBtn{
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: #33cccc;
     border: none;
     color: white;
@@ -41,4 +41,38 @@ h2 {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+#dataButton{
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #33cccc;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#preJournal{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+th,tr {
+  background-color: #bf7fff;
+  color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
 }
