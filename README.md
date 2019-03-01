@@ -7,8 +7,8 @@ cs-341-project-sq19-foxtrot created by GitHub Classroom
 Leadership Web Application by Team Foxtrot
 
 Sprint 2 summary of completed features:
-Login works with hard coded login data (Aditional Feature)
+Login works with hard coded login data (Additional Feature)
 Login has a forgotten password page
 Habit tracker can add and remove habits, and check cells but it isn't saves
-Two different themes for the home page (Aditional Feature)
+Two different themes for the home page (Additional Feature)
 Journal has a one sentence and unlimited journal
