@@ -6,7 +6,9 @@ cs-341-project-sq19-foxtrot created by GitHub Classroom
 
 Leadership Web Application by Team Foxtrot
 
-Sprint 1 summary of completed features:
-Login page (login_GUI.html) bottom login button leads to front page 
-Home page (MAIN_GUI.html) contains buttons that link to the journal (journal_GUI.html) and habit tracker (Habit Tracker.html) pages
-Journal and habit tracker pages contain button on upper left that leads to home page 
+Sprint 2 summary of completed features:
+Login works with hard coded login data (Aditional Feature)
+Login has a forgotten password page
+Habit tracker can add and remove habits, and check cells but it isn't saves
+Two different themes for the home page (Aditional Feature)
+Journal has a one sentence and unlimited journal
