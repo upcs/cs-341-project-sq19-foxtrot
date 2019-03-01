@@ -1,10 +1,12 @@
 let first_journal = require('../public/javascripts/first_journal_functions.js');
-
+x = "This is one journal entry";
+test("test: normal run through", () => {
+    expect(first_journal.validateForm(x)).toBe(true);
+});
 x = " ";
 test("test: space passes", () => {
     expect(first_journal.validateForm(x)).toBe(true);
 });
-
 y = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 test("test: 100 characters inserted passes", () => {
     expect(first_journal.validateForm(y)).toBe(true);
