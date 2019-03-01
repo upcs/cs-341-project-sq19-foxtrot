@@ -16,17 +16,23 @@ var myObj = {
 		{
 			"Username": "Ashika",
 			"Password": "foxtrot"
+		},
+		{
+			"Username": "1",
+			"Password": "1"
 		}
+
 	]
 }
 
 //checks to see if user has an account
 function validateLogin(username, password) {
-	for (i = 0; i <= 3; i++) {
+	for (i = 0; i <= 4; i++) {
 		if (myObj.data[i]["Username"] == username && myObj.data[i]["Password"] == password) {
 			return true;
 		}
 	}
+	alert("Invalid Login");
 	return false;
 }
 
