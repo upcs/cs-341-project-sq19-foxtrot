@@ -10,6 +10,7 @@ alert("This is by far too many characters! The amount of characters necessary fo
 return false;
 }
 
+$.post("/newInserts", {Journal_Mon:x})
 alert("You've submitted your journal!");
 return (true);
 }
@@ -17,6 +18,6 @@ return (true);
 //added for tests
 // module.exports = validateForm;
 
-module.exports = {
-      validateForm
-    };
+// module.exports = {
+//       validateForm
+//     };
