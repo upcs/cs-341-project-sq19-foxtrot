@@ -1,6 +1,5 @@
-
 let login = require('../public/javascripts/login_functions.js');
-
+/*
 //testing login function from login_functions
 describe('Testing login function ', () => {
 	test("given empty password", () => {
@@ -25,4 +24,4 @@ describe('Testing login function ', () => {
 	test("given correct login info", () => {
 		expect(login.validateLogin("Polina", "foxtrot")).toBe(true);
 	});
-});
+});*/
