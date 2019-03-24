@@ -8,7 +8,6 @@ function displayData(){
 		null,
 	   	function(data){
 
-            console.log("I made it there!");
 	       var jourVar = " ";
 
 	       for (var i = 0; i<data.length; i++)
@@ -26,14 +25,27 @@ function displayData(){
 
 	       $("#prevTable").append(jourVar);
 
-         var x=document.getElementById('prevTable');
-         var new_row = x.rows[3];
-         var cell = new_row.cells[3].innerHTML;
-         if (cell == 0) {
-           mark_prevCell(cell);
-         }
-         console.log(cell);
 
+         var x=document.getElementById('prevTable');
+         var new_row;
+         var cell;
+
+         for(var i=1; i< x.rows.length; i++){
+           new_row=x.rows[i];
+           for(var j=0; j< new_row.cells.length; j++){
+             cell=new_row.cells[j];
+               console.log(cell);
+             if(cell.innerHTML == 1){
+               console.log(cell);
+               mark_prevCell(cell);
+             }
+             else if(cell.innerHTML == 0){
+               cell.innerHTML = " ";
+             }
+           }
+         }
+
+         //make table visible
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
 
@@ -42,9 +54,8 @@ function displayData(){
 function mark_prevCell(x) {
     console.log("marking cell");
     x.innerHTML = "Completed";
-    //x.style.backgroundColor = "#bf7fff";
+    x.style.backgroundColor = "#bf7fff";
 }
 
-$(function(){
-  $("#prevbtn").on('click', displayData);
-});
+
+window.onload = displayData;

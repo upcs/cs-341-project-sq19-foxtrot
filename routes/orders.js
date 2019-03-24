@@ -30,7 +30,6 @@ function queryData(data, res){
       Fri: data[i].Fri, Sat: data[i].Sat, Sun: data[i].Sun});
     }
     res.json(array);
-
 }
 
 
