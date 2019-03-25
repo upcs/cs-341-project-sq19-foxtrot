@@ -11,7 +11,11 @@ router.post('/', function(req, res, next) {
     var yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
     var input = 1; 
-    dbms.dbquery("UPDATE  leadership SET '" + today + "'='" + input + "' WHERE Habit = x, Username = x",
+    var username = "";
+    var habit = req.body.habit_name
+    //Add getter to return current user for username 
+    
+    dbms.dbquery("UPDATE  leadership SET '" + today + "'='" + input + "' WHERE Habit = '"+habit+"', Username = '"+username+"'",
 function(err, data){ }
 );     
 });

@@ -1,7 +1,10 @@
 //test
+
 function mark_cell(x) {
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";    
+    var row = $(x).closest("tr").index();
+    $.post("/new_mark_habit", { Row:row });
 }
 
 function add_row() {
@@ -21,6 +24,7 @@ function add_row() {
     var table = document.getElementById("myTable");
     closeForm();
     document.getElementById("userInput").value = "";
+    $.post("/new_habit", { habit_name:input });
 }
 
 function openForm() {

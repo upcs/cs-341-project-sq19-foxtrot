@@ -5,8 +5,10 @@ var dbms = require("./dbms.js");
 
 
 router.post('/', function(req, res, next) {
-    var input = document.getElementById("userInput").value; 
-    dbms.dbquery("INSERT INTO  leadership VALUES ('"+tracker+ "','"+name+"')",
+    var habit_name = document.getElementById("userInput").value; 
+    var tracker = "Habit"
+    //Add getter to return current user for username 
+    dbms.dbquery("INSERT INTO  leadership(username,tracker,name) VALUES ('"+username+ "','"+tracker+ "','"+habit_name+"')",
 function(err, data){ }
 );     
-});a
+});
