@@ -4,7 +4,8 @@ function mark_cell(x) {
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";    
     var row = $(x).closest("tr").index();
-    $.post("/new_mark_habit", { Row:row });
+    var habit = table.rows[row].cells[0]
+    $.post("/new_mark_habit", { habit_name:habit });
 }
 
 function add_row() {
