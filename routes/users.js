@@ -22,9 +22,14 @@ function queryData(data, res) {
   var array = [];
 
   for (var i = 0; i < data.length; i++) {
-    array.push({ Username: data[i].Username, Password: data[i].Password });
-    console.log("username = " + data[i].Username);
-    console.log("pass = " + data[i].Password);
+    if (data[i].Username == "" || data[i].Username == null) {
+      i++;
+    }
+    else {
+      array.push({ Username: data[i].Username, Password: data[i].Password });
+      console.log("username = " + data[i].Username);
+      console.log("pass = " + data[i].Password);
+    }
   }
   res.json(array);
 }
