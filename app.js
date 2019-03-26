@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var ordersRouter = require('./routes/orders');
 var newInsertRouter = require('./routes/newInserts');
 
@@ -20,12 +19,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+var staticPath = (path.join(__dirname, 'public'));
+console.log("static path:" + staticPath);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.use('/orders', ordersRouter);
 app.use('/newInserts', newInsertRouter);
+// app.use('/sentence_journal_GUI.html', function (req, res){res.end();});
+app.use('/', indexRouter);
 
 app.post( '/index' , function(req, res){
   console.log(req.body) // this outputs: { data: 'hello' }
@@ -33,6 +35,9 @@ app.post( '/index' , function(req, res){
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+   	
+
+console.log("URL: " + req.originalUrl);
   next(createError(404));
 });
 
