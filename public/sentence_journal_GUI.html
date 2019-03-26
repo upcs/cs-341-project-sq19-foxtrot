@@ -1,3 +1,4 @@
+
 <html>
     <head>
 <title>Sprint 1</title>
@@ -12,13 +13,24 @@
         <div id="div1">
           <h1 id="header">Welcome to Your Journal!</h1>
             <form id="myJournal" name="journalForm" onsubmit= return(validateForm()) method="post">
+              
+                <label for="Journal"><b>Journal</b></label>
+                <input id = "userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
+                <button id="name_button" type="button" class="btn" onclick="add_name()" >Submit</button>
+
+                <br/>
+
+                <h2 id="name"> Name of Journal </h2>
+
               <textarea name="fjournal"rows="5" cols="50"></textarea>
-              <br />
+              <br/>
               <input id="journalBtn" type="submit" value="Submit Entry">
                  <form action="sentence_journal_GUI.html">
                 </form>
             </form>
+
             <button id="dataButton"> View Previous Journals </button>
+
             <form action="extended_journal.html">
               <input type="submit" id="journalBtn" value="Go to Extended Journal" />
             </form>

@@ -3,24 +3,50 @@
 <title>Sprint 1</title>
       <link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/journal_functions.js"> </script>       <head>
+      <script type="text/javascript" src="javascripts/extended_journal_functions.js"> </script>   
+      <script type="text/javascript" src="javascripts/journal_db.js"> </script>    
+      <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
         
         <div id="div1">
           <h1 id="header">Welcome to Your Journal!</h1>
-            <form id="myJournal" name="journalForm" onsubmit="validateForm(fjournal.value)" method="post">
+            <form id="myJournal" name="journalForm" onsubmit= return(validateForm()) action="./extended_journal.html" method="post">
               <textarea name="fjournal"rows="10" cols="50"></textarea> 
               <br />
               <input id="journalBtn" type="submit" value="Submit Entry">
-    <form action="extended_journal_GUI.html">
-              <input type="submit" id="journalBtn"  value="View Previous Journals" /> 
-    </form>
-              <form action="sentence_journal_GUI.html">
+            </form>
+
+            <button id="dataButton"> View Previous Journals </button>
+
+            <form action="sentence_journal_GUI.html">
                 <input type="submit" id="journalBtn" value="One Sentence Journal" />
               </form>
-            </form>
-      </div>
-   </body>
-<html>
-  <!-- //trying to make ths work -->
+
+     <!--<span id="preJournal">
+            </span>-->
+            <table id="preJournal" style="display:none;">
+                <thead>
+                  <tr>
+                    <th>
+                      Monday
+                    </th>
+                    <th>
+                      Tuesday
+                    </th>
+                    <th>
+                      Wednesday
+                    </th>
+                    <th>
+                      Thursday
+                    </th>
+                    <th>
+                      Friday
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+        </div>
+     </body>
+  <html>
+  
