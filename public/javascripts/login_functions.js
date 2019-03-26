@@ -1,6 +1,6 @@
 //src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
-'use strict';
-const $ = require('jquery');
+//'use strict';
+//const $ = require('jquery');
 
 //checks to see if user has an account
 function validateLogin(username, password) {
@@ -37,7 +37,7 @@ function validateLogin(username, password) {
 	return passes;
 };
 //added for tests
-
+/*
 module.exports = {
 	validateLogin
-};
+};*/
