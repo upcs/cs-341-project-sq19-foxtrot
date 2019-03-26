@@ -21,8 +21,8 @@ function queryData(data, res) {
   console.log("In users.js query data");
   var array = [];
 
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].Username == "" || data[i].Username == null) {
+  for (var i = 1; i < data.length; i++) {
+    if (data[i].Username == null) {
       i++;
     }
     else {
