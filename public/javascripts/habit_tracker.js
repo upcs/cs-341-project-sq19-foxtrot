@@ -14,11 +14,11 @@ function add_row() {
     var input = document.getElementById("userInput").value;                
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
-    var num_columns = 8
+    var num_columns = 8 
     for (i = 1; i <num_columns; i++) {    
         new_row.cells[i].style.backgroundColor =  "#d9b3ff";
         new_row.cells[i].innerHTML =  ""; 
-    }
+    } 
     new_row.cells[1].style.backgroundColor =  "#d9b3ff";
     new_row.cells[1].innerHTML =  "";
     x.appendChild( new_row );
