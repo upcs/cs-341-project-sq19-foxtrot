@@ -1,7 +1,7 @@
-//src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
-//'use strict';
-//const $ = require('jquery');
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+//src="https://code.jquery.com/jquery-3.3.1.js";
 
+ //var $ = jQuery.noConflict();
 //checks to see if user has an account
 function validateLogin(username, password) {
 	console.log("Here is u = " + username);
@@ -36,8 +36,13 @@ function validateLogin(username, password) {
 	}
 	return passes;
 };
+
+function getUser()
+{
+	return username;
+}
 //added for tests
-/*
+
 module.exports = {
 	validateLogin
-};*/
+};

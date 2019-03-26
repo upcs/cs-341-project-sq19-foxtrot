@@ -1,5 +1,9 @@
-let login = require('../public/javascripts/login_functions.js');
+var login = require('../public/javascripts/login_functions.js');
 //src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+//src="https://code.jquery.com/jquery-3.3.1.js";
+//src="/lib/jquery.min.js";
+//src="/lib/jquery.plugin.js";
+//var $ = jQuery.noConflict();
 
 //testing login function from login_functions
 describe('Testing login function ', () => {
