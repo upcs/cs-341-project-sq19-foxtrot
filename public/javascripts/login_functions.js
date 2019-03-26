@@ -1,41 +1,22 @@
-/*var myObj = {
-	"data": [
-		{
-			"Username": "Sarah",
-			"Password": "foxtrot"
-		},
-		{
-			"Username": "Joanna",
-			"Password": "foxtrot"
-		},
-		{
-			"Username": "Polina",
-			"Password": "foxtrot"
-		},
-		{
-			"Username": "Ashika",
-			"Password": "foxtrot"
-		},
-		{
-			"Username": "1",
-			"Password": "1"
-		}
-	]
-}*/
+//src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+'use strict';
+const $ = require('jquery');
 
 //checks to see if user has an account
 function validateLogin(username, password) {
 	console.log("Here is u = " + username);
 	console.log("Here is p = " + password);
+	var user;
 	if (username == 1 && password == 1) {
-		console.log("true");
+		console.log("Admin");
 		return true;
 	}
 	var passes = false;
-	var jqxhr = $.post(
-		"/users",
-		null,
-		function (data) {
+	$.ajax({
+		type: 'POST',
+		url: "/users",
+		data: null,
+		success: function (data) {
 			console.log("data arrived");
 			for (i = 0; i <= data.length; i++) {
 				if (data[i].Username == username && data[i].Password == password) {
@@ -43,19 +24,20 @@ function validateLogin(username, password) {
 					passes = true;
 				}
 			}
-			alert("success");
-		}, "json")
-		.fail(function () {
-			alert("error");
-		})
-		;
+		},
+		dataType: "json",
+		async: false
+	});
 
-	alert("Invalid Login");
-	console.log("false");
+	if (passes == false) {
+		alert("Invalid Login");
+		console.log("false");
+		return false;
+	}
 	return passes;
 };
 //added for tests
-/*
+
 module.exports = {
 	validateLogin
-};*/
+};
