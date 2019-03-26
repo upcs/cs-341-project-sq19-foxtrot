@@ -6,15 +6,15 @@
       <script type="text/javascript" src="javascripts/journal_functions.js"> </script>       <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
-        
+
         <div id="div1">
           <h1 id="header">Welcome to Your Journal!</h1>
             <form id="myJournal" name="journalForm" onsubmit="validateForm(fjournal.value)" method="post">
-              <textarea name="fjournal"rows="10" cols="50"></textarea> 
+              <textarea name="fjournal"rows="10" cols="50"></textarea>
               <br />
               <input id="journalBtn" type="submit" value="Submit Entry">
     <form action="extended_journal_GUI.html">
-              <input type="submit" id="journalBtn"  value="View Previous Journals" /> 
+              <input type="button" id="dataButton" class="addbtn" value="Previous Weeks" OnClick="location.href='sentence_journal_prev.html';">
     </form>
               <form action="sentence_journal_GUI.html">
                 <input type="submit" id="journalBtn" value="One Sentence Journal" />

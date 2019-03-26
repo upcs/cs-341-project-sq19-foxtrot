@@ -5,7 +5,6 @@
       <link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
-      <script type="text/javascript" src="javascripts/journal_db.js"> </script>
       <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -18,35 +17,12 @@
               <!-- <form action="sentence_journal_GUI.html">
               </form> -->
             </form>
-            <button id="dataButton"> View Previous Journals </button>
+            <input type="button" id="dataButton" class="addbtn" value="Previous Weeks" OnClick="location.href='sentence_journal_prev.html';">
             <form action="extended_journal.html">
               <input type="submit" id="journalBtn" value="Go to Extended Journal" />
             </form>
             <h2 id="h2"> If You would like to submit a journal entry longer then 100 characters, click on the extended journal button :)</h2>
 
-            <!--<span id="preJournal">
-            </span>-->
-            <table id="preJournal" style="display:none;">
-              <thead>
-                <tr>
-                  <th>
-                    Monday
-                  </th>
-                  <th>
-                    Tuesday
-                  </th>
-                  <th>
-                    Wednesday
-                  </th>
-                  <th>
-                    Thursday
-                  </th>
-                  <th>
-                    Friday
-                  </th>
-                </tr>
-              </thead>
-            </table>
       </div>
    </body>
 <html>

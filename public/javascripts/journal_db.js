@@ -13,7 +13,7 @@ function displayData(){
             console.log("I made it there!");
 	       var jourVar = " ";
 
-	       for (var i = 0; i<data.length; i++)
+	       for (var i = 1; i<data.length; i++)
 	       {
 			       jourVar += "<tr>"+"<td>" + data[i].Journal_Mon + "</td>"
 						 +"<td>"+ data[i].Journal_Tue +"</td>"
@@ -30,6 +30,4 @@ function displayData(){
 
 }
 
-$(function(){
-  $("#dataButton").on('click', displayData);
-});
+window.onload = displayData;

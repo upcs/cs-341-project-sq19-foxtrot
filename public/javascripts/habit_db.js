@@ -27,7 +27,7 @@ function displayData(){
              habitWk = data[i].HabitWk;
              jourVar += '<tr class="week"><td colspan= 8 > Week '+ habitWk +' </td></tr>';
            }
-			       jourVar += "<tr>"+"<td>" + data[i].Habit + "</td>"
+			       jourVar += "<tr>"+"<th>" + data[i].Habit + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>"
 						 +"<td>"+ data[i].Mon +"</td>"
 		       +"<td>"+  data[i].Tue +"</td>"
 					 +"<td>"+  data[i].Wed +"</td>"
