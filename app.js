@@ -30,9 +30,9 @@ app.use('/newInserts', newInsertRouter);
 // app.use('/sentence_journal_GUI.html', function (req, res){res.end();});
 app.use('/', indexRouter);
 
-app.post( '/index' , function(req, res){
-  console.log(req.body) // this outputs: { data: 'hello' }
-} );
+// app.post( '/index' , function(req, res){
+//   console.log(req.body) // this outputs: { data: 'hello' }
+// } );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
