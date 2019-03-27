@@ -1,4 +1,11 @@
 /*let extended_journal = require('../public/javascripts/extended_journal_functions.js');
+
+test("Getting the day name", () => {
+    var now = new Date();
+    expect(extended_journal.now.getDayName()).toBe('Monday');
+});
+
+
 x = "";
 test("test: nothing is inserted fails", () => {
 expect(extended_journal.validateForm(x)).toBe(false);
