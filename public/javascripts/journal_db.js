@@ -30,6 +30,4 @@ function displayData(){
 
 }
 
-$(function(){
-  $("#dataButton").on('click', displayData);
-});
+window.onload = displayData;
