@@ -8,6 +8,8 @@ var dbms = require("./dbms.js");
 
 
 router.post('/', function (req, res, next) {
+  var username = req.body.user;
+  console.log(username);
   console.log("In users.js post");
   dbms.dbquery("SELECT * FROM leadership",
     function (err, data) {
@@ -34,5 +36,11 @@ function queryData(data, res) {
   res.json(array);
 }
 
+function getUser()
+{
+  console.log("in getUser");
+	return username;
+}
 
+module.exports.getUser = getUser; // export your functuion
 module.exports = router;

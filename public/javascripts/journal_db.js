@@ -8,6 +8,7 @@ function displayData(){
 	   	function(data){
 
             console.log("I made it there!");
+            console.log(data);
 	       var jourVar = " ";
 
 	       for (var i = 0; i<data.length; i++)
@@ -20,6 +21,8 @@ function displayData(){
 					 +"</tr>";
 	       }
 
+         console.log(jourVar);
+
 	       $("#preJournal").append(jourVar);
 
 			   document.getElementById('preJournal').style.display='';
@@ -27,6 +30,4 @@ function displayData(){
 
 }
 
-$(function(){
-  $("#dataButton").on('click', displayData);
-});
+window.onload = displayData;

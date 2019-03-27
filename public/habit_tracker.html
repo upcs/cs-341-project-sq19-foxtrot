@@ -4,7 +4,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
       <link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">
       <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
-      <script type="text/javascript" src="javascripts/habit_db.js"></script>
     <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -55,7 +54,7 @@
           </table>
 
        <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick = "openForm()">
-       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks">
+       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks" OnClick="location.href='habit_tracker_prev.html';">
 
 
 <div class="form-popup" id="myForm">
