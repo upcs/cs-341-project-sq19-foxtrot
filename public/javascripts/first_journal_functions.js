@@ -82,6 +82,6 @@ $(function(){
 // module.exports = validateForm;
 
 // //added for tests
-// module.exports = {
-//       validateForm
-//     };
+module.exports = {
+      validateForm
+    };

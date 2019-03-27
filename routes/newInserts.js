@@ -46,12 +46,12 @@ console.log("Made it here!");
     );}
 
   else if(today == "Tuesday"){
-    dbms.dbquery("INSERT INTO leadership (Journal_Tue) VALUES ('"+ journal_tue +"')",
+    dbms.dbquery("INSERT INTO leadership (Username, Journal_Tue) VALUES ('" + "Ashika" + "','"+ journal_tue +"')",
     function(err, data){}
     );}
 
   else if(today == "Wednesday"){
-    dbms.dbquery("INSERT INTO leadership (Journal_Wed) VALUES ('"+ journal_wed +"')",
+    dbms.dbquery("INSERT INTO leadership (Username, Journal_Wed) VALUES ('" + "Ashika" + '","' + journal_wed +"')",
     function(err, data){}
     );}
   
