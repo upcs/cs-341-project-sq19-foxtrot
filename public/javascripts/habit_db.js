@@ -1,19 +1,46 @@
+//var functions = require("./login_function.js");
+
+
+
+
 function displayData(){
 
 	// event.preventDefault();
 	// alert("I made it here!");
+
+
+  /*$.getScript("login_function.js",function(){
+    //getUser();
+    console.log("got script");
+  });*/
 
     $.post(
 		"/orders",
 		null,
 	   	function(data){
 
-            console.log("I made it there!");
+        //var username= getUser();
+        //console.log("Username:" + username);
+
+         var x=document.getElementById('prevTable');
+
+
+
+         var habitWk = data[0].HabitWk;
+
+         $("#prevTable").prepend('<tr class="week"><td colspan= 8 > Week '+ habitWk +' </td></tr>');
+
+
+
 	       var jourVar = " ";
 
 	       for (var i = 0; i<data.length; i++)
 	       {
-			       jourVar += "<tr>"+"<td>" + data[i].Habit + "</td>"
+           if(data[i].HabitWk != habitWk){
+             habitWk = data[i].HabitWk;
+             jourVar += '<tr class="week"><td colspan= 8 > Week '+ habitWk +' </td></tr>';
+           }
+			       jourVar += "<tr>"+"<th>" + data[i].Habit + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>"
 						 +"<td>"+ data[i].Mon +"</td>"
 		       +"<td>"+  data[i].Tue +"</td>"
 					 +"<td>"+  data[i].Wed +"</td>"
@@ -26,25 +53,48 @@ function displayData(){
 
 	       $("#prevTable").append(jourVar);
 
-         var x=document.getElementById('prevTable');
-         var new_row = x.rows[3];
-         var cell = new_row.cells[3].innerHTML;
-         if (cell == 0) {
-           mark_prevCell(cell);
+         var weekRows = document.getElementsByClassName("week");
+         console.log("Week row:" + weekRows);
+         for(var i=0; i<weekRows.length; i++) {
+           markWeekRow(weekRows[i]);
          }
-         console.log(cell);
 
+
+         var new_row;
+         var cell;
+
+         for(var i=1; i< x.rows.length; i++){
+           new_row=x.rows[i];
+           for(var j=0; j< new_row.cells.length; j++){
+             cell=new_row.cells[j];
+               //console.log(cell);
+             if(cell.innerHTML == 1){
+               //console.log(cell);
+               mark_prevCell(cell);
+             }
+             else if(cell.innerHTML == 0){
+               cell.innerHTML = " ";
+             }
+           }
+         }
+
+         //make table visible
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
 
 }
 
-function mark_prevCell(x) {
-    console.log("marking cell");
-    x.innerHTML = "Completed";
-    //x.style.backgroundColor = "#bf7fff";
+function markWeekRow(weekRow){
+  console.log("in markWeekRow");
+  weekRow.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
+  weekRow.style.border = "10px solid rgba(0, 0, 0, 0.0)";
 }
 
-$(function(){
-  $("#prevbtn").on('click', displayData);
-});
+function mark_prevCell(x) {
+    //console.log("marking cell");
+    x.innerHTML = "Completed";
+    x.style.backgroundColor = "#bf7fff";
+}
+
+
+window.onload = displayData;
