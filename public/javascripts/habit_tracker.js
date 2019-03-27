@@ -1,13 +1,23 @@
 //test
-function mark_cell(x) {
+
+function mark_cell(x, tablename) {
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";    
+    var row = $(x).closest("tr").index();
+    console.log(row)
+    var col = $(x).closest("td").index();
+    var table = document.getElementById(tablename);
+    var habit = table.rows[row].cells[1]
+    var day = table.rows[1].cells[col]
+    $.post("/new_mark_habit", { habit_name:habit});
 }
 
 function add_row() {
     var x=document.getElementById('myTable');
     var new_row = x.rows[1].cloneNode(true);                                               
-    var input = document.getElementById("userInput").value;                
+    var input = document.getElementById("userInput").value;  
+    //POST
+    $.post("/new_habit", {Habit_name:input});              
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8 
@@ -21,6 +31,7 @@ function add_row() {
     var table = document.getElementById("myTable");
     closeForm();
     document.getElementById("userInput").value = "";
+    
 }
 
 function openForm() {
