@@ -41,7 +41,7 @@ function add_row() {
     var table = document.getElementById("myTable");
     closeForm();
     document.getElementById("userInput").value = "";
-    
+    return input
 }
 
 function openForm() {

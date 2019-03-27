@@ -3,7 +3,9 @@
       <title>Sprint 1</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
       <link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
+      <script type="text/javascript" src="javascripts/habit_db.js"></script>
     <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -22,7 +24,7 @@
               <th>Sunday</th>
             </tr>
             <tr style="display:none;">
-              <th>Habit <button class="editbtn" OnClick = "removeRow()">remove</button> </th>
+              <th>Habit <button id="remove_button" class="editbtn" OnClick = "removeRow()">remove</button> </th>
               <th onclick="mark_cell(this,'myTable')"></th>
               <th onclick="mark_cell(this,'myTable')"></th>
               <th onclick="mark_cell(this,'myTable')"></th>
@@ -54,7 +56,7 @@
           </table>
 
        <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick = "openForm()">
-       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks" OnClick="location.href='habit_tracker_prev.html';">
+       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks">
 
 
 <div class="form-popup" id="myForm">
@@ -64,7 +66,7 @@
     <input id = "userInput" type="text" placeholder="Enter your habit" name="Habit" required>
 
 
-    <button type="button" class="btn" onclick="add_row()" >Submit</button>
+    <button id= button type="button" class="btn" onclick="add_row()" >Submit</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
