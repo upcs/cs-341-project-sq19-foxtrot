@@ -63,5 +63,6 @@ function getUser()
 //module.exports.getUser = getUser; // export your functuion
 
 module.exports = {
-	validateLogin
+	validateLogin,
+	getUser
 };
