@@ -64,3 +64,7 @@ function removeRow() {
 
    tr.parentNode.removeChild(tr);
 }
+module.exports = {
+      add_Row,
+    removeRow
+    };
