@@ -44,5 +44,6 @@ function getUser()
 //added for tests
 
 module.exports = {
-	validateLogin
+	validateLogin,
+	getUser
 };

@@ -17,11 +17,15 @@ describe('Testing login function ', () => {
 	test("admin login entered", () => {
 		expect(login.validateLogin(1, 1)).toBe(true);
 	});
-
+	test("getUser function needs to return Polina", () =>{
+		username = Polina;
+		expect(login.getUser()).toBe(Polina);
+	} )
+/*
 	test("given empty password with correct username", () => {
 		expect(login.validateLogin(Polina, empty)).toBe(false);
 	});
-/*
+
 	test("given empty password", () => {
 		expect(login.validateLogin(foxtrot, empty)).toBe(false);
 	});
