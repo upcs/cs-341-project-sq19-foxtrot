@@ -18,8 +18,7 @@ var now = new Date();
 
 var today = now.getDayName();
 
-$(document).ready(function(){
-    $("#journalSubmitBtn").click(function(){
+function validateForm () {
 
 var x = document.forms["journalForm"]["fjournal"].value;
 
@@ -63,10 +62,11 @@ return false;
         return (false);
         }
             
-})
-})
+}
 
-
+$(function(){
+    $("#journalSubmitBtn").on('click', validateForm);
+  });
   
 $(function(){
     $("#name_button").click(function () {
