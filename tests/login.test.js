@@ -17,9 +17,14 @@ describe('Testing login function ', () => {
 	test("admin login entered", () => {
 		expect(login.validateLogin(1, 1)).toBe(true);
 	});
+
 	test("getUser function needs to return Polina", () =>{
 		username = Polina;
-		expect(login.getUser()).toBe(Polina);
+		expect(login.getUser(Polina)).toBe(Polina);
+	} )
+
+	test("getUser function needs to return Polina", () =>{
+		expect(login.getUser("")).toBe("");
 	} )
 /*
 	test("given empty password with correct username", () => {
