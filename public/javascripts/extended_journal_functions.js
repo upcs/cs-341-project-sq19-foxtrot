@@ -1,8 +1,10 @@
+// var today = new Date();
+// var dd = String(today.getDate()).padStart(2, '0');
+// var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+// var yyyy = today.getFullYear();
+// today = mm + '/' + dd + '/' + yyyy;
 
-/*
-Getting week day for database insertion 
-https://stackoverflow.com/questions/4822852/how-to-get-the-day-of-week-and-the-month-of-the-year#4822882
-*/
+
 
 (function() {
     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -16,8 +18,7 @@ var now = new Date();
 
 var today = now.getDayName();
 
-$(document).ready(function(){
-    $("#journalSubmitBtn").click(function(){
+function validateForm () {
 
 var x = document.forms["journalForm"]["fjournal"].value;
 
@@ -57,10 +58,11 @@ return false;
         return (false);
         }
             
-})
-})
+}
 
-
+$(function(){
+    $("#journalSubmitBtn").on('click', validateForm);
+  });
   
 $(function(){
     $("#name_button").click(function () {
@@ -72,9 +74,10 @@ $(function(){
     })
 })
 
+//added for tests
+// module.exports = validateForm;
 
 // //added for tests
-// module.exports = {
-//       validateForm
-//     };
-
+module.exports = {
+      validateForm
+    };

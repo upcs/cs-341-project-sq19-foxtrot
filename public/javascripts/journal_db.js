@@ -2,6 +2,9 @@
 
 function displayData(){
 
+	// event.preventDefault();
+	// alert("I made it here!");
+
     $.post(
 		"/orders",
 		null,
@@ -27,6 +30,4 @@ function displayData(){
 
 }
 
-$(function(){
-  $("#dataButton").on('click', displayData);
-});
+window.onload = displayData;

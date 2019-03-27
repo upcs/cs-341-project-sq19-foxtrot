@@ -1,47 +1,22 @@
-
 <html>
     <head>
 <title>Sprint 1</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
       <link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/extended_journal_functions.js"> </script>
+      <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
       <script type="text/javascript" src="javascripts/journal_db.js"> </script>
       <head>
     <body>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
-
         <div id="div1">
-          <h1 id="header">Welcome to Your Journal!</h1>
-            <form id="myJournal" name="journalForm">
-
-                <label for="Journal"><b>Journal</b></label>
-                <input id = "userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
-                <button id="name_button" type="button" class="btn" onclick="add_name()" >Submit</button>
-
-                <br/>
-
-                <h2 id="name"> Name of Journal </h2>
-
-              <textarea name="fjournal"rows="5" cols="50"></textarea>
-              <br/>
-
-            </form>
-
-            <button id="journalSubmitBtn"> Submit Entry </button>
-
-
-            <input type="button" id="dataButton" class="addbtn" value="Previous Weeks" OnClick="location.href='sentence_journal_prev.html';">
-
-            <form action="sentence_journal_GUI.html">
-              <input type="submit" id="journalBtn" value="Go to Sentence Journal" />
-            </form>
-
+          <h1 id="header">Previous Journals</h1>
+            
+            <input href="habit_tracker.html" type="button" id="dataButton" class="addbtn" value="Back to current Week" OnClick="location.href='sentence_journal_GUI.html';">
 
             <!--<span id="preJournal">
             </span>-->
             <table id="preJournal" style="display:none;">
-
               <thead>
                 <tr>
                   <th>

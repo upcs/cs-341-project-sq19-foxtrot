@@ -3,7 +3,20 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
 
  //var $ = jQuery.noConflict();
 //checks to see if user has an account
+
+var user = "";
+
 function validateLogin(username, password) {
+	user = username;
+	console.log(user);
+
+	//var journ = $("#journalbtn").innerHTML;
+	//console.log(journ);
+	//var x=document.getElementById('journalbtn');
+	//console.log(x.innerHTML);
+	//document.write(username);
+
+
 	console.log("Here is u = " + username);
 	console.log("Here is p = " + password);
 	var user;
@@ -15,13 +28,16 @@ function validateLogin(username, password) {
 	$.ajax({
 		type: 'POST',
 		url: "/users",
-		data: null,
+		data: {user:username},
 		success: function (data) {
 			console.log("data arrived");
 			for (i = 0; i <= data.length; i++) {
 				if (data[i].Username == username && data[i].Password == password) {
 					console.log("true");
 					passes = true;
+					//var userHtml = "<h2>" + username + "</h2>";
+					//$("#journalbtn").append(userHtml);
+					//console.log("appended to journal button");
 				}
 			}
 		},
@@ -39,9 +55,12 @@ function validateLogin(username, password) {
 
 function getUser()
 {
-	return username;
+	console.log("getUser: " + user);
+	return user;
 }
 //added for tests
+
+//module.exports.getUser = getUser; // export your functuion
 
 module.exports = {
 	validateLogin,
