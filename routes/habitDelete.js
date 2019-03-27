@@ -10,15 +10,18 @@ var dbms = require("./dbms.js");
 
 
 router.post('/', function(req, res, next) {
-    console.log("In orders.js post");
+    console.log("In habit_delete.js post");
+    var habit = req.body.Habit;
+    console.log(habit);
+    console.log("In habit_delete.js post");
     //var username = 'Sarah';
     //var username = getUser();
     //console.log("username is:" + username);
-    dbms.dbquery("SELECT * FROM leadership WHERE Habit IS NOT NULL",
+    dbms.dbquery("DELETE FROM leadership WHERE Habit='"+habit+"';",
     function(err, data){
-        queryData(data, res);
+        
     }
-    );
+  );
 });
 
 function queryData(data, res){

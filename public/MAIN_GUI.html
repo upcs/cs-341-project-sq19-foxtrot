@@ -4,8 +4,9 @@
     <head>
       <title>LeadUP</title>
       <!--Do we need a connection to journal_functions.js-->
-      
+
       <script type="text/javascript" src="javascripts/mainpage_functions.js"></script>
+      <script type="text/javascript" src="javascripts/login_functions.js"></script>
       <link rel="stylesheet" type="text/css" href="stylesheets/design.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <head>
@@ -18,15 +19,16 @@
           <div class="dropdown-content">
              <p>Change Theme</p>
 		<div class="double-dropdown-content">
-  			<a href="#" onclick="changeCSS('../public/stylesheets/design.css', 0);">Portland</a>
+  			<a href="#" onclick="changeCSS('/public/stylesheets/design.css', 0);">Portland</a>
 			<br>
- 			<a href="#" onclick="changeCSS('../public/stylesheets/design2.css', 0);">New York</a>
+ 			<a href="#" onclick="changeCSS('/stylesheets/design2.css', 0);">New York</a>
  	       </div>
           </div>
       </div>
 
 
       <h1>Lead UP</h1>
+
         <img id="logo" src="https://www.pastepic.xyz/images/2019/02/11/imagecf16e256ba1670ed.png" alt="UP_Logo">
       <form action="sentence_journal_GUI.html">
 <input type="submit" id="journalbtn" value="Go to Journal" />

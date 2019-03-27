@@ -4,6 +4,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
  //var $ = jQuery.noConflict();
 //checks to see if user has an account
 function validateLogin(username, password) {
+
 	console.log("Here is u = " + username);
 	console.log("Here is p = " + password);
 	var user;
@@ -15,13 +16,16 @@ function validateLogin(username, password) {
 	$.ajax({
 		type: 'POST',
 		url: "/users",
-		data: null,
+		data: {user:username},
 		success: function (data) {
 			console.log("data arrived");
 			for (i = 0; i <= data.length; i++) {
 				if (data[i].Username == username && data[i].Password == password) {
 					console.log("true");
 					passes = true;
+					var userHtml = "<h2>" + username + "</h2>";
+					$("#journalbtn").append(userHtml);
+					console.log("appended to journal button");
 				}
 			}
 		},
@@ -42,6 +46,8 @@ function getUser()
 	return username;
 }
 //added for tests
+
+module.exports.getUser = getUser; // export your functuion
 
 module.exports = {
 	validateLogin

@@ -1,13 +1,26 @@
+//var functions = require("./login_function.js");
+
+
+
+
 function displayData(){
 
 	// event.preventDefault();
 	// alert("I made it here!");
+
+
+  /*$.getScript("login_function.js",function(){
+    //getUser();
+    console.log("got script");
+  });*/
 
     $.post(
 		"/orders",
 		null,
 	   	function(data){
 
+        //var username= getUser();
+        //console.log("Username:" + username);
 
          var x=document.getElementById('prevTable');
 
