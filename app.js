@@ -10,6 +10,7 @@ var ordersRouter = require('./routes/orders');
 var newInsertRouter = require('./routes/newInserts');
 var markHabitRouter = require('./routes/new_mark_habit');
 var habitRouter = require('./routes/new_habit');
+var habitDeleteRouter = require('./routes/habitDelete');
 
 
 var app = express();
@@ -31,16 +32,17 @@ app.use('/orders', ordersRouter);
 app.use('/newInserts', newInsertRouter);
 app.use('/new_mark_habit', markHabitRouter);
 app.use('/new_habit', habitRouter);
+app.use('/habitDelete', habitDeleteRouter);
 // app.use('/sentence_journal_GUI.html', function (req, res){res.end();});
 app.use('/', indexRouter);
 
-app.post( '/index' , function(req, res){
-  console.log(req.body) // this outputs: { data: 'hello' }
-} );
+// app.post( '/index' , function(req, res){
+//   console.log(req.body) // this outputs: { data: 'hello' }
+// } );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-   	
+
 
 console.log("URL: " + req.originalUrl);
   next(createError(404));
