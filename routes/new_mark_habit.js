@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
     var habit = req.body.habit_name
     //Add getter to return current user for username 
     
-    dbms.dbquery("UPDATE  leadership SET '" + today + "'='" + input + "' WHERE Habit = '"+habit+"'",
+    dbms.dbquery("UPDATE  leadership2 SET '" + today + "'='" + input + "' WHERE Habit = '"+habit+"'",
 function(err, data){ }
 );     
 });
