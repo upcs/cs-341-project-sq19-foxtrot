@@ -12,3 +12,4 @@ router.post('/', function(req, res, next) {
 function(err, data){ }
 );     
 });
+module.exports = router;
