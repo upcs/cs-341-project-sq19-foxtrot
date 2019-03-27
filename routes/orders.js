@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
     //var username = 'Sarah';
     //var username = getUser();
     //console.log("username is:" + username);
-    dbms.dbquery("SELECT * FROM leadership WHERE Username='Ashika'",
+    dbms.dbquery("SELECT * FROM leadership WHERE Username='Ashika' AND Habit IS NOT NULL AND Journal_Mon IS NOT NULL",
     function(err, data){
         queryData(data, res);
     }
