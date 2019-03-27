@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
     //var username = 'Sarah';
     //var username = getUser();
     //console.log("username is:" + username);
-    dbms.dbquery("SELECT * FROM leadership WHERE Habit IS NOT NULL",
+    dbms.dbquery("SELECT * FROM leadership WHERE Username='Ashika'",
     function(err, data){
         queryData(data, res);
     }
@@ -23,6 +23,7 @@ router.post('/', function(req, res, next) {
 
 function queryData(data, res){
     console.log("In orders.js query data");
+    console.log(data);
     var array = [];
 
     for(var i = 0; i<data.length; i++)
@@ -32,6 +33,7 @@ function queryData(data, res){
       Habit: data[i].Habit, Mon: data[i].Mon,Tue: data[i].Tue, Wed: data[i].Wed, Thu: data[i].Thu,
       Fri: data[i].Fri, Sat: data[i].Sat, Sun: data[i].Sun});
     }
+    console.log(array);
     res.json(array);
 }
 

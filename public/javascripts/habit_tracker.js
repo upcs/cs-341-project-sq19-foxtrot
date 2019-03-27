@@ -35,11 +35,10 @@ function closeForm() {
 function removeRow() {
    var td = event.target.parentNode;
    var tr = td.parentNode; // the row to be removed
-   console.log(tr);
-   console.log(td.textContent);
+
+   //getting habit name
    var content = td.textContent;
    var newContent = content.replace("remove", "");
-   console.log(newContent);
    $.post("/habitDelete",  { Habit:newContent });
 
    tr.parentNode.removeChild(tr);

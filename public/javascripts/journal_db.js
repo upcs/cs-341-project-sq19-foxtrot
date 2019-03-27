@@ -11,9 +11,10 @@ function displayData(){
 	   	function(data){
 
             console.log("I made it there!");
+            console.log(data);
 	       var jourVar = " ";
 
-	       for (var i = 1; i<data.length; i++)
+	       for (var i = 0; i<data.length; i++)
 	       {
 			       jourVar += "<tr>"+"<td>" + data[i].Journal_Mon + "</td>"
 						 +"<td>"+ data[i].Journal_Tue +"</td>"
@@ -22,6 +23,8 @@ function displayData(){
 					 +"<td>"+  data[i].Journal_Fri +"</td>"
 					 +"</tr>";
 	       }
+
+         console.log(jourVar);
 
 	       $("#preJournal").append(jourVar);
 
