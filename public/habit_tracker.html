@@ -25,7 +25,7 @@
             </tr>
             <tr style="display:none;">
               <th>Habit <button id="remove_button" class="editbtn" OnClick = "removeRow()">remove</button> </th>
-              <th onclick="mark_cell(this,'myTable')"></th>
+              <th id = mark_button onclick="mark_cell(this,'myTable')"></th>
               <th onclick="mark_cell(this,'myTable')"></th>
               <th onclick="mark_cell(this,'myTable')"></th>
               <th onclick="mark_cell(this,'myTable')"></th>
@@ -66,7 +66,7 @@
     <input id = "userInput" type="text" placeholder="Enter your habit" name="Habit" required>
 
 
-    <button id= button type="button" class="btn" onclick="add_row()" >Submit</button>
+    <button id= add_button type="button" class="btn" onclick="add_row()" >Submit</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
