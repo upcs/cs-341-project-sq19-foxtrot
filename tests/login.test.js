@@ -21,7 +21,7 @@ describe('Testing login function ', () => {
 	test("given empty password with correct username", () => {
 		expect(login.validateLogin(Polina, empty)).toBe(false);
 	});
-
+/*
 	test("given empty password", () => {
 		expect(login.validateLogin(foxtrot, empty)).toBe(false);
 	});
@@ -43,5 +43,5 @@ describe('Testing login function ', () => {
 
 	test("given correct login info", () => {
 		expect(login.validateLogin(Polina, foxtrot)).toBe(true);
-	});
+	});*/
 });
