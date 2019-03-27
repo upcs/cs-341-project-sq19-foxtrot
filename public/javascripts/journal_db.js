@@ -2,9 +2,6 @@
 
 function displayData(){
 
-	// event.preventDefault();
-	// alert("I made it here!");
-
     $.post(
 		"/orders",
 		null,
