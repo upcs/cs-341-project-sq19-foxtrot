@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var ordersRouter = require('./routes/orders');
 var newInsertRouter = require('./routes/newInserts');
+var markHabitRouter = require('./routes/new_mark_habit');
+var habitRouter = require('./routes/new_habit');
 var habitDeleteRouter = require('./routes/habitDelete');
 
 
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter);
 app.use('/newInserts', newInsertRouter);
+app.use('/new_mark_habit', markHabitRouter);
+app.use('/new_habit', habitRouter);
 app.use('/habitDelete', habitDeleteRouter);
 // app.use('/sentence_journal_GUI.html', function (req, res){res.end();});
 app.use('/', indexRouter);

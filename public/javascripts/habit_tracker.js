@@ -2,14 +2,24 @@
 
 function mark_cell(x, tablename) {
     x.innerHTML = "Completed";
-    x.style.backgroundColor = "#bf7fff";    
-    var row = $(x).closest("tr").index();
-    console.log(row)
-    var col = $(x).closest("td").index();
-    var table = document.getElementById(tablename);
-    var habit = table.rows[row].cells[1]
-    var day = table.rows[1].cells[col]
-    $.post("/new_mark_habit", { habit_name:habit});
+    x.style.backgroundColor = "#bf7fff"; 
+    
+    var td = event.target.parentNode; 
+    var tr = td; 
+    console.log(tr)
+    var content = tr.cells[0].textContent;
+    var newContent = content.replace("remove","");
+    console.log(newContent)
+    //var row = $(x).closest("tr").index();
+    //console.log(row);
+
+    //var col = $(x).closest("td").index();
+    //var table = document.getElementById(tablename);
+    //var habit = table.rows[row].cells[0].textContent;
+    //var remove = habit.replace("remove","")
+    //console.log(remove);
+    //var day = table.rows[0].cells[col];
+    $.post("/new_mark_habit", { habit_name:newContent});
 }
 
 function add_row() {
@@ -31,7 +41,7 @@ function add_row() {
     var table = document.getElementById("myTable");
     closeForm();
     document.getElementById("userInput").value = "";
-    
+    return input
 }
 
 function openForm() {
@@ -54,3 +64,8 @@ function removeRow() {
 
    tr.parentNode.removeChild(tr);
 }
+module.exports = {
+      mark_cell,
+      add_row,
+    removeRow
+    };
