@@ -20,6 +20,7 @@ function validateLogin(user, pass) {
 		console.log("Admin");
 		setCookie("username", user, .042);
 		setCookie("theme", pass, .042);
+		//set habitnum to all habitnumbers
 		return true;
 	}
 	var passes = false;
@@ -34,6 +35,7 @@ function validateLogin(user, pass) {
 					console.log("true");
 					setCookie("username", data[i].username, .042);
 					setCookie("theme", data[i].theme, .042);
+					setCookie("tracker", data[i].tracker, .042);
 					passes = true;
 					//var userHtml = "<h2>" + username + "</h2>";
 					//$("#journalbtn").append(userHtml);
@@ -50,18 +52,14 @@ function validateLogin(user, pass) {
 		console.log("false");
 		return false;
 	}
+
 	var username = getCookie("username");
 	if (username != "") {
-		alert("Welcome again " + username);
-		return passes;
-	} else {
-		username = prompt("Please enter your name:", "");
-		if (username != "" && username != null) {
-			setCookie("username", username, 365);
-		}
+		alert("Welcome Again " + username);
 		return passes;
 	}
-	
+	return passes;
+
 };
 
 function getCookie(cname) {
@@ -69,16 +67,16 @@ function getCookie(cname) {
 	var decodedCookie = decodeURIComponent(document.cookie);
 	var ca = decodedCookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
-	  var c = ca[i];
-	  while (c.charAt(0) == ' ') {
-		c = c.substring(1);
-	  }
-	  if (c.indexOf(name) == 0) {
-		return c.substring(name.length, c.length);
-	  }
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
 	}
 	return "";
-  }
+}
 
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
