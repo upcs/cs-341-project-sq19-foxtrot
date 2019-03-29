@@ -15,21 +15,8 @@ function getCookie(cname) {
     return "";
 }
 
-var input = document.getElementById("userInput").value;
+// var input = document.getElementById("userInput").value;
 
-$(function () {
-    $("#name_button").click(function () {
-        var input = document.getElementById("userInput").value;
-        
-        $("#name").replaceWith(("<h2>" + input + "</h2>"));
-
-        // $.post("/newInserts", {
-        //     journal_name:input
-        // })
-        return true;
-
-    })
-})
 
 function validateForm() {
 
@@ -51,7 +38,6 @@ function validateForm() {
         $.post("/newInserts", {
             username:user_name,
             journal_type:one_sent, 
-            journal_name:input,
             journal_entry:x
         })
         alert("You've submitted your journal!");
@@ -59,6 +45,20 @@ function validateForm() {
     }
     
 }
+
+$(function () {
+    $("#name_button").click(function () {
+        var input = document.getElementById("userInput").value;
+        
+        $("#name").replaceWith(("<h2>" + input + "</h2>"));
+
+        // $.post("/newInserts", {
+        //     journal_name:input
+        // })
+        return true;
+
+    })
+})
 
 $(function () {
     $("#journalSubmitBtn").on('click', validateForm);
