@@ -15,12 +15,11 @@ function validateLogin(user, pass) {
 	//console.log(x.innerHTML);
 	//document.write(username);
 
-
-	console.log("Here is u = " + user);
-	console.log("Here is p = " + pass);
 	var user;
 	if (user == 1 && pass == 1) {
 		console.log("Admin");
+		setCookie("username", user, .042);
+		setCookie("theme", pass, .042);
 		return true;
 	}
 	var passes = false;
@@ -32,14 +31,9 @@ function validateLogin(user, pass) {
 			console.log("data arrived");
 			for (i = 0; i <= data.length; i++) {
 				if (data[i].username == user && data[i].password == pass) {
-					console.log("true"); "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
-
+					console.log("true");
 					setCookie("username", data[i].username, .042);
 					setCookie("theme", data[i].theme, .042);
-					//document.cookie1 = "username=" + data[i].username + ";";
-					//document.cookie2 = "theme=" + data[i].theme + ";";
-					//console.log("cookie1: " + document.cookie1);
-					//console.log("cookie2: " + document.cookie2);
 					passes = true;
 					//var userHtml = "<h2>" + username + "</h2>";
 					//$("#journalbtn").append(userHtml);
@@ -56,8 +50,35 @@ function validateLogin(user, pass) {
 		console.log("false");
 		return false;
 	}
-	return passes;
+	var username = getCookie("username");
+	if (username != "") {
+		alert("Welcome again " + username);
+		return passes;
+	} else {
+		username = prompt("Please enter your name:", "");
+		if (username != "" && username != null) {
+			setCookie("username", username, 365);
+		}
+		return passes;
+	}
+	
 };
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+	  var c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+  }
 
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
@@ -73,8 +94,8 @@ function getUser(user) {
 //added for tests
 
 //module.exports.getUser = getUser; // export your functuion
-
+/*
 module.exports = {
 	validateLogin,
 	getUser
-};
+};*/
