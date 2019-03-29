@@ -8,6 +8,14 @@ Leadership Web Application by Team Foxtrot
 
 This is a web application designed for the University of Portland's Leadership program including a habit tracker and journal page.
 
+Sprint 3 summary of completed features:
+-Login works with fethcing login info from the data base
+-data for the habit tracker and journal is displayed in consistent ways and as the client requested
+-when the user adds habits and completes days it is added to the data base
+-when the user adds journals it is added to the database
+-when the user deletes habits it is removed from the data base
+-the habit tracker and journal only displays data for one user
+
 Sprint 2 summary of completed features:
 -Login works with hard coded login data (Additional Feature)
 -Login has a forgotten password page
