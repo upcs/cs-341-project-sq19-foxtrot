@@ -20,7 +20,7 @@ describe('Testing login function ', () => {
 
 	test("getUser function needs to return Polina", () =>{
 		username = Polina;
-		expect(login.getUser(Polina)).toBe(Polina);
+		expect(login.getUser(username)).toBe(Polina);
 	} )
 
 	test("getUser function needs to return Polina", () =>{
