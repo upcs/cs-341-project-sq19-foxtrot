@@ -10,21 +10,20 @@ function changeCSS(cssFile, cssLinkIndex) {
   newlink.setAttribute("rel", "stylesheet");
   newlink.setAttribute("type", "text/css");
   newlink.setAttribute("href", cssFile);
-
+  if (getCookie("theme") == 1) {
+    setCookie("theme", 2, .042);
+  }
+  else {
+    setCookie("theme", 1, .042);
+  }
   document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-
 }
 
-function checkCookie() {
-  var username = getCookie("username");
-  if (username != "") {
-   alert("Welcome again " + username);
-  } else {
-    username = prompt("Please enter your name:", "");
-    if (username != "" && username != null) {
-      setCookie("username", username, 365);
-    }
-  }
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
