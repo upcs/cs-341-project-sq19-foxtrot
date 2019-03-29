@@ -8,10 +8,9 @@ var dbms = require("./dbms.js");
 
 
 router.post('/', function (req, res, next) {
-  var username = req.body.user;
-  console.log(username);
+
   console.log("In users.js post");
-  dbms.dbquery("SELECT * FROM leadership",
+  dbms.dbquery("SELECT * FROM leadership3",
     function (err, data) {
       queryData(data, res);
     }
@@ -24,13 +23,14 @@ function queryData(data, res) {
   var array = [];
 
   for (var i = 1; i < data.length; i++) {
-    if (data[i].Username == null) {
+    if (data[i].password == null) {
       i++;
     }
     else {
-      array.push({ Username: data[i].Username, Password: data[i].Password });
-      console.log("username = " + data[i].Username);
-      console.log("pass = " + data[i].Password);
+      array.push({ username: data[i].username, password: data[i].password, theme: data[i].theme});
+      console.log("username = " + data[i].username);
+      console.log("pass = " + data[i].password);
+      console.log("theme = "+ data[i].theme);
     }
   }
   res.json(array);
