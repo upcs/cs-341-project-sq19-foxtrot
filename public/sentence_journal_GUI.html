@@ -1,44 +1,55 @@
-
 <html>
-    <head>
-<title>Sprint 1</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
-      <link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
-      <head>
-    <body>
-        <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
-        <div id="div1">
-          <h1 id="header">Welcome to Your Journal!</h1>
 
-            <form id="myJournal" name="journalForm">
+<head>
+  <title>Sprint 1</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
 
+  <head>
 
-                <label for="Journal"><b>Journal</b></label>
-                <input id = "userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
-                <button id="name_button" type="button" class="btn" onclick="add_name()" >Submit</button>
+  <body>
+    <script>
+      if (getCookie("theme") == 1) {
+        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
+      }
+      else {
+        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS2.css">');
+      }
+    </script>
+    <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
+    <div id="div1">
+      <h1 id="header">Welcome to Your Journal!</h1>
 
-                <br/>
-
-                <h2 id="name"> Name of Journal </h2>
-
-              <textarea name="fjournal"rows="5" cols="50"></textarea>
-              <br/>
+      <form id="myJournal" name="journalForm">
 
 
-            </form>
+        <label for="Journal"><b>Journal</b></label>
+        <input id="userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
+        <button id="name_button" type="button" class="btn">Submit</button>
 
-            <button id="journalSubmitBtn"> Submit Entry </button>
-                 
-            <input type="button" id="dataButton" class="addbtn" value="Previous Weeks" OnClick="location.href='sentence_journal_prev.html';">
+        <br />
+
+        <h2 id="name"> Name of Journal </h2>
+
+        <textarea name="fjournal" rows="5" cols="50"></textarea>
+        <br />
 
 
-            <form action="extended_journal.html">
-              <input type="submit" id="journalBtn" value="Go to Extended Journal" />
-            </form>
-            <h2 id="h2"> If You would like to submit a journal entry longer then 100 characters, click on the extended journal button :)</h2>
+      </form>
 
-      </div>
-   </body>
-<html>
+      <button id="journalSubmitBtn"> Submit Entry </button>
+
+      <input type="button" id="dataButton" class="addbtn" value="Previous Weeks"
+        OnClick="location.href='sentence_journal_prev.html';">
+
+
+      <form action="extended_journal.html">
+        <input type="submit" id="journalBtn" value="Go to Extended Journal" />
+      </form>
+      <h2 id="h2"> If You would like to submit a journal entry longer then 100 characters, click on the extended journal
+        button :)</h2>
+
+    </div>
+  </body>
+  <html>
