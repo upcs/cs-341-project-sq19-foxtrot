@@ -31,9 +31,18 @@ function displayData(){
            console.log('yes monday');
          }
 
-         var result = getWeekNumber(data[1].date);
+         var result = getWeekNumber(data[0].date);
 
          console.log('Week no:' + result);
+
+         console.log('Adding days');
+
+         console.log(data[0].date);
+
+         var newDay = addDays(data[0].date, 2);
+
+         console.log(newDay);
+
 
          //get corresponding Sunday, TODO get actual year from Date
          //var sunday = getSundayFromWeekNum(result, 2019);
@@ -61,7 +70,7 @@ function displayData(){
           //var habitWk = getWeekNumber(data[0].date);
           var sunday = getSundayFromWeekNum(habitWk, 2019);
           var saturday = getSaturdayFromWeekNum(habitWk, 2019);
-          $("#prevTable").prepend('<tr class="week"><td colspan= 8 > Week '+ sunday + '-' + saturday +' </td></tr>');
+          //$("#prevTable").prepend('<tr class="week"><td colspan= 8 > Week '+ sunday + '-' + saturday +' </td></tr>');
 
 
            //var habitnum = data[0].habitnum;
@@ -75,8 +84,8 @@ function displayData(){
                 var sunday = getSundayFromWeekNum(habitWk, 2019);
                 var saturday = getSaturdayFromWeekNum(habitWk, 2019);
                 jourVar += '<tr class="week"><td colspan= 8 > Week '+ sunday + '-' + saturday +' </td></tr>';
-                jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ "Sunday" +"</td>" + "<td>"+ "Monday" +"</td>" +"<td>"+ "Tuesday" +"</td>" +"<td>"+ "Wednesday" +"</td>" +"<td>"+ "Thursday" +"</td>"
-                +"<td>"+ "Friday" +"</td>" +"<td>"+ "Saturday" +"</td> </tr>";
+                jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ sunday +"</td>" + "<td>"+ addDays(sunday, 1) +"</td>" +"<td>"+ addDays(sunday, 2) +"</td>" +"<td>"+ addDays(sunday, 3) +"</td>" +"<td>"
+                + addDays(sunday, 4) +"</td>" +"<td>"+ addDays(sunday, 5) +"</td>" +"<td>"+ addDays(sunday, 6) +"</td> </tr>";
 
                 for(var a=0; a<habitnum; a++){
                   jourVar += "<tr>"+"<th>" + a + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
@@ -112,7 +121,34 @@ function displayData(){
              markWeekRow(weekRows[i]);
            }
 
-           var new_row;
+           //loop through data again, for each data instance, find corresponding habit num  check if it is either equal to the habit num of equal to the habit name
+           //find corresponding date column, mark that cell as complete
+
+           for(var b=0; b<data.length; b++){
+             //console.log(new Date(data[b].date));
+             //check row 1, and then each row plus habit number
+             for(var c=1; c<x.rows.length; c += (habitnum+2)){
+               console.log(c);
+               console.log(x.rows[c]);
+               new_row=x.rows[c];
+               for(var d=0; d<new_row.cells.length; d++){
+                 cell=new_row.cells[d];
+                 console.log(cell);
+                 if(cell.innerHTML == (new Date(data[b].date))){
+                   console.log("habit number: " + data[b].habit_number);
+                   console.log("correct date");
+                   console.log(x.rows[c+data[b].habit_number+1])
+                   //console.log(x.rows[c+data[b].habitnum+1]);
+                   var correctRow=x.rows[c+data[b].habit_number+1];
+                   console.log(correctRow.cells[d]);
+                   mark_prevCell(correctRow.cells[d]);
+                 }
+               }
+             }
+           }
+
+
+           /*var new_row;
            var cell;
            for(var i=1; i< x.rows.length; i++){
              new_row=x.rows[i];
@@ -127,7 +163,7 @@ function displayData(){
                  cell.innerHTML = " ";
                }
              }
-           }
+           }*/
 
          //for loop through entire table, if the corresponding habit has that date then make as complete
 
@@ -215,8 +251,16 @@ function displayData(){
     return weekNo;
 }*/
 
+function addDays(d, days) {
+    //d = new Date();
+    var date = new Date(d);
+    //console.log(date);
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
 function getWeekNumber(d) {
-    d = new Date();
+    d = new Date(d);
     var onejan = new Date(d.getFullYear(),0,1);
     var millisecsInDay = 86400000;
     console.log(Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7));

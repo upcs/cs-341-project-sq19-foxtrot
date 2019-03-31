@@ -64,7 +64,8 @@
           </table>
 
        <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick = "openForm()">
-       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks">
+       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks"
+         OnClick="location.href='habit_tracker_prev.html';">
 
 
 <div class="form-popup" id="myForm">
@@ -78,18 +79,6 @@
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
-<table id="prevTable" class="myTable" style="display:none;">
-    <tr>
-      <th>Habit</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
-    </tr>
-</table>
 
    </body>
 <html>
