@@ -22,7 +22,9 @@ function validateForm() {
 
   var user_name = getCookie('username');
 
-  var exten_journal = "Extended Journal"
+  var ext_jour = "Extended Journal";
+
+  var input = document.getElementById("userInput").value;
 
   if (x.length == 0) {
       alert("You need to put something in your journal!");
@@ -32,8 +34,8 @@ function validateForm() {
 
       $.post("/newInserts", {
           username:user_name,
-          journal_type:exten_journal, 
-          // journal_name:input,
+          journal_type:ext_jour, 
+          journal_name:input,
           journal_entry:x
       })
       alert("You've submitted your journal!");
@@ -47,10 +49,6 @@ $(function () {
       var input = document.getElementById("userInput").value;
       
       $("#name").replaceWith(("<h2>" + input + "</h2>"));
-
-      // $.post("/newInserts", {
-      //     journal_name:input
-      // })
       return true;
 
   })
