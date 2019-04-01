@@ -15,8 +15,6 @@ function getCookie(cname) {
     return "";
 }
 
-// var input = document.getElementById("userInput").value;
-
 
 function validateForm() {
 
@@ -38,6 +36,7 @@ function validateForm() {
         $.post("/newInserts", {
             username:user_name,
             journal_type:one_sent, 
+            // journal_name:input,
             journal_entry:x
         })
         alert("You've submitted your journal!");
