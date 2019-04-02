@@ -19,12 +19,15 @@ function changeCSS(cssFile, cssLinkIndex) {
   document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 }
 
+
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+console.log("cookie = " + getCookie("theme"));
 
 function getCookie(cname) {
   var name = cname + "=";
