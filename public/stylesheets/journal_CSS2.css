@@ -40,3 +40,18 @@ h2 {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.addbtn {
+   -webkit-border-radius: 5px;
+   border-radius: 5px; 
+   background-color: #a36592;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+}
