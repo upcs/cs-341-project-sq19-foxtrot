@@ -22,17 +22,20 @@ function validateForm() {
 
   var user_name = getCookie('username');
 
-  var one_sent = "One Sentence Journal"
+  var ext_jour = "Extended Journal";
+
+  var input = document.getElementById("userInput").value;
 
   if (x.length == 0) {
       alert("You need to put something in your journal!");
       return false;
-  }
+  } 
   else {
 
       $.post("/newInserts", {
           username:user_name,
-          journal_type:one_sent, 
+          journal_type:ext_jour, 
+          journal_name:input,
           journal_entry:x
       })
       alert("You've submitted your journal!");
@@ -42,22 +45,19 @@ function validateForm() {
 }
 
 $(function () {
-  $("#journalSubmitBtn").on('click', validateForm);
-});
-
-$(function () {
   $("#name_button").click(function () {
-
       var input = document.getElementById("userInput").value;
+      
       $("#name").replaceWith(("<h2>" + input + "</h2>"));
-
-      $.post("/newInserts", {
-          journal_name:input
-      })
       return true;
 
   })
 })
+
+$(function () {
+  $("#journalSubmitBtn").on('click', validateForm);
+});
+
 
 //added for tests
 // module.exports = validateForm;
