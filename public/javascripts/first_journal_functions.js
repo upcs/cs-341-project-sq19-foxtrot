@@ -1,101 +1,71 @@
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-// var yyyy = today.getFullYear();
-// today = mm + '/' + dd + '/' + yyyy;
 
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
     return "";
-  }
-
-(function() {
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
-    Date.prototype.getDayName = function() {
-        return days[ this.getDay() ];
-    };
-})();
-
-var now = new Date();
-
-var today = now.getDayName();
-
-function validateForm () {
-
-var x = document.forms["journalForm"]["fjournal"].value;
-
-if (x.length == 0) {
-alert("You need to put something in your journal!");
-return false;
 }
 
-else if (x.length > 100) {
-alert("This is by far too many characters! The amount of characters necessary for this journal is 100. If you like to write more, click on the extended journal button below!");
-return false;
-}
-    else if (today == "Monday"){
-        $.post("/newInserts", {Journal_Mon:x})
+
+function validateForm() {
+
+    var x = document.forms["journalForm"]["fjournal"].value;
+
+    var user_name = getCookie('username');
+
+    var one_sent = "One Sentence Journal";
+
+    var input = document.getElementById("userInput").value;
+
+    if (x.length == 0) {
+        alert("You need to put something in your journal!");
+        return false;
+    } else if (x.length > 100) {
+        alert("This is by far too many characters! The amount of characters necessary for this journal is 100. If you like to write more, click on the extended journal button below!");
+        return false;
+    } 
+    else {
+
+        $.post("/newInserts", {
+            username:user_name,
+            journal_type:one_sent, 
+            journal_name:input,
+            journal_entry:x
+        })
         alert("You've submitted your journal!");
         return (true);
-        }
-        else if (today == "Tuesday"){
-            $.post("/newInserts", {Journal_Tue:x})
-            alert("You've submitted your journal!");
-            return (true);
-            }
-            else if (today == "Wednesday"){
-                $.post("/newInserts", {Journal_Wed:x})
-                alert("You've submitted your journal!");
-                return (true);
-                }
-                else if (today == "Thursday"){
-                    $.post("/newInserts", {Journal_Thu:x})
-                    alert("You've submitted your journal!");
-                    return (true);
-                    }
-                    else if (today == "Friday"){
-                        $.post("/newInserts", {Journal_Fri:x})
-                        alert("You've submitted your journal!");
-                        return (true);
-                        }
-
-    else {
-        alert("It didn't work :(")
-        return (false);
-        }
-            
+    }
+    
 }
 
-$(function(){
-    $("#journalSubmitBtn").on('click', validateForm);
-  });
-  
-$(function(){
+$(function () {
     $("#name_button").click(function () {
-
-        var input = document.getElementById("userInput").value; 
+        var input = document.getElementById("userInput").value;
+        
         $("#name").replaceWith(("<h2>" + input + "</h2>"));
-        return true; 
+        return true;
 
     })
 })
+
+$(function () {
+    $("#journalSubmitBtn").on('click', validateForm);
+});
+
 
 //added for tests
 // module.exports = validateForm;
 
 // //added for tests
 module.exports = {
-      validateForm
-    };
+    validateForm
+};
