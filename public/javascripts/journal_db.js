@@ -1,4 +1,5 @@
 
+var username = getCookie("username");
 
 function displayData(){
 
@@ -6,8 +7,8 @@ function displayData(){
 	// alert("I made it here!");
 
     $.post(
-		"/orders",
-		null,
+		"/journals",
+		{user:username},
 	   	function(data){
 
             console.log("I made it there!");
@@ -15,11 +16,8 @@ function displayData(){
 
 	       for (var i = 0; i<data.length; i++)
 	       {
-			       jourVar += "<tr>"+"<td>" + data[i].Journal_Mon + "</td>"
-						 +"<td>"+ data[i].Journal_Tue +"</td>"
-		       +"<td>"+  data[i].Journal_Wed +"</td>"
-					 +"<td>"+  data[i].Journal_Thu +"</td>"
-					 +"<td>"+  data[i].Journal_Fri +"</td>"
+			       jourVar += "<tr>"+"<td>" + new Date(data[i].date) + "-" + data[i].name +"</td>"
+		       +"<td>" +"</tr>" + "<tr>" +"<td>" + data[i].entry +"</td>"
 					 +"</tr>";
 	       }
 
@@ -27,7 +25,6 @@ function displayData(){
 
 			   document.getElementById('preJournal').style.display='';
 	   }, "json");
-
 }
 
 function getCookie(cname) {

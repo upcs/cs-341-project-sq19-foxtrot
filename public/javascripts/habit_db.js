@@ -2,6 +2,7 @@
 
 
 
+var username = getCookie("username");
 
 function displayData(){
 
@@ -16,7 +17,7 @@ function displayData(){
 
     $.post(
 		"/orders",
-		null,
+    {user:username},
 	   	function(data){
 
         //var username= getUser();
@@ -74,8 +75,17 @@ function displayData(){
 
 
            //var habitnum = data[0].habitnum;
-           var habitnum = 4;
+           var habitnum = getCookie("tracker");
    	       var jourVar = " ";
+
+           var habitArr = [];
+           for(var f=0; f<habitnum; f++){
+             for(var h=0; h<data.length; h++){
+               if(data[h].habit_number == f){
+                 habitArr[f]=data[h].habit;
+               }
+             }
+           }
 
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
@@ -88,8 +98,8 @@ function displayData(){
                 + addDays(sunday, 4) +"</td>" +"<td>"+ addDays(sunday, 5) +"</td>" +"<td>"+ addDays(sunday, 6) +"</td> </tr>";
 
                 for(var a=0; a<habitnum; a++){
-                  jourVar += "<tr>"+"<th>" + a + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
-                  jourVar += "<td>"+ 0 +"</td>" + "<td>"+ 0 +"</td>" +"<td>"+ 0 +"</td>" +"<td>"+ 0 +"</td>" +"<td>"+ 0 +"</td>" +"<td>"+ 0 +"</td>" +"<td>"+ 0 +"</td> </tr>";
+                  jourVar += "<tr>"+"<th>" + habitArr[a] + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
+                  jourVar += "<td> "+ "</td>" + "<td> "+"</td>" +"<td> "+"</td>" +"<td> "+ " " +"</td>" +"<td> "+ " " +"</td>" +"<td> "+ " " +"</td>" +"<td> "+ " " +"</td> </tr>";
                 }
                 /*for(var k = 0; k<7; k++){
                   console.log("in loop" + k);
@@ -137,7 +147,8 @@ function displayData(){
                  if(cell.innerHTML == (new Date(data[b].date))){
                    console.log("habit number: " + data[b].habit_number);
                    console.log("correct date");
-                   console.log(x.rows[c+data[b].habit_number+1])
+                   console.log(x.rows[c+data[b].habit_number]);
+                   console.log(x.rows[c+data[b].habit_number+1]);
                    //console.log(x.rows[c+data[b].habitnum+1]);
                    var correctRow=x.rows[c+data[b].habit_number+1];
                    console.log(correctRow.cells[d]);
@@ -146,6 +157,9 @@ function displayData(){
                }
              }
            }
+
+
+
 
 
            /*var new_row;
@@ -229,6 +243,9 @@ function displayData(){
            }
          }*/
 
+
+         //console.log("Cookie: "+ getCookie("theme"));
+
          //make table visible
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
@@ -302,6 +319,24 @@ function mark_prevCell(x) {
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";
 }
+
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 
 
 window.onload = displayData;

@@ -1,5 +1,5 @@
 body {
-   background-image:url("https://www.pastepic.xyz/images/2019/02/11/imagee583e367933a8ce1.png");
+   background-image:url("https://photos.google.com/share/AF1QipPH0vzMHO7APPBtLI51YL39amXTCjk2okkpXQLmiIJxdIXQr91N3K7eNnTnK8MZQg/photo/AF1QipNC_gCVsmB2j99IXo8nFyAWpsKTdzYNYSx7GoYl?key=TmRUT2pWTlpBYmRLNUpzWENDUzk0WUM4dlVNdUNB");
    background-repeat: no-repeat;
    background-size: cover;
 }
@@ -15,9 +15,9 @@ h1 {
     font-size: 200px;
 }
 
-#journalbtn { 
+#journalbtn {
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: #ffd633;
     border: none;
     color: white;
@@ -42,7 +42,7 @@ h1 {
 
 #habitbtn {
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: #33cccc;
     border: none;
     color: white;
@@ -106,4 +106,3 @@ h1 {
 .dropdown-content:hover .double-dropdown-content {
   display: block;
 }
-
