@@ -15,8 +15,6 @@ function getCookie(cname) {
     return "";
 }
 
-// var input = document.getElementById("userInput").value;
-
 
 function validateForm() {
 
@@ -24,7 +22,9 @@ function validateForm() {
 
     var user_name = getCookie('username');
 
-    var one_sent = "One Sentence Journal"
+    var one_sent = "One Sentence Journal";
+
+    var input = document.getElementById("userInput").value;
 
     if (x.length == 0) {
         alert("You need to put something in your journal!");
@@ -38,6 +38,7 @@ function validateForm() {
         $.post("/newInserts", {
             username:user_name,
             journal_type:one_sent, 
+            journal_name:input,
             journal_entry:x
         })
         alert("You've submitted your journal!");
@@ -51,10 +52,6 @@ $(function () {
         var input = document.getElementById("userInput").value;
         
         $("#name").replaceWith(("<h2>" + input + "</h2>"));
-
-        // $.post("/newInserts", {
-        //     journal_name:input
-        // })
         return true;
 
     })
