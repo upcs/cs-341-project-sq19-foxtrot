@@ -31,6 +31,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     },
     success: null
   });
+}
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
