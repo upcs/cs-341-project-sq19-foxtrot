@@ -31,6 +31,8 @@ function changeCSS(cssFile, cssLinkIndex) {
     },
     success: null
   });
+  document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+
 }
 
 function setCookie(cname, cvalue, exdays) {
