@@ -29,7 +29,6 @@ function validateLogin(user, pass) {
 		async: false
 	});
 
-
 	if (passes == false) {
 		alert("Invalid Login");
 		return false;
@@ -41,7 +40,6 @@ function validateLogin(user, pass) {
 		return passes;
 	}
 	return passes;
-
 };
 
 function getCookie(cname) {
@@ -74,8 +72,10 @@ function getUser(user) {
 //added for tests
 
 //module.exports.getUser = getUser; // export your functuion
-/*
+
 module.exports = {
 	validateLogin,
-	getUser
-};*/
+	getUser,
+	setCookie,
+	getCookie
+};
