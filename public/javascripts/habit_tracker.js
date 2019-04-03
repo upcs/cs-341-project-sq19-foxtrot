@@ -43,7 +43,7 @@ function add_row() {
     var new_row = x.rows[1].cloneNode(true);
     var input = document.getElementById("userInput").value;
     //POST
-    $.post("/new_habit", {Habit_name:input});
+    //$.post("/new_habit", {Habit_name:input});
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8
@@ -78,10 +78,18 @@ function removeRow() {
    console.log(content);
    var habit = content.replace("remove", "");
    console.log(habit);
+
+   //get current habit number and subtract 1, call new POST
+   var habit_num = getCookie("tracker") - 1;
+   console.log(habit_num);
+
+   $.post("/new_habit", {Habit_num:habit_num});
+
    $.post("/habitDelete",  { Habit:habit });
 
    tr.parentNode.removeChild(tr);
 }
+
 module.exports = {
       mark_cell,
       add_row,
