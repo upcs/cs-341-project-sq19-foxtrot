@@ -1,5 +1,4 @@
 //test
-
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -17,6 +16,7 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
+
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";
 
@@ -44,8 +44,10 @@ function add_row() {
     var input = document.getElementById("userInput").value;
     //POST
     var username = getCookie('username');
-   habitnum = getCookie('tracker')+1
-   $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});              
+
+    habitnum = getCookie('tracker')+1
+    $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});
+
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8
@@ -91,6 +93,40 @@ function removeRow() {
 
    tr.parentNode.removeChild(tr);
 }
+
+
+function getWeekNumber(d) {
+  d = new Date(d);
+  var onejan = new Date(d.getFullYear(),0,1);
+  var millisecsInDay = 86400000;
+  console.log(Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7));
+  return Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7);
+};
+
+function getSundayFromWeekNum(weekNum, year) {
+  var sunday = new Date(year, 0, (1 + (weekNum - 1) * 7));
+  while (sunday.getDay() !== 0) {
+      sunday.setDate(sunday.getDate() - 1);
+  }
+  console.log(sunday);
+  return sunday;
+}
+
+function getSaturdayFromWeekNum(weekNum, year) {
+  var saturday = new Date(year, 0, (7 + (weekNum - 1) * 7));
+  while (saturday.getDay() !== 6) {
+      saturday.setDate(saturday.getDate() - 1);
+  }
+  console.log(saturday);
+  return saturday;
+}
+
+//External Citation: https://stackoverflow.com/questions/17964170/get-the-weekday-from-a-date-object-or-date-string-using-javascript
+function getDayOfWeek(date) {
+var dayOfWeek = new Date(date).getDay();
+return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+}
+
 
 module.exports = {
       mark_cell,
