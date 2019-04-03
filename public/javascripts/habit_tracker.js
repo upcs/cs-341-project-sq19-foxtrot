@@ -16,6 +16,7 @@ function getCookie(cname) {
   }
   
 function mark_cell(x, tablename) {
+  changeDays()
 
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff"; 
@@ -48,7 +49,7 @@ function add_row() {
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});              
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
-    var num_columns = 8
+    var num_columns = 8;
     for (i = 1; i <num_columns; i++) {
         new_row.cells[i].style.backgroundColor =  "#d9b3ff";
         new_row.cells[i].innerHTML =  "";
@@ -81,6 +82,50 @@ function removeRow() {
    $.post("/habitDelete",  { Habit:newContent });
 
    tr.parentNode.removeChild(tr);
+}
+
+function changeDays(){
+  today = new Date()
+  var yyyy = today.getFullYear();
+  weekNum = getWeekNumber(today);
+  sun = getSundayFromWeekNum(weekNum,yyyy);
+  d = sun.getDate();
+
+  //initializing days of week to sun
+  //to increment later
+  mon = new Date(sun);
+  tue = new Date(sun);
+  wed = new Date(sun);
+  thu = new Date(sun);
+  fri = new Date(sun);
+  sat = new Date(sun);
+  
+  //incrementing dates
+  mon.setDate(d+1);
+  tue.setDate(d+2);
+  wed.setDate(d+3);
+  thu.setDate(d+4);
+  fri.setDate(d+5);
+  sat.setDate(d+6);
+
+  //fetching html
+  var sunday=document.getElementById('sun');
+  var monday=document.getElementById('mon');
+  var tuesday=document.getElementById('tue');
+  var wednesday=document.getElementById('wed');
+  var thursday=document.getElementById('thu');
+  var friday=document.getElementById('fri');
+  var saturday=document.getElementById('sat');
+  
+  //set text of day columns to its proper numerical date
+  sunday.innerHTML = sun;
+  monday.innerHTML = mon;
+  tuesday.innerHTML = tue;
+  wednesday.innerHTML = wed;
+  thursday.innerHTML = thu;
+  friday.innerHTML = fri;
+  saturday.innerHTML = sat;
+
 }
 
 function getWeekNumber(d) {

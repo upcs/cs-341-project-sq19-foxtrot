@@ -7,7 +7,7 @@
       <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
       <script type="text/javascript" src="javascripts/habit_db.js"></script>
     <head>
-    <body>
+    <body onload = "changeDays()">
         <script>
             if (getCookie("theme") == 1) {
               document.write('<link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">');
@@ -27,13 +27,13 @@
         <table id="myTable" class="myTable">
             <tr>
               <th>Habit</th>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-              <th>Sunday</th>
+              <th id = sun>Sunday</th>
+              <th id = mon>Monday</th>
+              <th id = tue>Tuesday</th>
+              <th id = wed>Wednesday</th>
+              <th id = thu>Thursday</th>
+              <th id = fri>Friday</th>
+              <th id = sat>Saturday</th>
             </tr>
             <tr style="display:none;">
               <th>Habit <button id="remove_button" class="editbtn" OnClick = "removeRow()">remove</button> </th>
