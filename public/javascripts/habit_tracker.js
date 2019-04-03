@@ -15,13 +15,13 @@ function getCookie(cname) {
     }
     return "";
   }
-  
+
 function mark_cell(x, tablename) {
     x.innerHTML = "Completed";
-    x.style.backgroundColor = "#bf7fff"; 
-    
-    var td = event.target.parentNode; 
-    var tr = td; 
+    x.style.backgroundColor = "#bf7fff";
+
+    var td = event.target.parentNode;
+    var tr = td;
     console.log(tr)
     var content = tr.cells[0].textContent;
     var newContent = content.replace("remove","");
@@ -40,10 +40,10 @@ function mark_cell(x, tablename) {
 
 function add_row() {
     var x=document.getElementById('myTable');
-    var new_row = x.rows[1].cloneNode(true);                                               
-    var input = document.getElementById("userInput").value;  
+    var new_row = x.rows[1].cloneNode(true);
+    var input = document.getElementById("userInput").value;
     //POST
-    $.post("/new_habit", {Habit_name:input});              
+    $.post("/new_habit", {Habit_name:input});
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8
@@ -75,8 +75,10 @@ function removeRow() {
 
    //getting habit name
    var content = td.textContent;
-   var newContent = content.replace("remove", "");
-   $.post("/habitDelete",  { Habit:newContent });
+   console.log(content);
+   var habit = content.replace("remove", "");
+   console.log(habit);
+   $.post("/habitDelete",  { Habit:habit });
 
    tr.parentNode.removeChild(tr);
 }
