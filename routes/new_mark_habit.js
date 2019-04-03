@@ -13,13 +13,13 @@ router.post('/', function(req, res, next) {
     //habit = 'Habit'
     console.log(today)
     var input = '1'; 
-    var username = "";
+    var username = req.body.habit_name;
     var habit = req.body.habit_name
     //Add getter to return current user for username 
     
-    dbms.dbquery("UPDATE  leadership2 SET "+today+"=1 WHERE Tracker='Habit' AND Name='"+habit+"';",
+dbms.dbquery("INSERT INTO  habit (username,adate,habit) VALUES ('"+username+"','"+today+"','"+habit_name+"')",
 function(err, data){ }
-);    
+);     
 /*dbms.dbquery("UPDATE  leadership2 SET D3_4_2019=1 WHERE Tracker='Habit' AND Name='Practice gratitude';",
 function(err, data){ }
 );*/     
