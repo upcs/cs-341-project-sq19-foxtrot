@@ -35,23 +35,6 @@ describe('Testing simple login function actions', () => {
 
 });
 
-describe('Testing login function that pass', () => {
-	login.validateLogin = jest.fn(() => 'true')
-	test("given admin login", () => {
-		const result = login.validateLogin(one, one);
-		expect(result).toBe('true');
-		expect(login.validateLogin).toHaveBeenCalled();
-		expect(login.validateLogin).toHaveBeenCalledWith(one, one);
-	})
-
-	test("given admin login", () => {
-		const result = login.validateLogin(Polina, foxtrot);
-		expect(result).toBe('true');
-		expect(login.validateLogin).toHaveBeenCalled();
-		expect(login.validateLogin).toHaveBeenCalledWith(Polina, foxtrot);
-	})
-});
-
 describe('Testing login function that fail', () => {
 	login.validateLogin = jest.fn(() => 'false')
 	test("given empty password with correct username", () => {
