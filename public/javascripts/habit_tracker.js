@@ -43,7 +43,9 @@ function add_row() {
     var new_row = x.rows[1].cloneNode(true);
     var input = document.getElementById("userInput").value;
     //POST
-    //$.post("/new_habit", {Habit_name:input});
+    var username = getCookie('username');
+   habitnum = getCookie('tracker')+1
+   $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});              
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8
