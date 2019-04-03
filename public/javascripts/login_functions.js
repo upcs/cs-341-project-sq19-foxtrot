@@ -1,21 +1,6 @@
-src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
-//src="https://code.jquery.com/jquery-3.3.1.js";
-
-//var $ = jQuery.noConflict();
-//checks to see if user has an account
-
-var user = "";
 
 function validateLogin(user, pass) {
 
-
-	//var journ = $("#journalbtn").innerHTML;
-	//console.log(journ);
-	//var x=document.getElementById('journalbtn');
-	//console.log(x.innerHTML);
-	//document.write(username);
-
-	var user;
 	if (user == 1 && pass == 1) {
 		console.log("Admin");
 		setCookie("username", user, .042);
@@ -23,39 +8,36 @@ function validateLogin(user, pass) {
 		//set habitnum to all habitnumbers
 		return true;
 	}
+
 	var passes = false;
 	$.ajax({
 		type: 'POST',
 		url: "/users",
-		data: null,
+		data: {
+			"username": user,
+			"password": pass
+		},
 		success: function (data) {
-			console.log("data arrived");
-			for (i = 0; i <= data.length; i++) {
-				if (data[i].username == user && data[i].password == pass) {
-					console.log("true");
-					setCookie("username", data[i].username, .042);
-					setCookie("theme", data[i].theme, .042);
-					setCookie("tracker", data[i].tracker, .042);
-					passes = true;
-					//var userHtml = "<h2>" + username + "</h2>";
-					//$("#journalbtn").append(userHtml);
-					//console.log("appended to journal button");
-				}
+			if (data.username != null) {
+				setCookie("username", data.username, .042);
+				setCookie("theme", data.theme, .042);
+				setCookie("tracker", data.tracker, .042);
+				passes = true;
 			}
 		},
 		dataType: "json",
 		async: false
 	});
 
+
 	if (passes == false) {
 		alert("Invalid Login");
-		console.log("false");
 		return false;
 	}
 
 	var username = getCookie("username");
 	if (username != "") {
-		alert("Welcome Again " + username);
+		alert("Welcome " + username);
 		return passes;
 	}
 	return passes;
