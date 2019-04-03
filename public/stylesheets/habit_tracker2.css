@@ -1,6 +1,6 @@
 body {
    background-image: linear-gradient(#ffb3b3, #d19494);
-} 
+}
 
 .button {
    color: white;
@@ -50,7 +50,7 @@ table, th, td {
 
 #addbtn{
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: #a36592;
     border: none;
     color: white;
@@ -63,6 +63,20 @@ table, th, td {
     cursor: pointer;
 }
 
+#prevbtn{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #a36592;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -111,4 +125,4 @@ table, th, td {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
-}  
+}

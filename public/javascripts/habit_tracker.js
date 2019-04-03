@@ -19,13 +19,16 @@ function mark_cell(x, tablename) {
 
     x.innerHTML = "Completed";
     x.style.backgroundColor = "#bf7fff";
+    //x.style.backgroundColor = "#8f5680";
 
     var td = event.target.parentNode;
     var tr = td;
-    console.log(tr)
+    console.log(tr);
     var content = tr.cells[0].textContent;
     var newContent = content.replace("remove","");
-    console.log(newContent)
+    console.log(newContent);
+
+
     //var row = $(x).closest("tr").index();
     //console.log(row);
 
@@ -85,9 +88,10 @@ function removeRow() {
 
    //get current habit number and subtract 1, call new POST
    var habit_num = getCookie("tracker") - 1;
-   console.log(habit_num);
 
-   $.post("/new_habit", {Habit_num:habit_num});
+   var username = getCookie('username');
+
+   $.post("/new_habit", {Habit_name:habit, user:username, habitnum:habit_num});
 
    $.post("/habitDelete",  { Habit:habit });
 

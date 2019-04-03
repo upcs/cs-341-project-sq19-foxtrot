@@ -3,9 +3,6 @@ var username = getCookie("username");
 
 function displayData(){
 
-	// event.preventDefault();
-	// alert("I made it here!");
-
     $.post(
 		"/journals",
 		{user:username},
