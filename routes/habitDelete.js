@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
     var habit = req.body.Habit;
     console.log(habit);
     console.log("In habit_delete.js post");
-    dbms.dbquery("DELETE FROM leadership WHERE Habit='"+habit+"';",
+    dbms.dbquery("DELETE FROM habit WHERE habit='"+habit+"';",
     function(err, data){ }
   );
 });
