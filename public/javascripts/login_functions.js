@@ -19,6 +19,9 @@ function validateLogin(user, pass) {
 		},
 		success: function (data) {
 			if (data.username != null) {
+				console.log("username = " + data.username);
+				console.log("theme = " + data.theme);
+				console.log("tracker = " + data.tracker);
 				setCookie("username", data.username, .042);
 				setCookie("theme", data.theme, .042);
 				setCookie("tracker", data.tracker, .042);
