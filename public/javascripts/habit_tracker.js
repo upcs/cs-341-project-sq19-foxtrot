@@ -39,6 +39,7 @@ function mark_cell(x, tablename) {
     $.post("/new_mark_habit", { habit_name:newContent});
 }
 
+//For when user creates new habit
 function add_row() {
     var x=document.getElementById('myTable');
     var new_row = x.rows[1].cloneNode(true);                                               
@@ -57,10 +58,25 @@ function add_row() {
     new_row.cells[1].style.backgroundColor =  "#d9b3ff";
     new_row.cells[1].innerHTML =  "";
     x.appendChild( new_row );
-    var table = document.getElementById("myTable");
     closeForm();
     document.getElementById("userInput").value = "";
     return input
+}
+
+//For displaying habits that are already in database
+function addRow(input){
+  var x=document.getElementById('myTable');
+  var new_row = x.rows[1].cloneNode(true);                                                          
+  new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
+  new_row.style="display;";
+  var num_columns = 8;
+  for (i = 1; i <num_columns; i++) {
+      new_row.cells[i].style.backgroundColor =  "#d9b3ff";
+      new_row.cells[i].innerHTML =  "";
+  }
+  new_row.cells[1].style.backgroundColor =  "#d9b3ff";
+  new_row.cells[1].innerHTML =  "";
+  x.appendChild( new_row );
 }
 
 function openForm() {
@@ -145,21 +161,36 @@ function getSundayFromWeekNum(weekNum, year) {
   return sunday;
 }
 
-function getSaturdayFromWeekNum(weekNum, year) {
-  var saturday = new Date(year, 0, (7 + (weekNum - 1) * 7));
-  while (saturday.getDay() !== 6) {
-      saturday.setDate(saturday.getDate() - 1);
+function displayHabits(){
+  var username = getCookie("username");
+$.post(
+  "/orders",
+  {user:username},
+     function(data){
+      var habitnum = getCookie("tracker");
+      var habitArr = [];
+      for(var f=0; f<habitnum; f++){
+        for(var h=0; h<data.length; h++){
+          if(data[h].habit_number == f){
+            habitArr[f]=data[h].habit;
+          }
+        }
+      }
+      console.log(habitArr)
+      var table = document.getElementById('myTable');
+      var tableadd = ""
+      for(var a=0; a<habitnum; a++){
+        tableadd += "<tr>"+"<th>" + habitArr[a] + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
+        tableadd += "<th onclick='mark_cell(this)'>"+"</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th></tr>";
+      }
+      $("#myTable").append(tableadd);
+     
+      
+
+       
+    }, "json");
+
   }
-  console.log(saturday);
-  return saturday;
-}
-
-//External Citation: https://stackoverflow.com/questions/17964170/get-the-weekday-from-a-date-object-or-date-string-using-javascript
-function getDayOfWeek(date) {
-var dayOfWeek = new Date(date).getDay();
-return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
-}
-
 
 module.exports = {
       mark_cell,
