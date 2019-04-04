@@ -1,5 +1,4 @@
 //test
-
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -15,17 +14,21 @@ function getCookie(cname) {
     }
     return "";
   }
-  
+
 function mark_cell(x, tablename) {
+
     x.innerHTML = "Completed";
-    x.style.backgroundColor = "#bf7fff"; 
-    
-    var td = event.target.parentNode; 
-    var tr = td; 
-    console.log(tr)
+    x.style.backgroundColor = "#bf7fff";
+    //x.style.backgroundColor = "#8f5680";
+
+    var td = event.target.parentNode;
+    var tr = td;
+    console.log(tr);
     var content = tr.cells[0].textContent;
     var newContent = content.replace("remove","");
-    console.log(newContent)
+    console.log(newContent);
+
+
     //var row = $(x).closest("tr").index();
     //console.log(row);
 
@@ -40,10 +43,14 @@ function mark_cell(x, tablename) {
 
 function add_row() {
     var x=document.getElementById('myTable');
-    var new_row = x.rows[1].cloneNode(true);                                               
-    var input = document.getElementById("userInput").value;  
+    var new_row = x.rows[1].cloneNode(true);
+    var input = document.getElementById("userInput").value;
     //POST
-    $.post("/new_habit", {Habit_name:input});              
+    var username = getCookie('username');
+
+    habitnum = getCookie('tracker')+1
+    $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});
+
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
     var num_columns = 8
@@ -75,11 +82,56 @@ function removeRow() {
 
    //getting habit name
    var content = td.textContent;
-   var newContent = content.replace("remove", "");
-   $.post("/habitDelete",  { Habit:newContent });
+   console.log(content);
+   var habit = content.replace("remove", "");
+   console.log(habit);
+
+   //get current habit number and subtract 1, call new POST
+   var habit_num = getCookie("tracker") - 1;
+
+   var username = getCookie('username');
+
+   $.post("/new_habit", {Habit_name:habit, user:username, habitnum:habit_num});
+
+   $.post("/habitDelete",  { Habit:habit });
 
    tr.parentNode.removeChild(tr);
 }
+
+
+function getWeekNumber(d) {
+  d = new Date(d);
+  var onejan = new Date(d.getFullYear(),0,1);
+  var millisecsInDay = 86400000;
+  console.log(Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7));
+  return Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7);
+};
+
+function getSundayFromWeekNum(weekNum, year) {
+  var sunday = new Date(year, 0, (1 + (weekNum - 1) * 7));
+  while (sunday.getDay() !== 0) {
+      sunday.setDate(sunday.getDate() - 1);
+  }
+  console.log(sunday);
+  return sunday;
+}
+
+function getSaturdayFromWeekNum(weekNum, year) {
+  var saturday = new Date(year, 0, (7 + (weekNum - 1) * 7));
+  while (saturday.getDay() !== 6) {
+      saturday.setDate(saturday.getDate() - 1);
+  }
+  console.log(saturday);
+  return saturday;
+}
+
+//External Citation: https://stackoverflow.com/questions/17964170/get-the-weekday-from-a-date-object-or-date-string-using-javascript
+function getDayOfWeek(date) {
+var dayOfWeek = new Date(date).getDay();
+return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+}
+
+
 module.exports = {
       mark_cell,
       add_row,

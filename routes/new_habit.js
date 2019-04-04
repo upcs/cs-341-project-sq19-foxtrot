@@ -4,12 +4,15 @@ var dbms = require("./dbms.js");
 
 
 
+var arrayName = [];
 router.post('/', function(req, res, next) {
+    var user = req.body.user
     var habit_name = req.body.Habit_name
-    var tracker = "Habit"
+    num_habits = req.body.habitnum
     //Add getter to return current user for username 
-    dbms.dbquery("INSERT INTO  leadership2 (tracker,name) VALUES ('"+tracker+"','"+habit_name+"')",
-function(err, data){ }
-);     
+    dbms.dbquery("UPDATE leadership3 SET habitnum=num_habits WHERE user='"+user+"';",
+    function(err, data){ }
+    );    
+    
 });
 module.exports = router;
