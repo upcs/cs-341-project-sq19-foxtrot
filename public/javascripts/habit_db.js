@@ -12,27 +12,26 @@ function displayData(){
     {user:username},
 	   	function(data){
 
-
          var x=document.getElementById('prevTable');
 
-         var weekday = getDayOfWeek(data[1].date);
-         console.log(weekday);
+         //var weekday = getDayOfWeek(data[1].date);
+         //console.log(weekday);
 
-         if(weekday == 'Monday'){
-           console.log('yes monday');
-         }
+         //if(weekday == 'Monday'){
+        //   console.log('yes monday');
+         //}
 
-         var result = getWeekNumber(data[0].date);
+         //var result = getWeekNumber(data[0].date);
 
-         console.log('Week no:' + result);
+         //console.log('Week no:' + result);
 
-         console.log('Adding days');
+         //console.log('Adding days');
 
-         console.log(data[0].date);
+         //console.log(data[0].date);
 
-         var newDay = addDays(data[0].date, 2);
+         //var newDay = addDays(data[0].date, 2);
 
-         console.log(newDay);
+         //console.log(newDay);
 
 
           var habitWk = 0;
@@ -61,9 +60,11 @@ function displayData(){
                 habitWk = getWeekNumber(data[i].date);
                 var sunday = getSundayFromWeekNum(habitWk, 2019);
                 var saturday = getSaturdayFromWeekNum(habitWk, 2019);
-                jourVar += '<tr class="week"><td colspan= 8 > Week '+ sunday + '-' + saturday +' </td></tr>';
-                jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ sunday +"</td>" + "<td>"+ addDays(sunday, 1) +"</td>" +"<td>"+ addDays(sunday, 2) +"</td>" +"<td>"+ addDays(sunday, 3) +"</td>" +"<td>"
-                + addDays(sunday, 4) +"</td>" +"<td>"+ addDays(sunday, 5) +"</td>" +"<td>"+ addDays(sunday, 6) +"</td> </tr>";
+                jourVar += '<tr class="week"><td colspan= 8 > Week '+ removeTime(sunday) + '-' + removeTime(saturday) +' </td></tr>';
+                jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ removeTime(sunday) +"</td>" + "<td>"
+                + removeTime(addDays(sunday, 1)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 2)) +"</td>"
+                +"<td>"+ removeTime(addDays(sunday, 3)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 4)) +"</td>" +"<td>"
+                + removeTime(addDays(sunday, 5)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 6)) +"</td> </tr>";
 
                 for(var a=0; a<habitnum; a++){
                   jourVar += "<tr>"+"<th>" + habitArr[a] + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
@@ -90,7 +91,7 @@ function displayData(){
                for(var d=0; d<new_row.cells.length; d++){
                  cell=new_row.cells[d];
                  console.log(cell);
-                 if(cell.innerHTML == (new Date(data[b].date))){
+                 if(cell.innerHTML == (removeTime(data[b].date))){
                    console.log("habit number: " + data[b].habit_number);
                    console.log("correct date");
                    console.log(x.rows[c+data[b].habit_number]);
@@ -108,6 +109,13 @@ function displayData(){
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
 
+}
+
+function removeTime(date){
+  var dateString = date;
+  dateString = new Date(dateString).toUTCString();
+  dateString = dateString.split(' ').slice(0, 4).join(' ');
+  return dateString;
 }
 
 function addDays(d, days) {

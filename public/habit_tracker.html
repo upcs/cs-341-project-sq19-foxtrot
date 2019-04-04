@@ -17,12 +17,14 @@
             }
           </script>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
-        
-        <a class="button" id="header">Hello<script>
-            document.getElementById("header").append(", " + getCookie("username") + "!");
-          </script></a>
 
-        <h1>Habit Tracker</h1>
+        
+
+        <h1 id="header">Welcome to your Habit Tracker</h1>
+
+        <script>
+          document.getElementById("header").append(", " + getCookie("username") + "!");
+        </script>
 
         <table id="myTable" class="myTable">
             <tr>
