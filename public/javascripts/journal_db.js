@@ -3,9 +3,6 @@ var username = getCookie("username");
 
 function displayData(){
 
-	// event.preventDefault();
-	// alert("I made it here!");
-
     $.post(
 		"/journals",
 		{user:username},
@@ -16,15 +13,34 @@ function displayData(){
 
 	       for (var i = 0; i<data.length; i++)
 	       {
-			       jourVar += "<tr>"+"<td>" + new Date(data[i].date) + "-" + data[i].name +"</td>"
-		       +"<td>" +"</tr>" + "<tr>" +"<td>" + data[i].entry +"</td>"
+			       jourVar += "<tr class='week'>"+"<td>" + removeTime(data[i].date) + " - " + data[i].name +"</td>"
+		        +"</tr>" + "<tr>" +"<td>" + data[i].entry +"</td>"
 					 +"</tr>";
 	       }
 
 	       $("#preJournal").append(jourVar);
 
+         var weekRows = document.getElementsByClassName("week");
+         console.log("Week row:" + weekRows);
+         for(var i=0; i<weekRows.length; i++) {
+           markWeekRow(weekRows[i]);
+         }
+
 			   document.getElementById('preJournal').style.display='';
 	   }, "json");
+}
+
+function removeTime(date){
+  var dateString = date;
+  dateString = new Date(dateString).toUTCString();
+  dateString = dateString.split(' ').slice(0, 4).join(' ');
+  return dateString;
+}
+
+function markWeekRow(weekRow){
+  console.log("in markWeekRow");
+  weekRow.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
+  weekRow.style.border = "10px solid rgba(0, 0, 0, 0.0)";
 }
 
 function getCookie(cname) {
