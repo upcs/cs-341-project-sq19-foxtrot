@@ -10,6 +10,12 @@ function changeCSS(cssFile, cssLinkIndex) {
   else if (getCookie("theme") == 2 && cssFile == "/stylesheets/design2.css") {
     return;
   }
+  else if(getCookie("theme") == 3 && cssFile == "/stylesheets/design3.css"){
+    return;
+  }
+  else if(getCookie("theme") == 4 && cssFile == "/stylesheets/design4.css"){
+    return;
+  }
   var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
   var newlink = document.createElement("link");
@@ -17,13 +23,21 @@ function changeCSS(cssFile, cssLinkIndex) {
   newlink.setAttribute("type", "text/css");
   newlink.setAttribute("href", cssFile);
   var tnumber;
-  if (getCookie("theme") == 1) {
+  if (cssFile == "/stylesheets/design.css") {
+    setCookie("theme", 1, .042);
+    tnumber = 1;
+  }
+  else if(cssFile == "/stylesheets/design2.css") {
     setCookie("theme", 2, .042);
     tnumber = 2;
   }
-  else {
-    setCookie("theme", 1, .042);
-    tnumber = 1;
+  else if(cssFile == "/stylesheets/design3.css") {
+    setCookie("theme", 3, .042);
+    tnumber = 3;
+  }
+  else if(cssFile == "/stylesheets/design4.css") {
+    setCookie("theme", 4, .042);
+    tnumber = 4;
   }
   user = getCookie("username");
   $.ajax({
