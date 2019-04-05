@@ -16,8 +16,14 @@
       if (getCookie("theme") == 1) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design.css'>");
       }
-      else {
+      else if (getCookie("theme") == 2) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design2.css'>");
+      }
+      else if (getCookie("theme") == 3) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design3.css'>");
+      }
+      else {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design4.css'>");
       }
     </script>
 
@@ -30,18 +36,22 @@
         <p id="greeting">
           <script>
             document.getElementById("greeting").append("Hello, " + getCookie("username"));
-            </script>
+          </script>
         </p>
-        
+
         <form action="index.html">
           <input type="submit" value="Log Out" />
         </form>
-        
+
         <p>Change Theme</p>
         <div class="double-dropdown-content">
           <a href="#" onclick="changeCSS('/stylesheets/design.css', 0);">Portland</a>
           <br>
           <a href="#" onclick="changeCSS('/stylesheets/design2.css', 0);">New York</a>
+          <br>
+          <a href="#" onclick="changeCSS('/stylesheets/design3.css', 0);">Moscow</a>
+          <br>
+          <a href="#" onclick="changeCSS('/stylesheets/design4.css', 0);">Los Angeles</a>
         </div>
 
       </div>
@@ -50,7 +60,9 @@
 
     <h1>Lead UP</h1>
 
-    <img id="logo" src="https://lh3.googleusercontent.com/eCPVTvLB6Y_U6pZANmjQtk13EB_GWdiwmYsNRgDk4IGz1lHEacSTiXZueLMRa-tRgcK3IAcJ8BCd1Gxc43TOn5De12WjueT8p8ENLnELXegAkuNq7JDUz2EOTwbsd0SMCvsWd6OTIw=w2400" alt="UP_Logo">
+    <img id="logo"
+      src="https://lh3.googleusercontent.com/eCPVTvLB6Y_U6pZANmjQtk13EB_GWdiwmYsNRgDk4IGz1lHEacSTiXZueLMRa-tRgcK3IAcJ8BCd1Gxc43TOn5De12WjueT8p8ENLnELXegAkuNq7JDUz2EOTwbsd0SMCvsWd6OTIw=w2400"
+      alt="UP_Logo">
     <form action="sentence_journal_GUI.html">
       <input type="submit" id="journalbtn" value="Go to Journal" />
     </form>
