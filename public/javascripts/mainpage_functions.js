@@ -5,15 +5,19 @@
 function changeCSS(cssFile, cssLinkIndex) {
   //if clicking current theme, no errors/glitches happen
   if (getCookie("theme") == 1 && cssFile == "/stylesheets/design.css") {
+    getEnglish();
     return;
   }
   else if (getCookie("theme") == 2 && cssFile == "/stylesheets/design2.css") {
+    getEnglish();
     return;
   }
   else if(getCookie("theme") == 3 && cssFile == "/stylesheets/design3.css"){
+    getRussian();
     return;
   }
   else if(getCookie("theme") == 4 && cssFile == "/stylesheets/design4.css"){
+    getEnglish();
     return;
   }
   var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
@@ -24,18 +28,22 @@ function changeCSS(cssFile, cssLinkIndex) {
   newlink.setAttribute("href", cssFile);
   var tnumber;
   if (cssFile == "/stylesheets/design.css") {
+    getEnglish();
     setCookie("theme", 1, .042);
     tnumber = 1;
   }
   else if(cssFile == "/stylesheets/design2.css") {
+    getEnglish();
     setCookie("theme", 2, .042);
     tnumber = 2;
   }
   else if(cssFile == "/stylesheets/design3.css") {
+    getRussian();
     setCookie("theme", 3, .042);
     tnumber = 3;
   }
   else if(cssFile == "/stylesheets/design4.css") {
+    getEnglish();
     setCookie("theme", 4, .042);
     tnumber = 4;
   }
@@ -74,4 +82,20 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+function getRussian(){
+  document.getElementById("journalbtn").value = "Перейти в журнал";
+  document.getElementById("habitbtn").value = "Перейти в дневник";
+  document.getElementById("greeting").innerHTML = ("Привет, " + getCookie("username"));
+  document.getElementById("logout").value = "Выйти";
+  document.getElementById("changeTheme").innerHTML = "Сменить тему";
+}
+
+function getEnglish(){
+  document.getElementById("journalbtn").value = "Go to Journal";
+  document.getElementById("habitbtn").value = "Go to Habit Tracker";
+  document.getElementById("greeting").innerHTML = ("Hello, " + getCookie("username"));
+  document.getElementById("logout").value = "Log Out";
+  document.getElementById("changeTheme").innerHTML = "Change Theme";
 }

@@ -1,14 +1,12 @@
 
 function validateLogin(user, pass) {
-
 	if (user == 1 && pass == 1) {
 		console.log("Admin");
 		setCookie("username", user, .042);
-		setCookie("theme", pass, .042);
+		setCookie("theme", 3, .042);
 		//set habitnum to all habitnumbers
 		return true;
 	}
-
 	var passes = false;
 	$.ajax({
 		type: 'POST',
@@ -31,12 +29,10 @@ function validateLogin(user, pass) {
 		dataType: "json",
 		async: false
 	});
-
 	if (passes == false) {
 		alert("Invalid Login");
 		return false;
 	}
-
 	var username = getCookie("username");
 	if (username != "") {
 		alert("Welcome " + username);
@@ -72,9 +68,6 @@ function getUser(user) {
 	console.log("getUser: " + user);
 	return user;
 }
-//added for tests
-
-//module.exports.getUser = getUser; // export your functuion
 
 module.exports = {
 	validateLogin,
