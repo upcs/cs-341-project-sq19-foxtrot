@@ -8,7 +8,7 @@ router.post('/', function(req, res, next) {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1); 
     var yyyy = today.getFullYear();
-    today = 'D' +mm + '_' + dd + '_' + yyyy;
+    today = mm + '-' + dd + '-' + yyyy;
     //today = 'D3_4_2019'
     //habit = 'Habit'
     console.log(today)
