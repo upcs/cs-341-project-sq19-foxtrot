@@ -15,12 +15,12 @@ h1 {
 h1:after {
     visibility: visible;
     position: absolute;
-    content: "Bести UP";
+    content: "Лидеры UP";
   color: rgba(145,111,65,100);
   border-radius: 5px;
   border-color: darkgray;
   top: 600%;
-  left: 30%;
+  left: 40%;
   transform: translate(-50%, -50%);
   font-family: Bodoni 72 Smallcaps, Bodoni 72 Smallcaps, Bodoni 72 Smallcaps;
   font-weight: 900;
@@ -28,29 +28,25 @@ h1:after {
 }
 
 #journalbtn {
-    visibility: hidden;
-	position: relative;
-}
-#journalbtn:after {
     visibility: visible;
-      position: absolute;
-      content:"Перейти в журнал";
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background-color: rgba(145,111,65,100);
-    border: none;
-    color: White;
-    padding: 20px 84px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    top: 50%;
-    left: 20%;
-    font-family: Bodoni 72 Smallcaps, Bodoni 72 Smallcaps, Bodoni 72 Smallcaps;
-    box-shadow: 0px 5px 20px lightGray;
+    position: absolute;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(145,111,65,100);
+  border: none;
+  color: White;
+  padding: 20px 64px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  top: 60%;
+  left: 20%;
+  font-family: Bodoni 72 Smallcaps, Bodoni 72 Smallcaps, Bodoni 72 Smallcaps;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 5px 20px lightGray;
 }
 
 #journalbtn:hover {
@@ -73,10 +69,9 @@ h1:after {
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
-  top: 65%;
+  top: 75%;
   left: 20%;
   font-family: Bodoni 72 Smallcaps, Bodoni 72 Smallcaps, Bodoni 72 Smallcaps;
-  content:"Перейти в привычка трекер";
   transform: translate(-50%, -50%);
   box-shadow: 0px 5px 20px lightGray;
 }
