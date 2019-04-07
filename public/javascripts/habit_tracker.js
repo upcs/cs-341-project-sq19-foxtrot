@@ -13,7 +13,7 @@ function getCookie(cname) {
     }
     return "";
   }
-  
+
 function mark_cell(x, tablename) {
     //change text and color of clicked cell  
     x.innerHTML = "Completed";
@@ -94,8 +94,18 @@ function removeRow() {
 
    //getting habit name
    var content = td.textContent;
-   var newContent = content.replace("remove", "");
-   $.post("/habitDelete",  { Habit:newContent });
+   console.log(content);
+   var habit = content.replace("remove", "");
+   console.log(habit);
+
+   //get current habit number and subtract 1, call new POST
+   var habit_num = getCookie("tracker") - 1;
+
+   var username = getCookie('username');
+
+   $.post("/new_habit", {Habit_name:habit, user:username, habitnum:habit_num});
+
+   $.post("/habitDelete",  { Habit:habit });
 
    tr.parentNode.removeChild(tr);
 }
