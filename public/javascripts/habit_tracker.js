@@ -54,6 +54,7 @@ function add_row() {
     var username = getCookie('username');
 
     console.log(getCookie('tracker'));
+    //increment
     var habitnum = getCookie('tracker');
     habitnum++;
     console.log(habitnum);
