@@ -17,10 +17,6 @@ function getCookie(cname) {
 function mark_cell(x, tablename) {
     //change text and color of clicked cell  
     x.innerHTML = "Completed";
-<<<<<<< HEAD
-=======
-
->>>>>>> 6e9686682c6a59db97eb6bf34451af836ba81413
     //x.style.backgroundColor = "#bf7fff";
     //var color = document.getElementById("prevbtn").style.backgroundColor;
     //document.getElementById("prevbtn").style.opacity = "0.5";
@@ -41,6 +37,7 @@ function mark_cell(x, tablename) {
     var table = document.getElementById('myTable');
     var dayClicked = table.rows[0].cells[col].innerHTML;
     console.log("day  " + dayClicked);
+    
 
     //POST
     var username = getCookie('username');
