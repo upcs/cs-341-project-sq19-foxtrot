@@ -9,11 +9,12 @@ router.post('/', function(req, res, next) {
     var today = new Date(day);
     console.log(today)
     var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1); 
+    var mm = String(today.getMonth() + 1);
     var yyyy = today.getFullYear();
     
     today = mm + '-' + dd + '-' + yyyy;
     console.log(today)
+
     var username = req.body.username;
     var habit = req.body.habit_name
     
@@ -21,5 +22,6 @@ router.post('/', function(req, res, next) {
 dbms.dbquery("INSERT INTO  habit (username,adate,habit) VALUES ('"+username+"','"+today+"','"+habit+"')",
     function(err, data){ }
     );        
+
 });
 module.exports = router;
