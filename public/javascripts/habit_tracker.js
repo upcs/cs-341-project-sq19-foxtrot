@@ -15,7 +15,7 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
-    //change text and color of clicked cell  
+    //change text and color of clicked cell
     x.innerHTML = "Completed";
 
     //x.style.backgroundColor = "#bf7fff";
@@ -42,7 +42,7 @@ function mark_cell(x, tablename) {
     //POST
     var username = getCookie('username');
     $.post("/new_mark_habit", {username:username, habit_name:newContent, day:dayClicked});
-    
+
 }
 
 //For when user creates new habit
@@ -50,8 +50,8 @@ function add_row() {
     var x=document.getElementById('myTable');
     var new_row = x.rows[1].cloneNode(true);
 
-    //get the name of the habit that the user typed                                                
-    var input = document.getElementById("userInput").value;  
+    //get the name of the habit that the user typed
+    var input = document.getElementById("userInput").value;
     var username = getCookie('username');
     var habitnum = getCookie('tracker')+1;
 
@@ -66,7 +66,7 @@ function add_row() {
 
     //POST
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});
-    
+
     //add removeRow button to newly added habit
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
@@ -83,9 +83,9 @@ function add_row() {
     //append new row onto the table
     x.appendChild( new_row );
 
-    //close the habit tracker adding form 
+    //close the habit tracker adding form
     closeForm();
-
+}
 
 //For displaying habits that are already in database
 function addRow(input){
@@ -101,7 +101,7 @@ function addRow(input){
   new_row.cells[1].style.backgroundColor =  "#d9b3ff";
   new_row.cells[1].innerHTML =  "";
   x.appendChild( new_row );
-    //Set the input box to empty again to reset it 
+    //Set the input box to empty again to reset it
     document.getElementById("userInput").value = "";
 }
 
@@ -180,7 +180,6 @@ function changeDays(){
   thursday.innerHTML = thu;
   friday.innerHTML = fri;
   saturday.innerHTML = sat;
-
 }
 
 //get number of current week
@@ -190,7 +189,7 @@ function getWeekNumber(d) {
   var millisecsInDay = 86400000;
   console.log(Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7));
   return Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7);
-};
+}
 
 //get date of sunday of current week
 function getSundayFromWeekNum(weekNum, year) {
@@ -205,7 +204,7 @@ function getSundayFromWeekNum(weekNum, year) {
 //make table display currently tracked habits of logged in user
 function displayHabits(){
   var username = getCookie("username");
- // 
+ //
 $.post(
   "/orders",
   {user:username},
@@ -220,9 +219,10 @@ $.post(
           }
         }
       }
-  
+
+      console.log("going to add to table");
       var tableadd = ""
-      //add a row for each habit 
+      //add a row for each habit
       for(var a=0; a<habitnum; a++){
         tableadd += "<tr>"+"<th>" + habitArr[a] + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
         tableadd += "<th onclick='mark_cell(this)'>"+"</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th></tr>";
