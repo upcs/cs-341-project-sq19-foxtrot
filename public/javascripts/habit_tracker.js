@@ -38,6 +38,7 @@ function mark_cell(x, tablename) {
     var dayClicked = table.rows[0].cells[col].innerHTML;
     console.log("day  " + dayClicked);
 
+
     //POST
     var username = getCookie('username');
     $.post("/new_mark_habit", {username:username, habit_name:newContent, day:dayClicked});
