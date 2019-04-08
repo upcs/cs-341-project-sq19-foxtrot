@@ -14,7 +14,6 @@ var habitDeleteRouter = require('./routes/habitDelete');
 var journalsRouter = require('./routes/journals');
 var insertTheme = require('./routes/insert_theme');
 
-
 var app = express();
 
 // view engine setup
