@@ -28,22 +28,21 @@ function changeCSS(cssFile, cssLinkIndex) {
   newlink.setAttribute("href", cssFile);
   var tnumber;
   if (cssFile == "/stylesheets/design.css") {
-    getEnglish();
+
     setCookie("theme", 1, .042);
     tnumber = 1;
   }
-  else if(cssFile == "/stylesheets/design2.css") {
-    getEnglish();
+
     setCookie("theme", 2, .042);
     tnumber = 2;
   }
   else if(cssFile == "/stylesheets/design3.css") {
-    getRussian();
+
     setCookie("theme", 3, .042);
     tnumber = 3;
   }
   else if(cssFile == "/stylesheets/design4.css") {
-    getEnglish();
+
     setCookie("theme", 4, .042);
     tnumber = 4;
   }
@@ -98,4 +97,4 @@ function getEnglish(){
   document.getElementById("greeting").innerHTML = ("Hello, " + getCookie("username"));
   document.getElementById("logout").value = "Log Out";
   document.getElementById("changeTheme").innerHTML = "Change Theme";
-}
+
