@@ -25,7 +25,7 @@ test('journal is succesful', () => {
 });
 
 test('Check if form is over character count', () =>{
-  var entry = "Welp here we asre rtyping really fast while not checking the things for tspelling because this is suppsoe to be ober 100 characert and i just cant think about spelling at the moment as I am streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeesed";
+  var entry = "Welp here we asre rtyping really fast while not checking the things for tspelling because this is suppsoe to be ober 100 chasracter and i just cant think about spelling at the moment as I am streeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeesed";
   document.forms["journalForm"]["fjournal"].value = entry; 
   validateForm();
   expect((document.forms["journalForm"]["fjournal"].value.length).toBeGreaterThanOrEqual(100));
