@@ -14,10 +14,34 @@ function displayData(){
 
          var x=document.getElementById('prevTable');
 
+         //var weekday = getDayOfWeek(data[1].date);
+         //console.log(weekday);
+
+         //if(weekday == 'Monday'){
+        //   console.log('yes monday');
+         //}
+
+         //var result = getWeekNumber(data[0].date);
+
+         //console.log('Week no:' + result);
+
+         //console.log('Adding days');
+
+         //console.log(data[0].date);
+
+         //var newDay = addDays(data[0].date, 2);
+
+         //console.log(newDay);
+
+
           var habitWk = 0;
+          //var habitWk = getWeekNumber(data[0].date);
           var sunday = getSundayFromWeekNum(habitWk, 2019);
           var saturday = getSaturdayFromWeekNum(habitWk, 2019);
+          //$("#prevTable").prepend('<tr class="week"><td colspan= 8 > Week '+ sunday + '-' + saturday +' </td></tr>');
 
+
+           //var habitnum = data[0].habitnum;
            var habitnum = getCookie("tracker");
    	       var jourVar = " ";
 
@@ -30,7 +54,6 @@ function displayData(){
              }
            }
 
-           //Make table according to the number of habits and dates
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
                 console.log("in if statement");
@@ -52,27 +75,35 @@ function displayData(){
 
            $("#prevTable").append(jourVar);
 
-           //Make week row background transparent
+
            var weekRows = document.getElementsByClassName("week");
            console.log("Week row:" + weekRows);
            for(var i=0; i<weekRows.length; i++) {
              markWeekRow(weekRows[i]);
            }
 
-           //Marking completed habits in the table
+
            for(var b=0; b<data.length; b++){
              for(var c=1; c<x.rows.length; c += (habitnum+2)){
+               console.log(c);
+               console.log(x.rows[c]);
                new_row=x.rows[c];
                for(var d=0; d<new_row.cells.length; d++){
                  cell=new_row.cells[d];
+                 console.log(cell);
                  if(cell.innerHTML == (removeTime(data[b].date))){
+                   console.log("habit number: " + data[b].habit_number);
+                   console.log("correct date");
+                   console.log(x.rows[c+data[b].habit_number]);
+                   console.log(x.rows[c+data[b].habit_number+1]);
+                   //console.log(x.rows[c+data[b].habitnum+1]);
                    var correctRow=x.rows[c+data[b].habit_number+1];
+                   console.log(correctRow.cells[d]);
                    mark_prevCell(correctRow.cells[d]);
                  }
                }
              }
            }
-
          //make table visible
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
@@ -136,7 +167,7 @@ function markWeekRow(weekRow){
 function mark_prevCell(x) {
     //console.log("marking cell");
     x.innerHTML = "Completed";
-    $(x).css('background-color', 'rgba(255,255,255,0.4)');
+    x.style.backgroundColor = "#bf7fff";
 }
 
 function getCookie(cname) {

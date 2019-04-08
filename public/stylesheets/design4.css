@@ -1,0 +1,114 @@
+
+ 
+ body {
+   background-image:url("https://lh3.googleusercontent.com/X0nOB4974-R2mLqZOl4kSHqmVWkQPAGdptWQrRhebeeg7bjZl4iavAMPrJFsb2mqKQ5CeozFSeT0p3OwNh3GPh56U-6NzRjVfyiAwJQzvos00-seMCwOSltyDYE0uikHOfkHGwQ9Kg=w2400");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 200px;
+    text-shadow: -5px 5px 20px #000ed1;
+}
+
+#journalbtn {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #00013b;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 5px 20px #28004d;
+}
+
+#journalbtn:hover {
+   padding: 30px 50px;
+}
+
+
+#habitbtn {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #8d0303;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 5px 20px #28004d;
+}
+
+#habitbtn:hover {
+   padding: 30px 25px;
+}
+
+#logo {
+    position:fixed;
+    top: 180px;
+    left: 60px;
+    width: 300px;
+    height: auto;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  position:fixed;
+  left: 50px;
+  z-index: 100;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+  padding: 0px 8px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.double-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0px 8px;
+  z-index: 1;
+}
+
+.dropdown-content:hover .double-dropdown-content {
+  display: block;}
+
+ 
+ 

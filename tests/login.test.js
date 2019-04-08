@@ -9,7 +9,6 @@ describe('Testing simple login function actions', () => {
 	empty = " ";
 	one = "1";
 
-
 	test("getUser function needs to return Polina", () => {
 		username = Polina;
 		expect(login.getUser(username)).toBe(Polina);

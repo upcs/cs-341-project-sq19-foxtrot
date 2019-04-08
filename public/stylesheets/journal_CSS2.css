@@ -1,6 +1,6 @@
 body {
    background-image: linear-gradient(#ffb3b3, #d19494);
-} 
+}
 
 h1 {
    color: white;
@@ -28,7 +28,7 @@ h2 {
 
 #journalBtn{
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: #a36592;
     border: none;
     color: white;
@@ -41,9 +41,28 @@ h2 {
     cursor: pointer;
 }
 
+#preJournal{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+th,tr {
+  background-color: #d18a8a;
+  color: white;
+}
+
+table, th, td {
+    border: none;
+}
+
 .addbtn {
    -webkit-border-radius: 5px;
-   border-radius: 5px; 
+   border-radius: 5px;
    background-color: #a36592;
    border: none;
    color: white;
