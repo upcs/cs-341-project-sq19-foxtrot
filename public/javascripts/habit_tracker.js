@@ -17,11 +17,15 @@ function getCookie(cname) {
 function mark_cell(x, tablename) {
     //change text and color of clicked cell  
     x.innerHTML = "Completed";
-    x.style.backgroundColor = "#bf7fff"; 
-    
-    //get clicked cell
-    var td = event.target.parentNode; 
-    var tr = td; 
+
+    //x.style.backgroundColor = "#bf7fff";
+    //var color = document.getElementById("prevbtn").style.backgroundColor;
+    //document.getElementById("prevbtn").style.opacity = "0.5";
+    //x.style.opacity = "0.5";
+    $(x).css('background-color', 'rgba(255,255,255,0.4)');
+
+    var td = event.target.parentNode;
+    var tr = td;
     console.log(tr);
 
     //get habit name of clicked cell
