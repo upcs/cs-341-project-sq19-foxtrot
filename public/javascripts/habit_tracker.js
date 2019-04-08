@@ -55,6 +55,14 @@ function add_row() {
     var username = getCookie('username');
     var habitnum = getCookie('tracker')+1;
 
+
+    console.log(getCookie('tracker'));
+    var habitnum = getCookie('tracker');
+    habitnum++;
+    console.log(habitnum);
+
+    console.log("going to post");
+
     //POST
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});
     
@@ -77,6 +85,21 @@ function add_row() {
     //close the habit tracker adding form 
     closeForm();
 
+
+//For displaying habits that are already in database
+function addRow(input){
+  var x=document.getElementById('myTable');
+  var new_row = x.rows[1].cloneNode(true);
+  new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
+  new_row.style="display;";
+  var num_columns = 8;
+  for (i = 1; i <num_columns; i++) {
+      new_row.cells[i].style.backgroundColor =  "#d9b3ff";
+      new_row.cells[i].innerHTML =  "";
+  }
+  new_row.cells[1].style.backgroundColor =  "#d9b3ff";
+  new_row.cells[1].innerHTML =  "";
+  x.appendChild( new_row );
     //Set the input box to empty again to reset it 
     document.getElementById("userInput").value = "";
 }
@@ -130,7 +153,7 @@ function changeDays(){
   thu = new Date(sun);
   fri = new Date(sun);
   sat = new Date(sun);
-  
+
   //incrementing dates
   mon.setDate(d+1);
   tue.setDate(d+2);
@@ -147,7 +170,7 @@ function changeDays(){
   var thursday=document.getElementById('thu');
   var friday=document.getElementById('fri');
   var saturday=document.getElementById('sat');
-  
+
   //set text of day columns to its proper numerical date
   sunday.innerHTML = sun;
   monday.innerHTML = mon;
@@ -205,7 +228,7 @@ $.post(
       }
       //append those rows onto existing table
       $("#myTable").append(tableadd);
-         
+
     }, "json");
 
   }
