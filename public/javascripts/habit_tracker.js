@@ -16,7 +16,10 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
-  changeDays()
+
+    //change text and color of clicked cell
+    x.innerHTML = "Completed";
+
 
     x.innerHTML = "Completed";
     //x.style.backgroundColor = "#bf7fff";
@@ -33,28 +36,39 @@ function mark_cell(x, tablename) {
     console.log(newContent);
 
 
-    //var row = $(x).closest("tr").index();
-    //console.log(row);
 
-    //var col = $(x).closest("td").index();
-    //var table = document.getElementById(tablename);
-    //var habit = table.rows[row].cells[0].textContent;
-    //var remove = habit.replace("remove","")
-    //console.log(remove);
-    //var day = table.rows[0].cells[col];
-    $.post("/new_mark_habit", { habit_name:newContent});
+    //POST
+    var username = getCookie('username');
+    $.post("/new_mark_habit", {username:username, habit_name:newContent, day:dayClicked});
+
+
 }
 
 //For when user creates new habit
 function add_row() {
     var x=document.getElementById('myTable');
     var new_row = x.rows[1].cloneNode(true);
+
+
+    //get the name of the habit that the user typed
     var input = document.getElementById("userInput").value;
-    //POST
     var username = getCookie('username');
+    var habitnum = getCookie('tracker')+1;
+
+
+    console.log(getCookie('tracker'));
+    //increment
+    var habitnum = getCookie('tracker');
+    habitnum++;
+    console.log(habitnum);
+
+    console.log("going to post");
+
 
     habitnum = getCookie('tracker')+1
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum});
+
+    //add removeRow button to newly added habit
 
     new_row.cells[0].innerHTML = input+ '<button class="editbtn" OnClick = "removeRow()">remove</button>';
     new_row.style="display;";
@@ -66,9 +80,13 @@ function add_row() {
     new_row.cells[1].style.backgroundColor =  "#d9b3ff";
     new_row.cells[1].innerHTML =  "";
     x.appendChild( new_row );
+
+
+    //close the habit tracker adding form
     closeForm();
+
     document.getElementById("userInput").value = "";
-    return input
+
 }
 
 //For displaying habits that are already in database
@@ -85,6 +103,10 @@ function addRow(input){
   new_row.cells[1].style.backgroundColor =  "#d9b3ff";
   new_row.cells[1].innerHTML =  "";
   x.appendChild( new_row );
+
+    //Set the input box to empty again to reset it
+    document.getElementById("userInput").value = "";
+
 }
 
 function openForm() {
@@ -160,7 +182,6 @@ function changeDays(){
   thursday.innerHTML = thu;
   friday.innerHTML = fri;
   saturday.innerHTML = sat;
-
 }
 
 function getWeekNumber(d) {
@@ -169,7 +190,7 @@ function getWeekNumber(d) {
   var millisecsInDay = 86400000;
   console.log(Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7));
   return Math.ceil((((d - onejan) /millisecsInDay) + onejan.getDay()+1)/7);
-};
+}
 
 function getSundayFromWeekNum(weekNum, year) {
   var sunday = new Date(year, 0, (1 + (weekNum - 1) * 7));
@@ -182,6 +203,7 @@ function getSundayFromWeekNum(weekNum, year) {
 
 function displayHabits(){
   var username = getCookie("username");
+
 $.post(
   "/orders",
   {user:username},
@@ -195,9 +217,12 @@ $.post(
           }
         }
       }
-      console.log(habitArr)
-      var table = document.getElementById('myTable');
+
+
+      console.log("going to add to table");
       var tableadd = ""
+      //add a row for each habit
+
       for(var a=0; a<habitnum; a++){
         tableadd += "<tr>"+"<th>" + habitArr[a] + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
         tableadd += "<th onclick='mark_cell(this)'>"+"</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th></tr>";
