@@ -11,8 +11,8 @@ var dbms = require("./dbms.js");
     var mm = String(today.getMonth() + 1);
     var yyyy = today.getFullYear();
     today = yyyy + '-' + mm + '-' + dd;
-    console.log("Today");
-    console.log(today);
+    console.log("TODAY: " + today);
+
     var user_name = req.body.username;
     var journal_entry = req.body.journal_entry;
     var journal_name = req.body.journal_name;

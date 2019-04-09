@@ -1,4 +1,4 @@
-jest.mock('../public/habit_tracker.html');
+/*jest.mock('../public/habit_tracker.html');
 let habit = require('../public/javascripts/habit_tracker.js');
 
 
@@ -23,4 +23,4 @@ test('cell is marked', () => {
     var test = document.getElementById(cell).textContent;
     expect(habit.mark_cell()).toBeCalled();
     expect($(test).toEqual("Completed"));
-});
+});*/

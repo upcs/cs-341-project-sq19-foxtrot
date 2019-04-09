@@ -12,11 +12,11 @@ function changeCSS(cssFile, cssLinkIndex) {
     getEnglish();
     return;
   }
-  else if(getCookie("theme") == 3 && cssFile == "/stylesheets/design3.css"){
+  else if (getCookie("theme") == 3 && cssFile == "/stylesheets/design3.css") {
     getRussian();
     return;
   }
-  else if(getCookie("theme") == 4 && cssFile == "/stylesheets/design4.css"){
+  else if (getCookie("theme") == 4 && cssFile == "/stylesheets/design4.css") {
     getEnglish();
     return;
   }
@@ -27,26 +27,27 @@ function changeCSS(cssFile, cssLinkIndex) {
   newlink.setAttribute("type", "text/css");
   newlink.setAttribute("href", cssFile);
   var tnumber;
+
   if (cssFile == "/stylesheets/design.css") {
-    
     setCookie("theme", 1, .042);
     tnumber = 1;
   }
-  else if(cssFile == "/stylesheets/design2.css") {
-    
+  else if (cssFile == "/stylesheets/design2.css") {
+
     setCookie("theme", 2, .042);
     tnumber = 2;
   }
-  else if(cssFile == "/stylesheets/design3.css") {
-    
+  else if (cssFile == "/stylesheets/design3.css") {
+
     setCookie("theme", 3, .042);
     tnumber = 3;
   }
-  else if(cssFile == "/stylesheets/design4.css") {
-    
+  else if (cssFile == "/stylesheets/design4.css") {
+
     setCookie("theme", 4, .042);
     tnumber = 4;
   }
+
   user = getCookie("username");
   $.ajax({
     type: 'POST',
@@ -84,7 +85,8 @@ function getCookie(cname) {
   return "";
 }
 
-function getRussian(){
+
+function getRussian() {
   document.getElementById("journalbtn").value = "Перейти в журнал";
   document.getElementById("habitbtn").value = "Перейти в дневник";
   document.getElementById("greeting").innerHTML = ("Привет, " + getCookie("username"));
@@ -92,7 +94,7 @@ function getRussian(){
   document.getElementById("changeTheme").innerHTML = "Сменить тему";
 }
 
-function getEnglish(){
+function getEnglish() {
   document.getElementById("journalbtn").value = "Go to Journal";
   document.getElementById("habitbtn").value = "Go to Habit Tracker";
   document.getElementById("greeting").innerHTML = ("Hello, " + getCookie("username"));
