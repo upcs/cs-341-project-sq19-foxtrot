@@ -188,3 +188,10 @@ function getCookie(cname) {
 
 
 window.onload = displayData;
+
+module.exports = {
+  addDays,
+  getWeekNumber,
+  getSundayFromWeekNum,
+  getCookie
+};
