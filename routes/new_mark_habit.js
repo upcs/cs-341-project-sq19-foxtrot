@@ -20,10 +20,11 @@ router.post('/', function(req, res, next) {
     var habit = req.body.habit_name;
     var habitnum = req.body.habitnum;
     
-    
+    console.log("user" + username + "habit" + habit + "num" + habitnum);
 dbms.dbquery("INSERT INTO  habit (username,adate,habit,habit_number) VALUES ('"+username+"','"+today+"','"+habit+"','"+habitnum+"')",
     function(err, data){ }
-    );        
+    );      
+    console.log("inserted");  
 
 });
 module.exports = router;

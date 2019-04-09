@@ -1,4 +1,10 @@
-//test
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	var expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -29,7 +35,7 @@ function mark_cell(x, tablename) {
     
     var content = tr.cells[0].textContent;
     var habitName = content.replace("remove","");
-    console.log("Habit " + habitName);
+    console.log("HABIT!!!! " + habitName);
     
     var col = $(x).closest("th").index();
     var row = $(x).closest("tr").index();
@@ -48,13 +54,16 @@ function mark_cell(x, tablename) {
     console.log(day);
     //POST
     var username = getCookie('username');
+    console.log(username);
+    console.log("Going to post in new mark habit");
     $.post("/new_mark_habit", {username:username, habit_name:habitName, day:dayClicked, habitnum:row});
 
 
 }
 
-//For when user creates new habit
-function addrow() {
+/*
+//old add row function
+function add_row() {
     var x=document.getElementById('myTable');
     var new_row = x.rows[1].cloneNode(true);
 
@@ -96,25 +105,29 @@ function addrow() {
     document.getElementById("userInput").value = "";
 
 }
-
+*/
 
 function add_row(){
-  var x=document.getElementById('myTable');
+  var table=document.getElementById('myTable');
   var input = document.getElementById("userInput").value;
+  console.log("Habit name "+input)
   var tableadd = ""
   //add a row for each habit
 
   var username = getCookie('username');
   var habitnum = getCookie('tracker');
+  console.log("Habit number cookie:"+habitnum);
 
-  var rows = x.getElementsByTagName("tr").length;
+  var rows = table.getElementsByTagName("tr").length;
   rows--;
   console.log("ROW: "+rows)  
   tableadd += "<tr>"+ "<th>" + input + "<button class='editbtn' OnClick = 'removeRow()''>remove</button> </th>";
   tableadd += "<th onclick='mark_cell(this)'>"+"</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th></tr>";
   habitnum++;
-
-  console.log(habitnum);
+  setCookie("tracker", habitnum, .042);
+  console.log("Habit number cookie after being set" + getCookie('tracker'));
+  console.log("Habit number cookie after adding habit:"+habitnum);
+  
 $("#myTable").append(tableadd);
 
     //Set the input box to empty again to reset it
