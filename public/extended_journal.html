@@ -9,12 +9,20 @@
       <head>
     <body>
         <script>
-            if (getCookie("theme") == 1) {
-              document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
-            }
-            else {
-              document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS2.css">');
-            }
+              if (getCookie("theme") == 1) {
+                document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
+              }
+              else if (getCookie("theme") == 2) {
+                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
+
+              }
+              else if (getCookie("theme") == 3) {
+                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
+
+              }
+              else {
+                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
+              }
           </script>
         <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
 

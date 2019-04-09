@@ -12,8 +12,17 @@
             if (getCookie("theme") == 1) {
               document.write('<link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">');
             }
+            else if (getCookie("theme") == 2) {
+              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker2.css'>");
+
+            }
+            else if (getCookie("theme") == 3) {
+              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
+
+            }
             else {
-              document.write('<link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker2.css">');
+              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
+
             }
           </script>
           <script type="text/javascript">

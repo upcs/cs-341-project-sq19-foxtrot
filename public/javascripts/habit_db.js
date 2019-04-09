@@ -60,14 +60,14 @@ function displayData(){
            }
 
            //Marking completed habits in the table
-           for(var b=0; b<data.length; b++){
-             for(var c=1; c<x.rows.length; c += (habitnum+2)){
+           for(var b=0; b<data.length; b++){ //for all the data
+             for(var c=1; c<x.rows.length; c += (habitnum+2)){ //for each row in the table
                new_row=x.rows[c];
-               for(var d=0; d<new_row.cells.length; d++){
+               for(var d=0; d<new_row.cells.length; d++){ //for each cell in that row
                  cell=new_row.cells[d];
-                 if(cell.innerHTML == (removeTime(data[b].date))){
+                 if(cell.innerHTML == (removeTime(data[b].date))){ //if the dates are equal
                    var correctRow=x.rows[c+data[b].habit_number+1];
-                   mark_prevCell(correctRow.cells[d]);
+                   mark_prevCell(correctRow.cells[d]); //mark that cell
                  }
                }
              }

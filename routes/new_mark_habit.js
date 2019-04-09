@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
 
 
     var username = req.body.username;
-    var habit = req.body.habit_name
+    var habit = req.body.habit_name;
 
     console.log("Today");
     console.log(today)
