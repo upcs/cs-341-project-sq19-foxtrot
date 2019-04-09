@@ -14,26 +14,6 @@ function displayData(){
 
          var x=document.getElementById('prevTable');
 
-         //var weekday = getDayOfWeek(data[1].date);
-         //console.log(weekday);
-
-         //if(weekday == 'Monday'){
-        //   console.log('yes monday');
-         //}
-
-         //var result = getWeekNumber(data[0].date);
-
-         //console.log('Week no:' + result);
-
-         //console.log('Adding days');
-
-         //console.log(data[0].date);
-
-         //var newDay = addDays(data[0].date, 2);
-
-         //console.log(newDay);
-
-
           var habitWk = 0;
           //var habitWk = getWeekNumber(data[0].date);
           var sunday = getSundayFromWeekNum(habitWk, 2019);
@@ -178,7 +158,7 @@ function markWeekRow(weekRow){
 function mark_prevCell(x) {
     //console.log("marking cell");
     x.innerHTML = "Completed";
-    x.style.backgroundColor = "#bf7fff";
+    $(x).css('background-color', 'rgba(255,255,255,0.4)');
 }
 
 function getCookie(cname) {
