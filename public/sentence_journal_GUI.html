@@ -13,8 +13,16 @@
       if (getCookie("theme") == 1) {
         document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
       }
+      else if (getCookie("theme") == 2) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
+
+      }
+      else if (getCookie("theme") == 3) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
+
+      }
       else {
-        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS2.css">');
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
       }
     </script>
     <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -29,7 +37,7 @@
       <form id="myJournal" name="journalForm">
 
 
-        <label for="Journal"><b>Journal</b></label>
+        <label for="Journal" id="journalLabel"><b>Journal</b></label>
         <input id="userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
         <button id="name_button" type="button" class="btn">Submit</button>
 
