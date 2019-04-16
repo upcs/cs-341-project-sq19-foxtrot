@@ -23,8 +23,11 @@
       else if (getCookie("theme") == 4) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS4.css'>");
       }
+      else if (getCookie("theme") == 5) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design5.css'>");
+      }
       else {
-        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS5.css'>");
+        location.href = 'index.html';
       }
     </script>
     <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
@@ -53,7 +56,7 @@
 
       </form>
 
-      <button id="journalSubmitBtn" class="addbtn" > Submit Entry </button>
+      <button id="journalSubmitBtn" class="addbtn"> Submit Entry </button>
 
       <input type="button" id="dataButton" class="addbtn" value="Previous Weeks"
         OnClick="location.href='sentence_journal_prev.html';">

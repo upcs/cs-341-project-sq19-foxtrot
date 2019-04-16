@@ -13,6 +13,7 @@ var habitRouter = require('./routes/new_habit');
 var habitDeleteRouter = require('./routes/habitDelete');
 var journalsRouter = require('./routes/journals');
 var insertTheme = require('./routes/insert_theme');
+var newUsersRouter = require('./routes/newUsers');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/new_habit', habitRouter);
 app.use('/habitDelete', habitDeleteRouter);
 app.use('/journals', journalsRouter);
 app.use('/insert_theme', insertTheme);
+app.use('/newUsers', newUsersRouter);
 // app.use('/sentence_journal_GUI.html', function (req, res){res.end();});
 app.use('/', indexRouter);
 

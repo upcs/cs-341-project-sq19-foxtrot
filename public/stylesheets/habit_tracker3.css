@@ -20,6 +20,14 @@ h1 {
     font-size: 50px;
 }
 
+h1:after {
+  content:"";
+  color: white;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

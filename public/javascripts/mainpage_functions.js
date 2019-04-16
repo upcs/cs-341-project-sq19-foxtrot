@@ -89,6 +89,11 @@ function getCookie(cname) {
   return "";
 }
 
+function eraseCookies(){
+  setCookie("theme", "0", .042);
+  setCookie("username", "0", .042);
+  setCookie("tracker", "0", .042);
+}
 
 function getRussian() {
   document.getElementById("journalbtn").value = "Перейти в журнал";

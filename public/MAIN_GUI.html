@@ -24,9 +24,11 @@
       else if (getCookie("theme") == 4) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design4.css'>");
       }
-      else {
+      else if(getCookie("theme")== 5) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design5.css'>");
-
+      }
+      else{
+        location.href='index.html';
       }
     </script>
 
@@ -43,7 +45,7 @@
         </p>
 
         <form action="index.html">
-          <input type="submit" id="logout" value="Log Out" />
+          <input type="submit" id="logout" value="Log Out" onclick="eraseCookies();" />
         </form>
 
         <p id="changeTheme" >Change Theme</p>
