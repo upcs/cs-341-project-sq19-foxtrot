@@ -1,66 +1,73 @@
-
 <html>
-    <head>
-<title>LeadUP</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/extended_journal_functions.js"> </script>
-      <script type="text/javascript" src="javascripts/journal_db.js"> </script>
-      <head>
-    <body>
-        <script>
-              if (getCookie("theme") == 1) {
-                document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
-              }
-              else if (getCookie("theme") == 2) {
-                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
 
-              }
-              else if (getCookie("theme") == 3) {
-                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
+<head>
+  <title>LeadUP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="javascripts/extended_journal_functions.js"> </script>
+  <script type="text/javascript" src="javascripts/journal_db.js"> </script>
 
-              }
-              else if (getCookie("theme") == 4) {
-                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS4.css'>");
-              }
-              else {
-                document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS5.css'>");
-              }
-          </script>
-        <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
+  <head>
 
-        <div id="div1">
-          <h1 id="header">Welcome to Your Journal</h1>
-          <script>
-              document.getElementById("header").append(", " + getCookie("username") + "!");
-            </script>
-            <form id="myJournal" name="journalForm">
+  <body>
+    <script>
+      if (getCookie("theme") == 1) {
+        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
+      }
+      else if (getCookie("theme") == 2) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
 
-                <label for="Journal"><b>Journal</b></label>
-                <input id = "userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
-                <button id="name_button" type="button" class="btn" onclick="add_name()" >Submit</button>
+      }
+      else if (getCookie("theme") == 3) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
 
-                <br/>
+      }
+      else if (getCookie("theme") == 4) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS4.css'>");
+      }
+      else if (getCookie("theme") == 5) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design5.css'>");
+      }
+      else {
+        location.href = 'index.html';
+      }
+    </script>
+    <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
 
-                <h2 id="name"> Name of Journal </h2>
+    <div id="div1">
+      <h1 id="header">Welcome to Your Journal</h1>
+      <script>
+        document.getElementById("header").append(", " + getCookie("username") + "!");
+      </script>
+      <form id="myJournal" name="journalForm">
 
-              <textarea name="fjournal"rows="5" cols="50"></textarea>
-              <br/>
+        <label for="Journal"><b>Journal</b></label>
+        <input id="userInput" type="text" placeholder="Enter your Journal Name" name="Journal" required>
+        <button id="name_button" type="button" class="btn" onclick="add_name()">Submit</button>
 
-            </form>
+        <br />
 
-            <button id="journalSubmitBtn" class="addbtn"> Submit Entry </button>
+        <h2 id="name"> Name of Journal </h2>
+
+        <textarea name="fjournal" rows="5" cols="50"></textarea>
+        <br />
+
+      </form>
+
+      <button id="journalSubmitBtn" class="addbtn"> Submit Entry </button>
 
 
-            <input type="button" id="dataButton" class="addbtn" value="Previous Weeks" OnClick="location.href='sentence_journal_prev.html';">
+      <input type="button" id="dataButton" class="addbtn" value="Previous Weeks"
+        OnClick="location.href='sentence_journal_prev.html';">
 
-            <form action="sentence_journal_GUI.html">
-              <input type="submit" id="journalBtn" value="Go to Sentence Journal" />
-            </form>
+      <form action="sentence_journal_GUI.html">
+        <input type="submit" id="journalBtn" value="Go to Sentence Journal" />
+      </form>
 
 
-            <!--<span id="preJournal">
+      <!--<span id="preJournal">
             </span>-->
-      </div>
-   </body>
-<html>
+    </div>
+  </body>
+  <html>
