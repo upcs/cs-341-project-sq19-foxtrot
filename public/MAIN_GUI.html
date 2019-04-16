@@ -14,19 +14,19 @@
     <script>
       if (getCookie("theme") == 1) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design.css'>");
-        
       }
       else if (getCookie("theme") == 2) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design2.css'>");
-        
       }
       else if (getCookie("theme") == 3) {
         document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design3.css'>");
-        
+      }
+      else if (getCookie("theme") == 4) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design4.css'>");
       }
       else {
-        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design4.css'>");
-        
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/design5.css'>");
+
       }
     </script>
 
@@ -55,6 +55,8 @@
           <a href="#" onclick="changeCSS('/stylesheets/design3.css', 0);">Moscow</a>
           <br>
           <a href="#" onclick="changeCSS('/stylesheets/design4.css', 0);">Los Angeles</a>
+          <br>
+          <a href="#" onclick="changeCSS('/stylesheets/design5.css', 0);">Juno</a>
         </div>
 
       </div>

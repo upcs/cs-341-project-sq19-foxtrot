@@ -1,0 +1,109 @@
+
+ body {
+   background-image:url("https://lh3.googleusercontent.com/8EvuDS4Zt4i0_tyMvVNxaFPQDhwlAprjhiZsX-dXQ96lbllXzd0LlEqYXcHK4czRaTGRnZ4LiYqEpRo32ILD973LhSd0IM1vDpS1Gi5UUrNi7Xhc24GSn35bjgJDK401kXKWas9Zeg=w2400");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 100% 50%;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    top: 10%;
+    margin-left: 2.5em;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 13vw;
+}
+
+#journalbtn {
+    -webkit-border-radius: 5px;
+    border-radius: 15px;
+    background-color: Transparent;
+    border: 3px solid white;
+    color: white;
+    padding: 1.5vw 3vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5vw;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+#journalbtn:hover {
+   background-color: #aae7ff;
+}
+
+
+#habitbtn {
+    -webkit-border-radius: 5px;
+    border-radius: 15px;
+    background-color: Transparent;
+    border: 3px solid white;
+    color: white;
+    padding: 1.5vw 3vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5vw;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+#habitbtn:hover {
+   background-color: #aae7ff;
+}
+
+#logo {
+   display: none;
+    position:fixed;
+    top: 180px;
+    left: 60px;
+    width: 300px;
+    height: auto;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  position:fixed;
+  left: 50px;
+  z-index: 100;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+  padding: 0px 8px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.double-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0px 8px;
+  z-index: 1;
+}
+
+.dropdown-content:hover .double-dropdown-content {
+  display: block;}

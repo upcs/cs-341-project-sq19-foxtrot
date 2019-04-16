@@ -47,7 +47,11 @@ function changeCSS(cssFile, cssLinkIndex) {
     setCookie("theme", 4, .042);
     tnumber = 4;
   }
+  else if (cssFile == "/stylesheets/design5.css") {
 
+    setCookie("theme", 5, .042);
+    tnumber = 5;
+  }
   user = getCookie("username");
   $.ajax({
     type: 'POST',
