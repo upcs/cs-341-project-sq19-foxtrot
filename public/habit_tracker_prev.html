@@ -18,10 +18,13 @@
             }
             else if (getCookie("theme") == 3) {
               document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
-
+            }
+            else if (getCookie("theme") == 4) {
+              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker4.css'>");
             }
             else {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
+              console.log("5th theme");
+              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker5.css'>");
 
             }
           </script>
