@@ -23,11 +23,11 @@ function validateLogin(user, pass) {
 				console.log("theme = " + data.theme);
 				console.log("tracker = " + data.tracker);
 				console.log("array =" + data.array);
-				var array = parseArray(data.array);
+				//var array = parseArray(data.array);
 				setCookie("username", data.username, .042);
 				setCookie("theme", data.theme, .042);
 				setCookie("tracker", data.tracker, .042);
-				setCookie("array", array, .042);
+				setCookie("array", data.array, .042);
 				passes = true;
 			}
 		},

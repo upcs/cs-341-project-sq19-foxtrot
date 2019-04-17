@@ -9,7 +9,7 @@ var dbms = require("./dbms.js");
 
      console.log("user" + user);
     console.log("pass" + pass);
-    dbms.dbquery("INSERT INTO leadership3 (username,password,theme,habitnum) Values (newuser, newpass, 1, 0);");
+    dbms.dbquery("INSERT INTO leadership3 (username,password,theme,habitnum) Values ('"+newuser+"', '"+newpass+"', '"+1+"', '"+0+"');");
 });
 
  module.exports = router;

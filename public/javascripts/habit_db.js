@@ -4,6 +4,7 @@
 
 var username = getCookie("username");
 
+
 function displayData(){
 
 
@@ -25,15 +26,16 @@ function displayData(){
            var habitnum = getCookie("tracker");
             var jourVar = " ";
             console.log("Habit Num from cookie is " + habitnum);
-
-           var habitArr = [];
+            var habits = getCookie("array");
+            var habitArr = habits.split('|');
+           /*var habitArr = [];
            for(var f=0; f<habitnum; f++){
              for(var h=0; h<data.length; h++){
                if(data[h].habit_number == f){
                  habitArr[f]=data[h].habit;
                }
              }
-           }
+           }*/
 
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
