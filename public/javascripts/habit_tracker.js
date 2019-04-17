@@ -57,8 +57,6 @@ function mark_cell(x, tablename) {
     console.log(username);
     console.log("Going to post in new mark habit");
     $.post("/new_mark_habit", {username:username, habit_name:habitName, day:dayClicked, habitnum:row});
-
-
 }
 
 /*
