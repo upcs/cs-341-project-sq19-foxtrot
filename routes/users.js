@@ -16,10 +16,11 @@ router.post('/', function (req, res, next) {
     function (err, data) {
       var array = [];
       for (var i = 0; i < data.length; i++) {
-        array.push({ username: data[i].username, password: data[i].password, theme: data[i].theme, tracker: data[i].tracker });
+        array.push({ username: data[i].username, password: data[i].password, theme: data[i].theme, tracker: data[i].tracker, array: data[i].array });
         console.log("username = " + data[i].username);
 				console.log("theme = " + data[i].theme);
 				console.log("tracker = " + data[i].tracker);
+        console.log("array = " + data[i].array);
       }
       var index = -1;
       for (var i = 0; i < data.length; i++) {
@@ -29,7 +30,7 @@ router.post('/', function (req, res, next) {
       }
       if (index == -1) {
         var array2 = [];
-        array.push({ username: null, password: null, theme: null, tracker: null });
+        array.push({ username: null, password: null, theme: null, tracker: null, array:null });
         res.json(array2);
       }
       res.json(array[index]);

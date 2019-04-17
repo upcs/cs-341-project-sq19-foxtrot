@@ -98,7 +98,6 @@ function displayData(){
          //make table visible
 			   document.getElementById('prevTable').style.display='';
 	   }, "json");
-
 }
 
 function removeTime(date){
