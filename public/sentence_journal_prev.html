@@ -1,43 +1,51 @@
 <html>
-    <head>
-<title>LeadUP</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
-      <script type="text/javascript" src="javascripts/journal_db.js"> </script>
-      <head>
-    <body>
-        <script>
-            if (getCookie("theme") == 1) {
-              document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
-            }
-            else if (getCookie("theme") == 2) {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
 
-            }
-            else if (getCookie("theme") == 3) {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
+<head>
+  <title>LeadUP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="javascripts/first_journal_functions.js"> </script>
+  <script type="text/javascript" src="javascripts/journal_db.js"> </script>
 
-            }
-            else if (getCookie("theme") == 4) {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS4.css'>");
+  <head>
 
-            }
-            else {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS5.css'>");
-            }
-          </script>
-        <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
-        <div id="div1">
-          <h1 id="header">Previous Journals</h1>
+  <body>
+    <script>
+      if (getCookie("theme") == 1) {
+        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/journal_CSS.css">');
+      }
+      else if (getCookie("theme") == 2) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS2.css'>");
 
-            <input href="habit_tracker.html" type="button" id="dataButton" class="addbtn" value="Back to current Week" OnClick="location.href='sentence_journal_GUI.html';">
+      }
+      else if (getCookie("theme") == 3) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS3.css'>");
 
-            <!--<span id="preJournal">
+      }
+      else if (getCookie("theme") == 4) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS4.css'>");
+
+      }
+      else if (getCookie("theme") == 5) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/journal_CSS5.css'>");
+      }
+      else {
+        location.href = 'index.html';
+      }
+    </script>
+    <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
+    <div id="div1">
+      <h1 id="header">Previous Journals</h1>
+
+      <input href="habit_tracker.html" type="button" id="dataButton" class="addbtn" value="Back to current Week"
+        OnClick="location.href='sentence_journal_GUI.html';">
+
+      <!--<span id="preJournal">
             </span>-->
-            <table id="preJournal" style="display:none;">
+      <table id="preJournal" style="display:none;">
 
-            </table>
-      </div>
-   </body>
-<html>
+      </table>
+    </div>
+  </body>
+  <html>

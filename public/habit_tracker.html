@@ -1,71 +1,77 @@
 <html>
-    <head>
-      <title>LeadUP</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/> </script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
-      <script type="text/javascript" src="javascripts/habit_db.js"></script>
-    <head>
-    <body onload = "changeDays(), displayHabits()">
-        <script>
-            if (getCookie("theme") == 1) {
-              document.write('<link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">');
-            }
-            else if (getCookie("theme") == 2) {
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker2.css'>");
-            }
-            else if (getCookie("theme") == 3) {
-              console.log("3rd theme");
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
-            }
-            else if (getCookie("theme") == 4) {
-              console.log("3rd theme");
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker4.css'>");
-            }
-            else {
-              console.log("5th theme");
-              document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker5.css'>");
-            }
-          </script>
-        <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
+
+<head>
+  <title>LeadUP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="javascripts/habit_tracker.js"></script>
+  <script type="text/javascript" src="javascripts/habit_db.js"></script>
+
+  <head>
+
+  <body onload="changeDays(), displayHabits()">
+    <script>
+      if (getCookie("theme") == 1) {
+        document.write('<link rel="stylesheet" type="text/css" href="stylesheets/habit_tracker.css">');
+      }
+      else if (getCookie("theme") == 2) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker2.css'>");
+      }
+      else if (getCookie("theme") == 3) {
+        console.log("3rd theme");
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker3.css'>");
+      }
+      else if (getCookie("theme") == 4) {
+        console.log("3rd theme");
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker4.css'>");
+      }
+      else if (getCookie("theme") == 5) {
+        document.write("<link rel='stylesheet' type='text/css' href='/stylesheets/habit_tracker5.css'>");
+      }
+      else {
+        location.href = 'index.html';
+      }
+    </script>
+    <a href="MAIN_GUI.html" class="button"><i class="fa fa-home"></i>Home</a>
 
 
 
-        <h1 id="header">Welcome to your Habit Tracker</h1>
+    <h1 id="header">Welcome to your Habit Tracker</h1>
 
-        <script>
-          document.getElementById("header").append(", " + getCookie("username") + "!");
-        </script>
+    <script>
+      document.getElementById("header").append(", " + getCookie("username") + "!");
+    </script>
 
-        <table id="myTable" class="myTable">
-            <tr>
-              <th>Habit</th>
-              <th id = sun>Sunday</th>
-              <th id = mon>Monday</th>
-              <th id = tue>Tuesday</th>
-              <th id = wed>Wednesday</th>
-              <th id = thu>Thursday</th>
-              <th id = fri>Friday</th>
-              <th id = sat>Saturday</th>
-            </tr>
-          </table>
+    <table id="myTable" class="myTable">
+      <tr>
+        <th>Habit</th>
+        <th id=sun>Sunday</th>
+        <th id=mon>Monday</th>
+        <th id=tue>Tuesday</th>
+        <th id=wed>Wednesday</th>
+        <th id=thu>Thursday</th>
+        <th id=fri>Friday</th>
+        <th id=sat>Saturday</th>
+      </tr>
+    </table>
 
-       <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick = "openForm()">
-       <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks"
-         OnClick="location.href='habit_tracker_prev.html';">
-
-
-<div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-
-    <label for="Habit"><b>Habit</b></label>
-    <input id = "userInput" type="text" placeholder="Enter your habit" name="Habit" required>
+    <input type="button" id="addbtn" class="addbtn" value="Add Habit" OnClick="openForm()">
+    <input type="button" id="prevbtn" class="addbtn" value="Previous Weeks"
+      OnClick="location.href='habit_tracker_prev.html';">
 
 
-    <button id= add_button type="button" class="btn" onclick="add_row()" >Submit</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
 
-   </body>
-<html>
+        <label for="Habit"><b>Habit</b></label>
+        <input id="userInput" type="text" placeholder="Enter your habit" name="Habit" required>
+
+
+        <button id=add_button type="button" class="btn" onclick="add_row()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+
+  </body>
+  <html>
