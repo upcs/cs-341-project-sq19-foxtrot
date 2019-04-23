@@ -41,7 +41,6 @@ describe('Testing login function that fail', () => {
         expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBe('Tue, 31 Dec 2019');
       });
 
-
       test('test that mark_prevCell changes the innerHTML', () => {
         var $ = jQuery.noConflict();
         document.body.innerHTML =
@@ -50,14 +49,19 @@ describe('Testing login function that fail', () => {
         expect(document.body.innerHTML.toBe('Completed'));
        })
      });
-/*
+
+    });
+
 test('row is added', () => {
-    $('#add_button').click();
     tableId= 'myTable'
-    var rows = document.getElementById(tableId).getElementsByTagName("tr").length;
+    var rowInitial = document.getElementById(tableId).getElementsByTagName("tr").length;
+    $('#add_button').click();
+    var rowAfter = document.getElementById(tableId).getElementsByTagName("tr").length;
     expect( habit.add_row()).toBeCalled();
-    //expect($(rows).toEqual(4));
+    rowAfterExpected = rowInitial + 1
+    expect($(rows).toEqual(rowAfterExpected));
 });
+
 test('row is removed', () => {
     $('#remove_button').click();
     tableId= 'myTable'
@@ -72,4 +76,4 @@ test('cell is marked', () => {
     var test = document.getElementById(cell).textContent;
     expect(habit.mark_cell()).toBeCalled();
     expect($(test).toEqual("Completed"));
-});*/
+});
