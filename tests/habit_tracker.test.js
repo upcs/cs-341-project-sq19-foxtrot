@@ -45,7 +45,8 @@ describe('Testing login function that fail', () => {
     });
 
 test('row is added', () => {
-  
+
+  document.body.innerHTML =
   '<table id="myTable" class="myTable">'+
       '<tr>'+
         '<th>Habit</th>'+
@@ -57,7 +58,17 @@ test('row is added', () => {
         '<th id=fri>Friday</th>'+
         '<th id=sat>Saturday</th>'+
       '</tr>'+
-    '</table>';
+    '</table>'+
+    '<tr>'+
+              '<th>Habit <button class="editbtn" OnClick = "removeRow()">remove</button> </th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+              '<th onclick="mark_cell(this)"></th>'+
+            '</tr>';
     tableId= 'myTable'
     var rowInitial = document.getElementById(tableId).getElementsByTagName("tr").length;
     $('#add_button').click();
@@ -85,11 +96,11 @@ test('cell is marked', () => {
 });
 
 test('change days',() =>{
-  today = new Date()
+  var today = new Date()
   var yyyy = today.getFullYear();
-  weekNum = getWeekNumber(today);
-  sunday = getSundayFromWeekNum(weekNum,yyyy);
-  d = sunday.getDate();
+  var weekNum = getWeekNumber(today);
+  var sunday = getSundayFromWeekNum(weekNum,yyyy);
+  var d = sunday.getDate();
   habit.removeTime(d);
   document.body.innerHTML =
   '<table id="myTable" class="myTable">'+
