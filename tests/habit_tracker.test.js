@@ -35,6 +35,11 @@ describe('Testing login function that fail', () => {
       test('Get sunday works with valid date', () => {
         expect(habit.getSundayFromWeekNum(2, 2019)).toBeCalled;
       });
+
+      test('take the time out of the date', () => {
+        expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBeCalled;
+        expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBe('Tue, 31 Dec 2019');
+      });
     });
 /*
 test('row is added', () => {

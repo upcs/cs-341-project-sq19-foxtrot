@@ -22,7 +22,6 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
-
     //change text and color of clicked cell
     x.innerHTML = "Completed";
 
@@ -57,14 +56,11 @@ function mark_cell(x, tablename) {
     console.log(username);
     console.log("Going to post in new mark habit");
     $.post("/new_mark_habit", {username:username, habit_name:habitName, day:dayClicked, habitnum:row});
-
-
 }
 
  //add a new habit and new row to habit tracker 
 function add_row(){
   var table=document.getElementById('myTable');
-
   //Get the name of the new habit 
   var input = document.getElementById("userInput").value;
   console.log("Habit name "+input)
@@ -280,5 +276,6 @@ module.exports = {
   setCookie,
   getCookie,
       getWeekNumber,
-    getSundayFromWeekNum
+    getSundayFromWeekNum,
+    removeTime
     };
