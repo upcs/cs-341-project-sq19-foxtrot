@@ -7,25 +7,12 @@ function validateLogin(user, pass) {
 		return true;}
 	var passes = false;
 	$.ajax({
-		type: 'POST',
-		url: "/users",
-		data: {
-			"username": user,
-			"password": pass
-		},
-		success: function (data) {
-			if (data.username != null) {
-				console.log("username = " + data.username);
-				console.log("theme = " + data.theme);
-				console.log("tracker = " + data.tracker);
+		type: 'POST',url: "/users",data: {"username": user,"password": pass},
+		success: function (data) {if (data.username != null) {
 				setCookie("username", data.username, .042);
 				setCookie("theme", data.theme, .042);
 				setCookie("tracker", data.tracker, .042);
-				passes = true;
-			}
-		},
-		dataType: "json",
-		async: false});
+				passes = true;}},dataType: "json",async: false});
 	if (passes == false) {
 		alert("Invalid Login");
 		return false;}
