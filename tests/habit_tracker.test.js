@@ -58,8 +58,6 @@ describe('Testing login function that fail', () => {
       })
     });
 
-    });
-
 test('row is added', () => {
     tableId= 'myTable'
     var rowInitial = document.getElementById(tableId).getElementsByTagName("tr").length;
