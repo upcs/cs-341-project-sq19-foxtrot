@@ -20,6 +20,10 @@ function changeCSS(cssFile, cssLinkIndex) {
     getEnglish();
     return;
   }
+  else if (getCookie("theme") == 5 && cssFile == "/stylesheets/design5.css") {
+    getEnglish();
+    return;
+  }
   var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
   var newlink = document.createElement("link");
@@ -59,8 +63,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     data: {
       "tnumber": tnumber,
       "user": user
-    },
-    success: null
+    }
   });
   document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
   location.reload();
