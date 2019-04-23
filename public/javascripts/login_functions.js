@@ -1,13 +1,10 @@
 function validateLogin(user, pass) {
-
 	if (user == 1 && pass == 1) {
 		console.log("Admin");
 		setCookie("username", user, .042);
 		setCookie("theme", pass, .042);
 		//set habitnum to all habitnumbers
-		return true;
-	}
-
+		return true;}
 	var passes = false;
 	$.ajax({
 		type: 'POST',
@@ -28,42 +25,30 @@ function validateLogin(user, pass) {
 			}
 		},
 		dataType: "json",
-		async: false
-	});
-
+		async: false});
 	if (passes == false) {
 		alert("Invalid Login");
-		return false;
-	}
-
+		return false;}
 	var username = getCookie("username");
 	if (username != "") {
 		alert("Welcome " + username);
-		return passes;
-	}
+		return passes;}
 	return passes;
 };
-
-
 
 var privacy = false;
 function openForm() {
 	document.getElementById("termsandp").style.display = "block";
-	document.getElementById("outside").style.display = "none";
-}
+	document.getElementById("outside").style.display = "none";}
 
 function closeForm(term) {
 	if (term == 'da') {
 		privacy = true;
 		document.getElementById("termsandp").style.display = "none";
 		document.getElementById("outside").style.display = "block";
-		return;
-	}
+		return;}
 	document.getElementById("termsandp").style.display = "none";
-	document.getElementById("outside").style.display = "block";
-}
-
-
+	document.getElementById("outside").style.display = "block";}
 
 // Get the modal
 var modal = document.getElementById('id01');
@@ -71,15 +56,12 @@ var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 	if (event.target == modal) {
-		modal.style.display = "none";
-	}
-}
+		modal.style.display = "none";}}
 
 function parseArray(string) {
   var array = string.split("|");
   console.log("parsed array " + array);
-	return array;
-}
+	return array;}
 
 function getCookie(cname) {
 	var name = cname + "=";
@@ -88,33 +70,23 @@ function getCookie(cname) {
 	for (var i = 0; i < ca.length; i++) {
 		var c = ca[i];
 		while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		}
+			c = c.substring(1);}
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	return "";
-}
+			return c.substring(name.length, c.length);}}
+	return "";}
 
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 	var expires = "expires=" + d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";}
 
 function getUser(user) {
 	console.log("getUser: " + user);
-	return user;
-}
-//added for tests
-
-//module.exports.getUser = getUser; // export your functuion
+	return user;}
 
 module.exports = {
 	validateLogin,
 	getUser,
 	setCookie,
-	getCookie
-};
+	getCookie};

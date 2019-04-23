@@ -103,11 +103,13 @@ $("#myTable").append(tableadd);
 //display add habit form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
+    return true;
 }
 
 //hide add habit form
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    return true;
 }
 
 //External Citation: https://stackoverflow.com/questions/11553768/remove-table-row-after-clicking-table-row-delete-button-->

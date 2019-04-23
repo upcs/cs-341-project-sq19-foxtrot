@@ -40,6 +40,8 @@ describe('Testing login function that fail', () => {
         expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBeCalled;
         expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBe('Tue, 31 Dec 2019');
       });
+
+
     });
 /*
 test('row is added', () => {
