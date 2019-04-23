@@ -30,7 +30,7 @@ describe('Testing basic habit tracker function actions', () => {
 
   test('Get week number works with valid date early in the year', () => {
     expect(habit.getWeekNumber('2019-01-05T07:00:00.000Z')).toBeCalled;
-    expect(habit.getWeekNumber('2019-01-05T07:00:00.000Z')).toBe(1);
+    expect(habit.getWeekNumber('2019-01-05T07:00:00.000Z')).toBe(2);
   });
 
   test('Get week number works with valid date late in the year', () => {
