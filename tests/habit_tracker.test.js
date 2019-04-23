@@ -49,13 +49,14 @@ describe('Testing login function that fail', () => {
         expect(document.body.innerHTML.toBe('Completed'));
        })
      });*/
+     
      test('test that open_form works', () => {
        document.body.innerHTML =
        '<div class="form-popup" id="myForm">'+
        '<form action="/action_page.php" class="form-container">'+
        ' </form>'+'</div>';
        expect(habit.openForm()).toBeCalled;
-       expect(habit.openForm()).toBe('true');
+       expect(habit.openForm()).toBe(true);
       })
     });
 
