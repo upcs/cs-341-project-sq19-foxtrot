@@ -48,8 +48,8 @@ describe('Testing login function that fail', () => {
           ' ';
         habit.mark_prevCell(document.body);
         expect(document.body.innerHTML.toBe('Completed'));
-      })
-    });
+       })
+     });
 /*
 test('row is added', () => {
     $('#add_button').click();
