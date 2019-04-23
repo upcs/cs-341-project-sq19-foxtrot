@@ -41,14 +41,22 @@ describe('Testing login function that fail', () => {
         expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBe('Tue, 31 Dec 2019');
       });
 
-      test('test that mark_prevCell changes the innerHTML', () => {
+      /*test('test that mark_prevCell changes the innerHTML', () => {
         var $ = jQuery.noConflict();
         document.body.innerHTML =
           ' ';
         habit.mark_prevCell(document.body);
         expect(document.body.innerHTML.toBe('Completed'));
        })
-     });
+     });*/
+     test('test that open_form works', () => {
+       document.body.innerHTML =
+       '<div class="form-popup" id="myForm">'+
+       '<form action="/action_page.php" class="form-container">'+
+       ' </form>'+'</div>';
+       expect(habit.openForm().toBe('true'));
+      })
+    });
 
     });
 
