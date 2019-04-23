@@ -22,7 +22,6 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
-
     //change text and color of clicked cell
     x.innerHTML = "Completed";
 
@@ -57,15 +56,13 @@ function mark_cell(x, tablename) {
     console.log(username);
     console.log("Going to post in new mark habit");
     $.post("/new_mark_habit", {username:username, habit_name:habitName, day:dayClicked, habitnum:row});
-
-
 }
 
- //add a new habit and new row to habit tracker 
+ //add a new habit and new row to habit tracker
 function add_row(){
   var table=document.getElementById('myTable');
 
-  //Get the name of the new habit 
+  //Get the name of the new habit
   var input = document.getElementById("userInput").value;
   console.log("Habit name "+input)
   var tableadd = ""
@@ -77,10 +74,10 @@ function add_row(){
   //console.log("HABITS: " + habits)
   //append new habit to habit array
   habitArr.push(input)
-  //Add new habit to habit string to save back to data base 
+  //Add new habit to habit string to save back to data base
   habitString = habitArr.join('|')
 
-  //update habit array cookie 
+  //update habit array cookie
   setCookie("array", habitString, .042);
   console.log("Habit number cookie:"+habitnum);
 
@@ -91,7 +88,7 @@ function add_row(){
   tableadd += "<th onclick='mark_cell(this)'>"+"</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th>"+"<th onclick='mark_cell(this)'>"+ "</th></tr>";
   habitnum++;
 
-  //update habit number cookie 
+  //update habit number cookie
   setCookie("tracker", habitnum, .042);
   console.log("Habit number cookie after being set" + getCookie('tracker'));
   console.log("Habit number cookie after adding habit:"+habitnum);
@@ -107,11 +104,13 @@ $("#myTable").append(tableadd);
 //display add habit form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
+    return true;
 }
 
 //hide add habit form
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    return true;
 }
 
 //External Citation: https://stackoverflow.com/questions/11553768/remove-table-row-after-clicking-table-row-delete-button-->
@@ -130,9 +129,45 @@ function removeRow() {
 
    var username = getCookie('username');
 
-   $.post("/new_habit", {Habit_name:habit, user:username, habitnum:habit_num});
+	 var array = getCookie("array");
+	 console.log(array);
 
-   $.post("/habitDelete",  { Habit:habit });
+	 console.log(habit);
+
+	 //var string = habit.toString();
+	 //console.log(string);
+
+	 //array = array.replace(string, "");
+	 //console.log(array);
+
+	 //array = array.replace("||", "|");
+
+	 //console.log(array);
+
+
+   /*var habitArr = array.split('|');
+   //console.log("HABITS: " + habits)
+   //append new habit to habit array
+	 var index = habitArr.indexOf(habit);
+	 console.log("index: "+index);
+	 if (index > -1) {
+  	habitArr.splice(index, 1);
+	 }
+	 console.log(habitArr);
+   //Add new habit to habit string to save back to data base
+   array = habitArr.join('|')*/
+
+   //update habit array cookie
+   //setCookie("array", habitString, .042);
+
+   $.post("/new_habit", {habitarr:array, user:username, habitnum:habit_num});
+
+   $.post("/habitDelete",  { Habit:habit, user:username });
+
+	 console.log("Posted");
+
+   setCookie("tracker", habit_num, .042);
+
 
    tr.parentNode.removeChild(tr);
 }
@@ -181,7 +216,7 @@ function changeDays(){
   saturday.innerHTML = removeTime(sat);
 }
 
-//Hides time zone from date when displaying in habit tracker 
+//Hides time zone from date when displaying in habit tracker
 function removeTime(date){
   var dateString = date;
   dateString = new Date(dateString).toUTCString();
@@ -189,7 +224,7 @@ function removeTime(date){
   return dateString;
 }
 
-//Get week number from current day 
+//Get week number from current day
 function getWeekNumber(d) {
   d = new Date(d);
   var onejan = new Date(d.getFullYear(),0,1);
@@ -214,7 +249,7 @@ function mark_prevCell(x) {
     $(x).css('background-color', 'rgba(255,255,255,0.4)');
 }
 
-//Display table of currently tracked habits for user 
+//Display table of currently tracked habits for user
 function displayHabits(){
 
   $.post(
@@ -239,8 +274,8 @@ function displayHabits(){
       //add a row for each habit
 
       var habitString = getCookie("array");
-      console.log("HABIT ARRAY: " + habitArr);
-      //parse habit string into array of habits 
+      console.log("HABIT ARRAY: " + habitString);
+      //parse habit string into array of habits
       var habitArr = habitString.split('|');
       console.log("HABIT ARRAY2: " + habitArr);
       for(var a=0; a<habitnum; a++){
@@ -252,7 +287,7 @@ function displayHabits(){
       $("#myTable").append(tableadd);
 
 
-      //Mark cells that user has already marked as completed 
+      //Mark cells that user has already marked as completed
       var x=document.getElementById('myTable');
       console.log("going to mark table");
       for(var b=0; b<data.length; b++){
@@ -277,7 +312,9 @@ function displayHabits(){
   }
 
 module.exports = {
-      mark_cell,
-      add_row,
-    removeRow
+  setCookie,
+  getCookie,
+      getWeekNumber,
+    getSundayFromWeekNum,
+    removeTime
     };

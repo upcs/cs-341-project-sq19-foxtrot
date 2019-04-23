@@ -76,7 +76,10 @@ exports.dbquery = function(query_str, callback) {
         }
 
         //close connection to database
+        console.log("ending connection");
         dbclient.end();
+
+        //dbclient.connect();
 
     });
 
