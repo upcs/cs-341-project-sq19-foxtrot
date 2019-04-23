@@ -16,36 +16,34 @@ function newLoginInfo(newUser, newPass, repeatPass) {
 
     var passes = false;
 
-    $.post("/newUsers", { 
-        user:newUser, 
-        pass:newPass 
-    })
-        .then(
-            function success() {
-                console.log("username = " + newUser);
-                console.log("theme = " + 1);
-                console.log("tracker = " + 0);
-                setCookie("username", newUser, .042);
-                setCookie("theme", 1, .042);
-                setCookie("tracker", 0, .042);
-                passes = true;
-                var username = getCookie("username");
-                if (username != "") {
-                    alert("Welcome " + username);
-                    return passes;
-                }
-            },
-            function fail(data, status) {
-                alert('Request failed.  Returned status of ' + status);
-            }
-        );
+    $.ajax({
+        type: 'POST',
+        url: "/newUsers",
+        data: {
+            "user": newUser,
+            "pass": newPass
+        },
+        async: false
+    });
 
-    if (passes == false) {
-        alert("Oops. Something went wrong :/");
-        return false;
+    console.log("username = " + newUser);
+    console.log("theme = " + "1");
+    console.log("tracker = " + "0");
+    setCookie("username", newUser, .042);
+    setCookie("theme", "1", .042);
+    setCookie("tracker", "0", .042);
+    var username = getCookie("username");
+    if (username != "") {
+        alert("Welcome " + username);
+        return true;
     }
     return false;
 }
+/*
+ if (passes == false) {
+        alert("Oops. Something went wrong :/");
+        return false;
+    }*/
 
 
 function setCookie(cname, cvalue, exdays) {
