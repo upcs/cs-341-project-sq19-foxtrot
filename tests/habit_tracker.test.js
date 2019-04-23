@@ -54,7 +54,8 @@ describe('Testing login function that fail', () => {
        '<div class="form-popup" id="myForm">'+
        '<form action="/action_page.php" class="form-container">'+
        ' </form>'+'</div>';
-       expect(habit.openForm().toBe('true'));
+       expect(habit.openForm()).toBeCalled;
+       expect(habit.openForm()).toBe('true');
       })
     });
 
