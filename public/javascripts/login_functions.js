@@ -3,38 +3,43 @@ function validateLogin(user, pass) {
 		setCookie("username", user, .042);
 		setCookie("theme", pass, .042);
 		//set habitnum to all habitnumbers
-		return true;}
+		return true;
+	}
 	var passes = false;
-	$.ajax({
-		type: 'POST',url: "/users",data: {"username": user,"password": pass},
-		success: function (data) {if (data.username != null) {
-				setCookie("username", data.username, .042);
-				setCookie("theme", data.theme, .042);
-				setCookie("tracker", data.tracker, .042);
-				passes = true;}},dataType: "json",async: false});
+	$.ajax({type: 'POST', url: "/users", data: { "username": user, "password": pass },success: function (data) {if (data.username != null) {
+		setCookie("username", data.username, .042);
+		setCookie("theme", data.theme, .042);
+		setCookie("tracker", data.tracker, .042);
+		passes = true;}}, dataType: "json", async: false
+	});
 	if (passes == false) {
 		alert("Invalid Login");
-		return false;}
+		return false;
+	}
 	var username = getCookie("username");
 	if (username != "") {
 		alert("Welcome " + username);
-		return passes;}
+		return passes;
+	}
 	return passes;
 };
 
 var privacy = false;
 function openForm() {
 	document.getElementById("termsandp").style.display = "block";
-	document.getElementById("outside").style.display = "none";}
+	document.getElementById("outside").style.display = "none";
+}
 
 function closeForm(term) {
 	if (term == 'da') {
 		privacy = true;
 		document.getElementById("termsandp").style.display = "none";
 		document.getElementById("outside").style.display = "block";
-		return;}
+		return;
+	}
 	document.getElementById("termsandp").style.display = "none";
-	document.getElementById("outside").style.display = "block";}
+	document.getElementById("outside").style.display = "block";
+}
 
 // Get the modal
 var modal = document.getElementById('id01');
@@ -42,12 +47,15 @@ var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 	if (event.target == modal) {
-		modal.style.display = "none";}}
+		modal.style.display = "none";
+	}
+}
 
 function parseArray(string) {
-  var array = string.split("|");
-  console.log("parsed array " + array);
-	return array;}
+	var array = string.split("|");
+	console.log("parsed array " + array);
+	return array;
+}
 
 function getCookie(cname) {
 	var name = cname + "=";
@@ -56,7 +64,8 @@ function getCookie(cname) {
 	for (var i = 0; i < ca.length; i++) {
 		var c = ca[i];
 		while (c.charAt(0) == ' ') {
-			c = c.substring(1);}
+			c = c.substring(1);
+		}
 		if (c.indexOf(name) == 0) {
 			return c.substring(name.length, c.length);
 		}
@@ -81,4 +90,5 @@ module.exports = {
 	getUser,
 	setCookie,
 	getCookie,
-	parseArray};
+	parseArray
+};
