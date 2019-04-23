@@ -13,8 +13,11 @@ router.post('/', function(req, res, next) {
     console.log("In habit_delete.js post");
     var habit = req.body.Habit;
     console.log(habit);
+    user = req.body.user;
+    console.log("user = " + user);
+
     console.log("In habit_delete.js post");
-    dbms.dbquery("DELETE FROM habit WHERE habit='"+habit+"';",
+    dbms.dbquery("DELETE FROM habit WHERE habit='"+habit+"' and username='"+user+"';",
     function(err, data){ }
   );
 });
