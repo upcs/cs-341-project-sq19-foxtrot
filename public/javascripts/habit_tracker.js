@@ -22,7 +22,6 @@ function getCookie(cname) {
   }
 
 function mark_cell(x, tablename) {
-
     //change text and color of clicked cell
     x.innerHTML = "Completed";
 
@@ -105,11 +104,13 @@ $("#myTable").append(tableadd);
 //display add habit form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
+    return true;
 }
 
 //hide add habit form
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    return true;
 }
 
 //External Citation: https://stackoverflow.com/questions/11553768/remove-table-row-after-clicking-table-row-delete-button-->
@@ -311,7 +312,9 @@ function displayHabits(){
   }
 
 module.exports = {
-      mark_cell,
-      add_row,
-    removeRow
+  setCookie,
+  getCookie,
+      getWeekNumber,
+    getSundayFromWeekNum,
+    removeTime
     };

@@ -1,41 +1,21 @@
 function validateLogin(user, pass) {
-
 	if (user == 1 && pass == 1) {
-		console.log("Admin");
 		setCookie("username", user, .042);
 		setCookie("theme", pass, .042);
 		//set habitnum to all habitnumbers
 		return true;
 	}
-
 	var passes = false;
-	$.ajax({
-		type: 'POST',
-		url: "/users",
-		data: {
-			"username": user,
-			"password": pass
-		},
-		success: function (data) {
-			if (data.username != null) {
-				console.log("username = " + data.username);
-				console.log("theme = " + data.theme);
-				console.log("tracker = " + data.tracker);
-				setCookie("username", data.username, .042);
-				setCookie("theme", data.theme, .042);
-				setCookie("tracker", data.tracker, .042);
-				passes = true;
-			}
-		},
-		dataType: "json",
-		async: false
+	$.ajax({type: 'POST', url: "/users", data: { "username": user, "password": pass },success: function (data) {if (data.username != null) {
+		setCookie("username", data.username, .042);
+		setCookie("theme", data.theme, .042);
+		setCookie("tracker", data.tracker, .042);
+		passes = true;}}, dataType: "json", async: false
 	});
-
 	if (passes == false) {
 		alert("Invalid Login");
 		return false;
 	}
-
 	var username = getCookie("username");
 	if (username != "") {
 		alert("Welcome " + username);
@@ -43,8 +23,6 @@ function validateLogin(user, pass) {
 	}
 	return passes;
 };
-
-
 
 var privacy = false;
 function openForm() {
@@ -63,8 +41,6 @@ function closeForm(term) {
 	document.getElementById("outside").style.display = "block";
 }
 
-
-
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -76,8 +52,8 @@ window.onclick = function (event) {
 }
 
 function parseArray(string) {
-  var array = string.split("|");
-  console.log("parsed array " + array);
+	var array = string.split("|");
+	console.log("parsed array " + array);
 	return array;
 }
 
@@ -108,13 +84,11 @@ function getUser(user) {
 	console.log("getUser: " + user);
 	return user;
 }
-//added for tests
-
-//module.exports.getUser = getUser; // export your functuion
 
 module.exports = {
 	validateLogin,
 	getUser,
 	setCookie,
-	getCookie
+	getCookie,
+	parseArray
 };
