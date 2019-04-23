@@ -315,5 +315,6 @@ module.exports = {
     getSundayFromWeekNum,
     removeTime,
 		mark_prevCell,
-		openForm
+		openForm,
+		closeForm
     };
