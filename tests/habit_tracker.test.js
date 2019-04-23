@@ -45,6 +45,19 @@ describe('Testing login function that fail', () => {
     });
 
 test('row is added', () => {
+  
+  '<table id="myTable" class="myTable">'+
+      '<tr>'+
+        '<th>Habit</th>'+
+        '<th id=sun>Sunday</th>'+
+        '<th id=mon>Monday</th>'+
+        '<th id=tue>Tuesday</th>'+
+        '<th id=wed>Wednesday</th>'+
+        '<th id=thu>Thursday</th>'+
+        '<th id=fri>Friday</th>'+
+        '<th id=sat>Saturday</th>'+
+      '</tr>'+
+    '</table>';
     tableId= 'myTable'
     var rowInitial = document.getElementById(tableId).getElementsByTagName("tr").length;
     $('#add_button').click();
@@ -53,7 +66,7 @@ test('row is added', () => {
     rowAfterExpected = rowInitial + 1
     expect($(rows).toEqual(rowAfterExpected));
 });
-/*
+
 test('row is removed', () => {
     $('#remove_button').click();
     tableId= 'myTable'
@@ -61,11 +74,39 @@ test('row is removed', () => {
 
     expect( habit.removeRow()).toBeCalled();
     //expect($(rows).toEqual(3));
-});*/
+});
+
 test('cell is marked', () => {
     $('#mark_button').click();
     cell= 'mark_button'
     var test = document.getElementById(cell).textContent;
     expect(habit.mark_cell()).toBeCalled();
     expect($(test).toEqual("Completed"));
+});
+
+test('change days',() =>{
+  today = new Date()
+  var yyyy = today.getFullYear();
+  weekNum = getWeekNumber(today);
+  sunday = getSundayFromWeekNum(weekNum,yyyy);
+  d = sunday.getDate();
+  habit.removeTime(d);
+  document.body.innerHTML =
+  '<table id="myTable" class="myTable">'+
+      '<tr>'+
+        '<th>Habit</th>'+
+        '<th id=sun>Sunday</th>'+
+        '<th id=mon>Monday</th>'+
+        '<th id=tue>Tuesday</th>'+
+        '<th id=wed>Wednesday</th>'+
+        '<th id=thu>Thursday</th>'+
+        '<th id=fri>Friday</th>'+
+        '<th id=sat>Saturday</th>'+
+      '</tr>'+
+    '</table>';
+  habit.changeDays();
+  var expected = document.getElementById(sun).textContent;
+expect($(sunday).toEqual(expected));
+
+
 });
