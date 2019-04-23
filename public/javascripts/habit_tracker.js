@@ -165,7 +165,6 @@ function removeRow() {
 
    setCookie("tracker", habit_num, .042);
 
-
    tr.parentNode.removeChild(tr);
 }
 

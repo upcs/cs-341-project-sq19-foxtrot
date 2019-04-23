@@ -145,10 +145,10 @@ function getSaturdayFromWeekNum(weekNum, year) {
 }
 
 //External Citation: https://stackoverflow.com/questions/17964170/get-the-weekday-from-a-date-object-or-date-string-using-javascript
-function getDayOfWeek(date) {
+/*function getDayOfWeek(date) {
   var dayOfWeek = new Date(date).getDay();
   return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
-}
+}*/
 
 function markWeekRow(weekRow){
   console.log("in markWeekRow");
@@ -185,5 +185,7 @@ module.exports = {
   addDays,
   getWeekNumber,
   getSundayFromWeekNum,
-  getCookie
+  getSaturdayFromWeekNum,
+  getCookie,
+  removeTime
 };

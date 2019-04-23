@@ -14,7 +14,7 @@ describe('Testing basic habit tracker function actions', () => {
     expect(habit.addDays(('8', 1)).toBeCalled);
     expect(habit.addDays(('8', 1)).toBeNull);
   });
-  
+
   test('add day function adds a day', () => {
     expect(habit.addDays('2019-03-26T07:00:00.000Z', 3)).toBeCalled;
   });
@@ -43,6 +43,17 @@ describe('Testing basic habit tracker function actions', () => {
     //date = new Date("2019-01-06T08:00:00.000Z");
     //expect(habit.getSundayFromWeekNum(2, 2019)).toBe(date);
   });
+
+  test('take the time out of the date', () => {
+    expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBeCalled;
+    expect(habit.removeTime('2019-12-31T07:00:00.000Z')).toBe('Tue, 31 Dec 2019');
+  });
+
+  test('Get saturday works with valid date', () => {
+    expect(habit.getSaturdayFromWeekNum(2, 2019)).toBeCalled;
+    //date = new Date("2019-01-06T08:00:00.000Z");
+    //expect(habit.getSundayFromWeekNum(2, 2019)).toBe(date);
+  });
 });
 /*
 jest.mock('../public/habit_tracker_prev.html');
@@ -64,4 +75,4 @@ var habit = require('../public/javascripts/habit_db.js');
 });
  test('Get sunday works with valid date',()=>{
   expect( habit.getSundayFromWeekNum(2,2019).toBe(new Date('2019-01-06T07:00:00.000Z')));
-});*/ 
+});*/
