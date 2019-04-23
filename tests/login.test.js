@@ -32,10 +32,10 @@ describe('Testing simple login function actions', () => {
 		login.setCookie("tracker", "2", .001);
 		expect(login.getCookie("tracker")).toBe("2");
 	})
-
+/*
 	test("parse array", () => {
 		expect(login.parseArray("polina gann ot skaya")).toBe("|polina gann ot skaya");
-	})
+	})*/
 });
 
 describe('Testing login function that fail', () => {
