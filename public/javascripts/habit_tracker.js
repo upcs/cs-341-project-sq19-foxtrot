@@ -25,9 +25,6 @@ function mark_cell(x, tablename) {
 
     //change text and color of clicked cell
     x.innerHTML = "Completed";
-
-
-    x.innerHTML = "Completed";
     $(x).css('background-color', 'rgba(255,255,255,0.4)');
 
     var td = event.target.parentNode;
