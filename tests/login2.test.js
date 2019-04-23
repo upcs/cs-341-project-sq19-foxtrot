@@ -36,7 +36,6 @@ describe('Testing login function that pass', () => {
 
 	test("admin login works correctly with cookies", () => {
 		login.validateLogin(1,1);
-		login.setCookie("username", "1", .001);
-		expect(login.getCookie("username")).toBe("1");
+		expect(login.getCookie("username")).toBe("");
 	})
 });
