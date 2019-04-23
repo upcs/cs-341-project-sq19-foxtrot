@@ -1,4 +1,3 @@
-
 function validateLogin(user, pass) {
 
 	if (user == 1 && pass == 1) {
@@ -22,12 +21,9 @@ function validateLogin(user, pass) {
 				console.log("username = " + data.username);
 				console.log("theme = " + data.theme);
 				console.log("tracker = " + data.tracker);
-				console.log("array =" + data.array);
-				//var array = parseArray(data.array);
 				setCookie("username", data.username, .042);
 				setCookie("theme", data.theme, .042);
 				setCookie("tracker", data.tracker, .042);
-				setCookie("array", data.array, .042);
 				passes = true;
 			}
 		},
@@ -47,6 +43,37 @@ function validateLogin(user, pass) {
 	}
 	return passes;
 };
+
+
+
+var privacy = false;
+function openForm() {
+	document.getElementById("termsandp").style.display = "block";
+	document.getElementById("outside").style.display = "none";
+}
+
+function closeForm(term) {
+	if (term == 'da') {
+		privacy = true;
+		document.getElementById("termsandp").style.display = "none";
+		document.getElementById("outside").style.display = "block";
+		return;
+	}
+	document.getElementById("termsandp").style.display = "none";
+	document.getElementById("outside").style.display = "block";
+}
+
+
+
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
 
 function parseArray(string) {
   var array = string.split("|");
