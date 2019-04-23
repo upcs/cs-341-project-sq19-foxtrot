@@ -24,3 +24,19 @@ describe('Testing login function that pass', () => {
 		expect(login.validateLogin).toHaveBeenCalledWith(Polina, foxtrot);
 	})
 });
+
+describe('Testing login function that pass', () => {
+	test("admin login works", () => {
+		const result = login.validateLogin(one, one);
+		expect(result).toBe('true');
+		expect(login.validateLogin).toHaveBeenCalled();
+		expect(login.validateLogin).toHaveBeenCalledWith(one, one);
+		expect(login.validateLogin(one,one)).toBeTruthy;
+	})
+
+	test("admin login works correctly with cookies", () => {
+		login.validateLogin(1,1);
+		login.setCookie("username", "1", .001);
+		expect(login.getCookie("username")).toBe("1");
+	})
+});

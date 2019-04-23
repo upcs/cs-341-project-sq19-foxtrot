@@ -33,9 +33,15 @@ describe('Testing simple login function actions', () => {
 		expect(login.getCookie("tracker")).toBe("2");
 	})
 
-	test("parse array", () => {
+	test("parse array containment test", () => {
 		login.parseArray = jest.fn(() => 'Polina')
 		var polina = "Polina";
+		expect(login.parseArray(polina)).toContain(polina);
+	})
+
+	test("parse array", () => {
+		login.parseArray = jest.fn(() => 'polina')
+		var polina = "polina";
 		expect(login.parseArray(polina)).toContain(polina);
 	})
 
