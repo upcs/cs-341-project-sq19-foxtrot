@@ -43,15 +43,12 @@ describe('Testing login function that fail', () => {
 
 
       test('test that mark_prevCell changes the innerHTML', () => {
-        const $ = require('jquery');
+        var $ = require('/node_modules/jquery');
         document.body.innerHTML =
           ' ';
         habit.mark_prevCell(document.body);
         expect(document.body.innerHTML.toBe('Completed'));
       })
-
-
-
     });
 /*
 test('row is added', () => {
