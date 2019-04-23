@@ -277,7 +277,8 @@ function displayHabits(){
   }
 
 module.exports = {
-      mark_cell,
-      add_row,
-    removeRow
+  setCookie,
+  getCookie,
+      getWeekNumber,
+    getSundayFromWeekNum
     };
