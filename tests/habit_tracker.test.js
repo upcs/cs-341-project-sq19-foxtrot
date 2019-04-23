@@ -43,7 +43,7 @@ describe('Testing login function that fail', () => {
 
 
       test('test that mark_prevCell changes the innerHTML', () => {
-        var $ = require('/node_modules/jquery');
+        var $ = jQuery.noConflict();
         document.body.innerHTML =
           ' ';
         habit.mark_prevCell(document.body);
