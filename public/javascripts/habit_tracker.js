@@ -313,5 +313,6 @@ module.exports = {
   getCookie,
       getWeekNumber,
     getSundayFromWeekNum,
-    removeTime
+    removeTime,
+		mark_prevCell
     };
