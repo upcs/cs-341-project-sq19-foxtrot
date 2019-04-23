@@ -45,7 +45,7 @@ describe('Testing login function that fail', () => {
       test('test that mark_prevCell changes the innerHTML', () => {
         document.body.innerHTML =
           ' ';
-        mark_prevCell(document.body);
+        habit.mark_prevCell(document.body);
         expect(document.body.innerHTML.toBe('Completed'));
       })
 
