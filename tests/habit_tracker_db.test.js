@@ -55,18 +55,6 @@ describe('Testing basic habit tracker function actions', () => {
     //expect(habit.getSundayFromWeekNum(2, 2019)).toBe(date);
   });
 
-  test('test that open_form works', () => {
-    document.body.innerHTML =
-    '<tr class="week"><td colspan= 8 > Week - </td></tr>'
-    + "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ "</td>" + "<td>"
-     +"</td>" +"<td>"+ "</td>"
-    +"<td>" +"</td>" +"<td>"+ "</td>" +"<td>"
-    +"</td>" +"<td>"+ "</td> </tr>";
-    var weekRows = document.getElementsByClassName("week");
-    expect(habit.markWeekRow(weekRows[0])).toBeCalled;
-    //expect(habit.openForm()).toBe(true);
-  });
-
 });
 /*
 jest.mock('../public/habit_tracker_prev.html');
