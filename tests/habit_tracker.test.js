@@ -98,23 +98,10 @@ test('cell is marked', () => {
 test('change days',() =>{
   var today = new Date()
   var yyyy = today.getFullYear();
-  var weekNum = getWeekNumber(today);
-  var sunday = getSundayFromWeekNum(weekNum,yyyy);
+  var weekNum = habit.getWeekNumber(today);
+  var sunday = habit.getSundayFromWeekNum(weekNum,yyyy);
   var d = sunday.getDate();
   habit.removeTime(d);
-  document.body.innerHTML =
-  '<table id="myTable" class="myTable">'+
-      '<tr>'+
-        '<th>Habit</th>'+
-        '<th id=sun>Sunday</th>'+
-        '<th id=mon>Monday</th>'+
-        '<th id=tue>Tuesday</th>'+
-        '<th id=wed>Wednesday</th>'+
-        '<th id=thu>Thursday</th>'+
-        '<th id=fri>Friday</th>'+
-        '<th id=sat>Saturday</th>'+
-      '</tr>'+
-    '</table>';
   habit.changeDays();
   var expected = document.getElementById(sun).textContent;
 expect($(sunday).toEqual(expected));
