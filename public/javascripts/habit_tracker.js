@@ -24,9 +24,6 @@ function getCookie(cname) {
 function mark_cell(x, tablename) {
     //change text and color of clicked cell
     x.innerHTML = "Completed";
-
-
-    x.innerHTML = "Completed";
     $(x).css('background-color', 'rgba(255,255,255,0.4)');
 
     var td = event.target.parentNode;
@@ -65,6 +62,10 @@ function add_row(){
   //Get the name of the new habit
   var input = document.getElementById("userInput").value;
   console.log("Habit name "+input)
+	if(input.length >100){
+		alert("The habit you entered is too long! Please enter a habit under 100 characters");
+	}
+	else{
   var tableadd = ""
 
   var username = getCookie('username');
@@ -98,7 +99,7 @@ $("#myTable").append(tableadd);
     //Set the input box to empty again to reset it
     document.getElementById("userInput").value = "";
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum, habitarr:habitString});
-
+	}
 }
 
 //display add habit form
@@ -134,15 +135,18 @@ function removeRow() {
 
 	 console.log(habit);
 
-	 //var string = habit.toString();
-	 //console.log(string);
+	 var string = habit.toString().trim();
+	 console.log(string);
 
-	 //array = array.replace(string, "");
-	 //console.log(array);
+	 //array = array.toString();
 
+	 array = array.replace("|" + string, "");
+	 console.log(array);
+
+	 array = array.replace(string + "|", "");
 	 //array = array.replace("||", "|");
 
-	 //console.log(array);
+	 console.log(array);
 
 
    /*var habitArr = array.split('|');
@@ -154,20 +158,33 @@ function removeRow() {
   	habitArr.splice(index, 1);
 	 }
 	 console.log(habitArr);
+
+	 for(var i = habitArr.length - 1; i >= 0; i--) {
+		 console.log(habitArr[i].toString() + " and " + habit.toString());
+    if(habitArr[i].toString().trim() === habit.toString().trim()) {
+			console.log("equal");
+       habitArr.splice(i, 1);
+			 console.log("spliced");
+    }
+	 }
+
+	console.log(habitArr);
+
    //Add new habit to habit string to save back to data base
-   array = habitArr.join('|')*/
+   array = habitArr.join('|');
+
+	 console.log(array);*/
 
    //update habit array cookie
-   //setCookie("array", habitString, .042);
+   setCookie("array", array, .042);
 
    $.post("/new_habit", {habitarr:array, user:username, habitnum:habit_num});
 
-   $.post("/habitDelete",  { Habit:habit, user:username });
+   //$.post("/habitDelete",  { Habit:habit, user:username });
 
 	 console.log("Posted");
 
    setCookie("tracker", habit_num, .042);
-
 
    tr.parentNode.removeChild(tr);
 }
@@ -316,5 +333,8 @@ module.exports = {
   getCookie,
       getWeekNumber,
     getSundayFromWeekNum,
-    removeTime
+    removeTime,
+		mark_prevCell,
+		openForm,
+		closeForm
     };
