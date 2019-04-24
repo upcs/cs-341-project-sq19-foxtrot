@@ -68,10 +68,7 @@ function getCookie(cname) {
 			c = c.substring(1);
 		}
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	return "";
+			return c.substring(name.length, c.length);}}return "";
 }
 
 function setCookie(cname, cvalue, exdays) {
