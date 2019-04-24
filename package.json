@@ -27,8 +27,8 @@
   "jest": {
     
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "setupFiles": ["./source/setup-jest.js"]
+    "collectCoverage": true
+    
   },
   "dependencies": {
     "async": "^2.6.2",
