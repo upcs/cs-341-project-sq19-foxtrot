@@ -25,7 +25,7 @@ function displayData(){
            //var habitnum = data[0].habitnum;
            var habitnum = getCookie("tracker");
             var jourVar = " ";
-            console.log("Habit Num from cookie is " + habitnum);
+            //console.log("Habit Num from cookie is " + habitnum);
             var habits = getCookie("array");
             var habitArr = habits.split('|');
            /*var habitArr = [];
@@ -36,6 +36,8 @@ function displayData(){
                }
              }
            }*/
+
+           console.log("adding table");
 
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
@@ -56,6 +58,8 @@ function displayData(){
               }
    	       }
 
+           console.log(jourVar);
+
            $("#prevTable").append(jourVar);
 
 
@@ -63,42 +67,44 @@ function displayData(){
            console.log("Week row:" + weekRows);
            for(var i=0; i<weekRows.length; i++) {
              markWeekRow(weekRows[i]);
+             console.log("marked week row");
            }
 
 
            for(var b=0; b<data.length; b++){
              for(var c=1; c<x.rows.length; c += (parseInt(habitnum)+parseInt(2))){
-               console.log(x.rows.length);
-               console.log(habitnum);
-               console.log(parseInt(c)+parseInt(habitnum)+parseInt(2));
-               console.log(c);
-               console.log(x.rows[c]);
+               //console.log(x.rows.length);
+               //console.log(habitnum);
+               //console.log(parseInt(c)+parseInt(habitnum)+parseInt(2));
+               //console.log(c);
+               //console.log(x.rows[c]);
                new_row=x.rows[c];
                for(var d=0; d<new_row.cells.length; d++){ //for each cell in that row
                  cell=new_row.cells[d];
-                 console.log(cell);
+                 //console.log(cell);
                  if(cell.innerHTML == (removeTime(data[b].date))){
-                   console.log("habit number: " + data[b].habit_number);
-                   console.log("correct date");
-                   console.log(x.rows[c]);
-                   console.log("habit num from data" + data[b].habit_number);
-                   console.log(x.rows[c+data[b].habit_number]);
-                   console.log(c+data[b].habit_number+1);
-                   console.log(x.rows.length);
-                   console.log(x.rows[c+data[b].habit_number+1]);
+                   //console.log("habit number: " + data[b].habit_number);
+                   //console.log("correct date");
+                   //console.log(x.rows[c]);
+                   //console.log("habit num from data" + data[b].habit_number);
+                   //console.log(x.rows[c+data[b].habit_number]);
+                   //console.log(c+data[b].habit_number+1);
+                   //console.log(x.rows.length);
+                   //console.log(x.rows[c+data[b].habit_number+1]);
 
                    //console.log(x.rows[c+data[b].habit_number+1].cells[d]);
 
                    var correctRow=x.rows[c+data[b].habit_number+1];
-                   console.log(correctRow);
-                   console.log(correctRow.cells[d]);
+                 ]
                    mark_prevCell(correctRow.cells[d]);
+                   console.log("marked cell");
                  }
                }
              }
            }
          //make table visible
 			   document.getElementById('prevTable').style.display='';
+         console.log("displayed");
 	   }, "json");
 }
 
@@ -145,10 +151,10 @@ function getSaturdayFromWeekNum(weekNum, year) {
 }
 
 //External Citation: https://stackoverflow.com/questions/17964170/get-the-weekday-from-a-date-object-or-date-string-using-javascript
-function getDayOfWeek(date) {
+/*function getDayOfWeek(date) {
   var dayOfWeek = new Date(date).getDay();
   return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
-}
+}*/
 
 function markWeekRow(weekRow){
   console.log("in markWeekRow");
@@ -185,5 +191,8 @@ module.exports = {
   addDays,
   getWeekNumber,
   getSundayFromWeekNum,
-  getCookie
+  getSaturdayFromWeekNum,
+  getCookie,
+  removeTime,
+  markWeekRow
 };
