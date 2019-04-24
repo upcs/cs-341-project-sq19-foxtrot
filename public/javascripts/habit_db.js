@@ -37,9 +37,11 @@ function displayData(){
              }
            }*/
 
+           console.log("adding table");
+
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
-                //console.log("in if statement");
+                console.log("in if statement");
                 habitWk = getWeekNumber(data[i].date);
                 var sunday = getSundayFromWeekNum(habitWk, 2019);
                 var saturday = getSaturdayFromWeekNum(habitWk, 2019);
@@ -56,6 +58,8 @@ function displayData(){
               }
    	       }
 
+           console.log(jourVar);
+
            $("#prevTable").append(jourVar);
 
 
@@ -63,6 +67,7 @@ function displayData(){
            console.log("Week row:" + weekRows);
            for(var i=0; i<weekRows.length; i++) {
              markWeekRow(weekRows[i]);
+             console.log("marked week row");
            }
 
 
@@ -90,15 +95,16 @@ function displayData(){
                    //console.log(x.rows[c+data[b].habit_number+1].cells[d]);
 
                    var correctRow=x.rows[c+data[b].habit_number+1];
-                   //console.log(correctRow);
-                   //console.log(correctRow.cells[d]);
+                 ]
                    mark_prevCell(correctRow.cells[d]);
+                   console.log("marked cell");
                  }
                }
              }
            }
          //make table visible
 			   document.getElementById('prevTable').style.display='';
+         console.log("displayed");
 	   }, "json");
 }
 

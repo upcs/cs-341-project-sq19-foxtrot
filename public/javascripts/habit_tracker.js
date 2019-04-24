@@ -135,15 +135,18 @@ function removeRow() {
 
 	 console.log(habit);
 
-	 //var string = habit.toString();
-	 //console.log(string);
+	 var string = habit.toString().trim();
+	 console.log(string);
 
-	 //array = array.replace(string, "");
-	 //console.log(array);
+	 //array = array.toString();
 
+	 array = array.replace("|" + string, "");
+	 console.log(array);
+
+	 array = array.replace(string + "|", "");
 	 //array = array.replace("||", "|");
 
-	 //console.log(array);
+	 console.log(array);
 
 
    /*var habitArr = array.split('|');
@@ -155,15 +158,29 @@ function removeRow() {
   	habitArr.splice(index, 1);
 	 }
 	 console.log(habitArr);
+
+	 for(var i = habitArr.length - 1; i >= 0; i--) {
+		 console.log(habitArr[i].toString() + " and " + habit.toString());
+    if(habitArr[i].toString().trim() === habit.toString().trim()) {
+			console.log("equal");
+       habitArr.splice(i, 1);
+			 console.log("spliced");
+    }
+	 }
+
+	console.log(habitArr);
+
    //Add new habit to habit string to save back to data base
-   array = habitArr.join('|')*/
+   array = habitArr.join('|');
+
+	 console.log(array);*/
 
    //update habit array cookie
-   //setCookie("array", habitString, .042);
+   setCookie("array", array, .042);
 
    $.post("/new_habit", {habitarr:array, user:username, habitnum:habit_num});
 
-   $.post("/habitDelete",  { Habit:habit, user:username });
+   //$.post("/habitDelete",  { Habit:habit, user:username });
 
 	 console.log("Posted");
 
