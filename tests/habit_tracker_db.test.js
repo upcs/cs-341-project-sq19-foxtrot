@@ -57,11 +57,11 @@ describe('Testing basic habit tracker function actions', () => {
 
   test('test that open_form works', () => {
     document.body.innerHTML =
-    '<tr class="week"><td colspan= 8 > Week '+ removeTime(sunday) + '-' + removeTime(saturday) +' </td></tr>';
-    jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ removeTime(sunday) +"</td>" + "<td>"
-    + removeTime(addDays(sunday, 1)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 2)) +"</td>"
-    +"<td>"+ removeTime(addDays(sunday, 3)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 4)) +"</td>" +"<td>"
-    + removeTime(addDays(sunday, 5)) +"</td>" +"<td>"+ removeTime(addDays(sunday, 6)) +"</td> </tr>";
+    '<tr class="week"><td colspan= 8 > Week - </td></tr>';
+    jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ "</td>" + "<td>"
+     +"</td>" +"<td>"+ "</td>"
+    +"<td>" +"</td>" +"<td>"+ "</td>" +"<td>"
+    +"</td>" +"<td>"+ "</td> </tr>";
     var weekRows = document.getElementsByClassName("week");
     expect(habit.markWeekRow(weekRows[0])).toBeCalled;
     //expect(habit.openForm()).toBe(true);
