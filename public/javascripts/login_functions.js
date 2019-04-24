@@ -1,7 +1,4 @@
 function validateLogin(user, pass) {
-	if(user==""||user==null){
-		return false;
-	}
 	if (user == 1 && pass == 1) {
 		setCookie("username", user, .042);
 		setCookie("theme", pass, .042);
