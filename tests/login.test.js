@@ -32,10 +32,24 @@ describe('Testing simple login function actions', () => {
 		login.setCookie("tracker", "2", .001);
 		expect(login.getCookie("tracker")).toBe("2");
 	})
-/*
+
+	test("creating a cookie thats empty", () => {
+		login.setCookie("tracker", "", .001);
+		expect(login.getCookie("tracker")).toBe("");
+	})
+
+	test("parse array containment test", () => {
+		login.parseArray = jest.fn(() => 'Polina')
+		var polina = "Polina";
+		expect(login.parseArray(polina)).toContain(polina);
+	})
+
 	test("parse array", () => {
-		expect(login.parseArray("polina gann ot skaya")).toBe("|polina gann ot skaya");
-	})*/
+		login.parseArray = jest.fn(() => 'polina')
+		var polina = "polina";
+		expect(login.parseArray(polina)).toContain(polina);
+	})
+
 });
 
 describe('Testing login function that fail', () => {

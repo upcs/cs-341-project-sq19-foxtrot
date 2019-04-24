@@ -46,7 +46,8 @@ var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-	if (event.target == modal) {
+	if (event.target == modal) 
+	{
 		modal.style.display = "none";
 	}
 }
@@ -67,10 +68,7 @@ function getCookie(cname) {
 			c = c.substring(1);
 		}
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	return "";
+			return c.substring(name.length, c.length);}}return "";
 }
 
 function setCookie(cname, cvalue, exdays) {

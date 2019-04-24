@@ -15,7 +15,10 @@ function getCookie(cname) {
     return "";
 }
 
-
+function countChars(countfrom,displayto) {
+    var len = document.getElementById(countfrom).value.length;
+    document.getElementById(displayto).innerHTML = len;
+  }
 function validateForm() {
 
     var x = document.forms["journalForm"]["fjournal"].value;
