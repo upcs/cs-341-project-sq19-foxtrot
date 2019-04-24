@@ -2,6 +2,18 @@ var login = require('../public/javascripts/login_functions.js');
 
 //testing login function from login_functions
 
+test("parse array containment test", () => {
+	login.parseArray = jest.fn(() => 'Polina')
+	var polina = "Polina";
+	expect(login.parseArray(polina)).toContain(polina);
+})
+
+test("parse array", () => {
+	login.parseArray = jest.fn(() => 'polina')
+	var polina = "polina";
+	expect(login.parseArray(polina)).toContain(polina);
+})
+
 describe('Testing login function that pass', () => {
     foxtrot = "foxtrot";
 	polina = "polina";
