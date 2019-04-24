@@ -62,6 +62,10 @@ function add_row(){
   //Get the name of the new habit
   var input = document.getElementById("userInput").value;
   console.log("Habit name "+input)
+	if(input.length >100){
+		alert("The habit you entered is too long! Please enter a habit under 100 characters");
+	}
+	else{
   var tableadd = ""
 
   var username = getCookie('username');
@@ -95,7 +99,7 @@ $("#myTable").append(tableadd);
     //Set the input box to empty again to reset it
     document.getElementById("userInput").value = "";
     $.post("/new_habit", {Habit_name:input, user:username, habitnum:habitnum, habitarr:habitString});
-
+	}
 }
 
 //display add habit form
