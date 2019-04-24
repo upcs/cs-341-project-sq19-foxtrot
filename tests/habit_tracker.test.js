@@ -1,3 +1,4 @@
+import $ from 'jquery';
 jest.mock('../public/habit_tracker.html');
 let habit = require('../public/javascripts/habit_tracker.js');
 
