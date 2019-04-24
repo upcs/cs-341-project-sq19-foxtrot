@@ -39,7 +39,7 @@ function displayData(){
 
    	       for (var i = 0; i<data.length; i++){
               if(getWeekNumber(data[i].date) != habitWk){
-                console.log("in if statement");
+                //console.log("in if statement");
                 habitWk = getWeekNumber(data[i].date);
                 var sunday = getSundayFromWeekNum(habitWk, 2019);
                 var saturday = getSaturdayFromWeekNum(habitWk, 2019);
