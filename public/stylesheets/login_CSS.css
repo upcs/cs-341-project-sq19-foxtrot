@@ -6,19 +6,25 @@ body {
 
 .container {
   color: white;
+  font-size: 50px;
 }
 
 .leader {
    color: white;
    font-family: Verdana, Arial, sans-serif;
-   font-weight: 900;
-   font-size: 50px;
+   font-weight: 700;
+   font-size: 100px;
 }
 
 a {
    color: #ffffff;
+   font-size: 25px;
 }
 
+#loginbtn, #signupbtn{
+   font-size: 500px;
+   padding: 200px;
+}
 
 .sb {
    color: white;

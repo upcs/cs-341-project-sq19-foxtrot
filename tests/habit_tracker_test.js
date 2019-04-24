@@ -1,5 +1,5 @@
-jest.mock('../public/habit_tracker.html');
-let habit = require('../public/javascripts/habit_tracker.js');
+/*jest.mock('../public/habit_tracker.html');
+//let habit = require('../public/javascripts/habit_tracker.js');
 
 describe('Testing login function that fail', () => {
     test("creating a cookie with a username and getting it", () => {
