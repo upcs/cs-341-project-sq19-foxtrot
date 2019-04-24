@@ -33,6 +33,11 @@ describe('Testing simple login function actions', () => {
 		expect(login.getCookie("tracker")).toBe("2");
 	})
 
+	test("creating a cookie thats empty", () => {
+		login.setCookie("tracker", "", .001);
+		expect(login.getCookie("tracker")).toBe("");
+	})
+
 	test("parse array containment test", () => {
 		login.parseArray = jest.fn(() => 'Polina')
 		var polina = "Polina";
