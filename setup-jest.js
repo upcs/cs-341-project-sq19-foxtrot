@@ -1,2 +1,2 @@
 global.window = window
-global.$ = require('jquery');
+global.$ = require("jquery");

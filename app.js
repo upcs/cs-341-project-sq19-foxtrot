@@ -14,6 +14,8 @@ var habitDeleteRouter = require('./routes/habitDelete');
 var journalsRouter = require('./routes/journals');
 var insertTheme = require('./routes/insert_theme');
 var newUsersRouter = require('./routes/newUsers');
+var $ = require('jquery');
+
 
 var app = express();
 
