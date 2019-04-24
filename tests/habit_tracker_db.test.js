@@ -57,8 +57,8 @@ describe('Testing basic habit tracker function actions', () => {
 
   test('test that open_form works', () => {
     document.body.innerHTML =
-    '<tr class="week"><td colspan= 8 > Week - </td></tr>';
-    jourVar += "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ "</td>" + "<td>"
+    '<tr class="week"><td colspan= 8 > Week - </td></tr>'
+    + "<tr>"+"<th>" + "Habit" + "</th>" + "<td>"+ "</td>" + "<td>"
      +"</td>" +"<td>"+ "</td>"
     +"<td>" +"</td>" +"<td>"+ "</td>" +"<td>"
     +"</td>" +"<td>"+ "</td> </tr>";
