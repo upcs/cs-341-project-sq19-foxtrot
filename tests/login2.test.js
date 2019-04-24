@@ -38,4 +38,9 @@ describe('Testing login function that pass', () => {
 		login.validateLogin(1,1);
 		expect(login.getCookie("username")).toBe("");
 	})
+	test("admin login works correctly with cookies", () => {
+		expect(login.validateLogin("",1)).toBeFalsy;
+		expect(login.validateLogin(null,1)).toBeFalsy;
+		expect(login.getCookie("username")).toBe("");
+	})
 });
