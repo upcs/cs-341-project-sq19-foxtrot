@@ -187,5 +187,6 @@ module.exports = {
   getSundayFromWeekNum,
   getSaturdayFromWeekNum,
   getCookie,
-  removeTime
+  removeTime,
+  markWeekRow
 };
