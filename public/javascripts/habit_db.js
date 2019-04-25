@@ -95,7 +95,7 @@ function displayData(){
                    //console.log(x.rows[c+data[b].habit_number+1].cells[d]);
 
                    var correctRow=x.rows[c+data[b].habit_number+1];
-                 ]
+                
                    mark_prevCell(correctRow.cells[d]);
                    console.log("marked cell");
                  }
